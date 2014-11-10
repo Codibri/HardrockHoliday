@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Quelldateien">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Ressourcendateien">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien\Audio">
+      <UniqueIdentifier>{4a3be244-5e9d-4bc9-94ff-aad829916074}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Input">
+      <UniqueIdentifier>{24309fb4-3d15-43fe-a3f0-d353967a3de9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Physics">
+      <UniqueIdentifier>{13dc2417-2635-4937-9988-b930e6035f6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Game">
+      <UniqueIdentifier>{d51a6402-e535-43ff-adf8-5f6174111a71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Engine">
+      <UniqueIdentifier>{8dcd8d18-1b85-4cce-abb4-5a85e5662ac4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Graphics">
+      <UniqueIdentifier>{3a1bf153-54e5-4fbe-b865-88e6d9d5faed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Utility">
+      <UniqueIdentifier>{44714720-f6f5-4b78-a4ac-e2346680d7cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Audio">
+      <UniqueIdentifier>{c6565469-6f07-4e8e-886a-8eded9f39c7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Input">
+      <UniqueIdentifier>{0b41ea5b-e374-4252-ae0b-5999449573a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Game">
+      <UniqueIdentifier>{30ae3f12-5a29-4934-91c9-197f168349d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Engine">
+      <UniqueIdentifier>{f8a24b6f-070b-4187-9e8f-04e482387145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Graphics">
+      <UniqueIdentifier>{3f577659-ea1d-4d36-9bfb-483f5cf414c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Physics">
+      <UniqueIdentifier>{4f4b835d-8b62-45c0-b842-19241922492a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Utility">
+      <UniqueIdentifier>{77e6c1aa-f984-4a0e-9213-44b726bf41be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Engine\States">
+      <UniqueIdentifier>{aa4947ce-de40-4e5f-8b5f-fbc30cd41d0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Engine\States">
+      <UniqueIdentifier>{075523c5-9b58-4d0a-8882-0b3905e14134}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Engine\StateMachine.h">
+      <Filter>Headerdateien\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Engine\State.h">
+      <Filter>Headerdateien\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Engine\GameState.h">
+      <Filter>Headerdateien\Engine\States</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Engine\GlobalResources.h">
+      <Filter>Headerdateien\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Engine\States.h">
+      <Filter>Headerdateien\Engine\States</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Engine\Engine.h">
+      <Filter>Headerdateien\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Engine\EngineMakros.h">
+      <Filter>Headerdateien\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Engine\EngineModules.h">
+      <Filter>Headerdateien\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\GameObject.h">
+      <Filter>Headerdateien\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\PhysicalGameObject.h">
+      <Filter>Headerdateien\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Utility\DebugLog.h">
+      <Filter>Headerdateien\Utility</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="VektoriaApp.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\StateMachine.cpp">
+      <Filter>Quelldateien\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\State.cpp">
+      <Filter>Quelldateien\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\GameState.cpp">
+      <Filter>Quelldateien\Engine\States</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\Engine.cpp">
+      <Filter>Quelldateien\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\GameObject.cpp">
+      <Filter>Quelldateien\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\PhysicalGameObject.cpp">
+      <Filter>Quelldateien\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Utility\DebugLog.cpp">
+      <Filter>Quelldateien\Utility</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders.hlsl">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="shadowmap.hlsl">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\VektoriaTest.ico">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="VektoriaApp.rc">
+      <Filter>Ressourcendateien</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
