@@ -1,8 +1,6 @@
 // VektoriaApp.cpp : Definiert den Einstiegspunkt für die Konsolenanwendung.
 //
 
-//testcomment
-
 #include "stdafx.h"
 #include <windows.h>
 #include <windowsx.h>
