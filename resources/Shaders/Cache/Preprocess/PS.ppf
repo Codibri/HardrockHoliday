@@ -1,4 +1,4 @@
-#line 1 "\\\\?\\C:\\Users\\admin\\Documents\\Visual Studio 2010\\Projects\\VektoriaV11HalloWelt\\VektoriaV11App\\Shaders\\Source\\shaders.hlsl"
+#line 1 "\\\\?\\D:\\Programmierung\\HardrockHoliday\\resources\\Shaders\\Source\\shaders.hlsl"
 
 
 #line 10
@@ -22,17 +22,17 @@ cbuffer ObjectInfo : register ( b0 )
 #line 34
 cbuffer TexInfo : register ( b1 ) 
 { 
-    float4 f4ColorAmbient : packoffset ( c0 ) ; 
-    float fA : packoffset ( c1 . x ) ; 
-    float fH : packoffset ( c1 . y ) ; 
-    float fBumpStrength : packoffset ( c1 . z ) ; 
-    float frTransparency : packoffset ( c1 . w ) ; 
-    float4 f4ColorSSS : packoffset ( c2 ) ; 
-    float4 f4SSSBRDFParams : packoffset ( c3 ) ; 
-    int aiTexFlag [ 24 ] : packoffset ( c4 ) ; 
+    float4 f4ColorAmbient ; 
+    float fA ; 
+    float fH ; 
+    float fBumpStrength ; 
+    float frTransparency ; 
+    float4 f4ColorSSS ; 
+    float4 f4SSSBRDFParams ; 
+    int aiTexFlag [ 24 ] ; 
     
 #line 50
-} 
+} ; 
 
 cbuffer ViewportArt : register ( b2 ) 
 { 
@@ -41,10 +41,9 @@ cbuffer ViewportArt : register ( b2 )
     matrix mColorModification ; 
     bool abArt [ 16 ] ; 
     
-#line 60
 } 
 
-#line 65
+#line 64
 struct Light 
 { 
     float3 f3Position ; 
@@ -82,10 +81,10 @@ StructuredBuffer < Light > Lights : register ( t10 ) ;
 
 Texture2D shadowMap : register ( t11 ) ; 
 
-#line 107
+#line 106
 Texture2D tex2D [ 7 ] : register ( t12 ) ; 
 
-#line 111
+#line 110
 struct VS_INPUT 
 { 
     float4 f4Pos : POSITION ; 
@@ -108,14 +107,14 @@ struct PS_INPUT
     uint iLightCount : COUNT ; 
 } ; 
 
-#line 136
+#line 135
 struct DirectionalLight 
 { 
     float4 f4Color ; 
     float3 f3Dir ; 
 } ; 
 
-#line 145
+#line 144
 PS_INPUT VS ( VS_INPUT input ) 
 { 
     
@@ -125,7 +124,7 @@ PS_INPUT VS ( VS_INPUT input )
     f4Z . w = 1 ; 
     
     DirectionalLight light ; 
-    light . f4Color . rgba = 1 ; 
+    light . f4Color . rgba = 1.f ; 
     light . f3Dir = 0 ; 
     
     output . f4Pos = mul ( input . f4Pos , World ) ; 
@@ -142,13 +141,13 @@ PS_INPUT VS ( VS_INPUT input )
         lightCurrent = Lights [ lightCurrentId ] ; 
         output . aAffectingLights [ i ] . iId = lightCurrentId ; 
         
-#line 172
+#line 171
         output . aAffectingLights [ i ] . f4Color = lightCurrent . f4Color ; 
         
-#line 175
+#line 174
         output . aAffectingLights [ i ] . bCauseShadow = lightCurrent . bCauseShadow ; 
         
-#line 178
+#line 177
         if ( lightCurrent . iType == 3 ) 
         { 
             output . aAffectingLights [ i ] . f3Direction = normalize ( lightCurrent . f3Position - output . f4Pos . xyz ) ; 
@@ -176,7 +175,7 @@ PS_INPUT VS ( VS_INPUT input )
         output . aAffectingLights [ i ] . iType = lightCurrent . iType ; 
     } 
     
-#line 206
+#line 205
     output . f4Pos = mul ( output . f4Pos , View ) ; 
     output . f4Pos = mul ( output . f4Pos , Projection ) ; 
     
@@ -185,13 +184,13 @@ PS_INPUT VS ( VS_INPUT input )
     output . f3Bitangent = normalize ( mul ( input . f3Bitangent , ( float3x3 ) World ) ) ; 
     output . f2TexCoord = input . f2TexCoord ; 
     
-#line 215
+#line 214
     output . f3CamPos = mul ( f4Z , ViewInv ) . xyz ; 
     output . iLightCount = iLightCount ; 
     return output ; 
 } 
 
-#line 221
+#line 220
 float RandomGelfond ( float2 f2p ) 
 { 
     const float2 r = float2 ( 23.1406926327792690 , 
@@ -199,14 +198,14 @@ float RandomGelfond ( float2 f2p )
     return ( frac ( cos ( fmod ( 123456789. , 1e-7 + 256. * dot ( f2p , r ) ) ) ) ) ; 
 } 
 
-#line 229
+#line 228
 float2 TexOffset2 ( int iu , int iv , float fWidth , float fHeight , float fSampleOffset , float2 f2Pos ) 
 { 
     const float frand = RandomGelfond ( f2Pos ) ; 
     return float2 ( ( iu * 1.f / ( fWidth * ( fSampleOffset + frand ) ) ) , ( iv * 1.f / ( fHeight * ( fSampleOffset + frand ) ) ) ) ; 
 } 
 
-#line 236
+#line 235
 float HalfLambert ( float3 f3Vec1 , float3 f3Vec2 ) 
 { 
     float fProduct = dot ( f3Vec1 , f3Vec2 ) ; 
@@ -240,7 +239,7 @@ float3 f3DiffColor )
     return ( f3DiffColor + f3nspec ) ; 
 } 
 
-#line 272
+#line 271
 [ earlydepthstencil ] 
 float4 PS ( PS_INPUT input ) : SV_Target 
 { 
@@ -256,7 +255,7 @@ float4 PS ( PS_INPUT input ) : SV_Target
     } 
     
     float2 f2ParallaxTex = input . f2TexCoord ; 
-    float3 f3aNormal = input . f3Normal ; 
+    const float3 f3aNormal = input . f3Normal ; 
     if ( aiTexFlag [ 16 ] ) 
     { 
         const float3 f3EyeVector = normalize ( input . f3CamPos . xyz - input . f4VertexPos . xyz ) ; 
@@ -271,7 +270,7 @@ float4 PS ( PS_INPUT input ) : SV_Target
         
         const float2 f2MaxParallaxOffset = - f3ViewDirTS . xy * 0.01f / f3ViewDirTS . z ; 
         
-        const int iSampleCount = ( ( int ) lerp ( 20 , 1 , dot ( - f3EyeVector , input . f3Normal ) ) ) ; 
+        const int iSampleCount = ( ( int ) lerp ( 20 , 5 , dot ( - f3EyeVector , input . f3Normal ) ) ) ; 
         
         const float fZStep = 1.f / ( float ) iSampleCount ; 
         const float2 f2TexStep = f2MaxParallaxOffset * fZStep ; 
@@ -321,7 +320,7 @@ float4 PS ( PS_INPUT input ) : SV_Target
         input . f3Normal = normalize ( input . f3Normal ) ; 
     } 
     
-#line 353
+#line 352
     if ( aiTexFlag [ 3 ] ) 
     { 
         float3 f3BumpNormal = ( ( 2 * ( tex2D [ 3 ] . Sample ( linearSampler , input . f2TexCoord ) ) ) - 1.0 ) . xyz ; 
@@ -344,7 +343,7 @@ float4 PS ( PS_INPUT input ) : SV_Target
     { 
         AffectingLight alLight = input . aAffectingLights [ i ] ; 
         
-#line 376
+#line 375
         fFallOff = 1 ; 
         shadowFactor = 1.f ; 
         
@@ -353,7 +352,7 @@ float4 PS ( PS_INPUT input ) : SV_Target
         { 
             float fCosCurAngle = dot ( normalize ( alLight . f3Direction ) , normalize ( alLight . f3SpotDirection ) ) ; 
             
-#line 385
+#line 384
             if ( fCosCurAngle > alLight . fSpotOuterCosAngle ) 
             { 
                 fFallOff = ( fCosCurAngle - alLight . fSpotOuterCosAngle ) / ( alLight . fSpotInnerCosAngle - alLight . fSpotOuterCosAngle ) ; 
@@ -363,14 +362,14 @@ float4 PS ( PS_INPUT input ) : SV_Target
                 continue ; 
             } 
             
-#line 395
+#line 394
             [ branch ] 
             if ( alLight . bCauseShadow ) 
             { 
                 
                 alLight . f4LightPos . xyz /= alLight . f4LightPos . w ; 
                 
-#line 403
+#line 402
                 [ branch ] 
                 if ( alLight . f4LightPos . x < - 1.0f || alLight . f4LightPos . x > 1.0f || 
                 alLight . f4LightPos . y < - 1.0f || alLight . f4LightPos . y > 1.0f || 
@@ -380,9 +379,9 @@ float4 PS ( PS_INPUT input ) : SV_Target
                 alLight . f4LightPos . x -= Offset . x * .2f ; 
                 alLight . f4LightPos . y -= Offset . y * .2f ; 
                 
-#line 413
-                alLight . f4LightPos . x = alLight . f4LightPos . x * 0.5f + 0.5 ; 
-                alLight . f4LightPos . y = alLight . f4LightPos . y * - 0.5f + 0.5 ; 
+#line 412
+                alLight . f4LightPos . x = alLight . f4LightPos . x * 0.5f + 0.5f ; 
+                alLight . f4LightPos . y = alLight . f4LightPos . y * - 0.5f + 0.5f ; 
                 [ branch ] 
                 if ( alLight . bSoftShadow ) 
                 { 
@@ -418,8 +417,8 @@ float4 PS ( PS_INPUT input ) : SV_Target
                         } 
                     } 
                     
-#line 452
-                    shadowFactor = fsum / 4.f ; 
+#line 451
+                    shadowFactor = fsum / 16.f ; 
                 } 
                 else 
                 { 
@@ -436,7 +435,7 @@ float4 PS ( PS_INPUT input ) : SV_Target
     } 
     f4Diffuse = saturate ( fH * f4Diffuse ) ; 
     
-#line 471
+#line 470
     float3 f3Half ; 
     float fSpecular = 0 ; 
     float4 f4SpecCol ; 
@@ -460,7 +459,7 @@ float4 PS ( PS_INPUT input ) : SV_Target
         f4SpecCol = 0 ; 
     } 
     
-#line 496
+#line 495
     float4 f4TexCol ; 
     if ( aiTexFlag [ 0 ] ) 
     f4TexCol = tex2D [ 0 ] . Sample ( linearSampler , f2ParallaxTex ) ; 
@@ -476,21 +475,21 @@ float4 PS ( PS_INPUT input ) : SV_Target
         uint iLevels ; 
         tex2D [ 0 ] . GetDimensions ( 0 , iWidth , iHeight , iLevels ) ; 
         
-#line 512
+#line 511
         float2 f2TexCoord2 = float2 ( f2ParallaxTex . x * iWidth , f2ParallaxTex . y * iHeight ) ; 
         int2 i2TexCoord = int2 ( f2ParallaxTex . x , f2ParallaxTex . y ) ; 
         
-#line 516
+#line 515
         int3 i3Pos = int3 ( 0 , 0 , 0 ) ; 
         float4 f4ChromaKey = tex2D [ 0 ] . Load ( i3Pos ) ; 
         i3Pos = int3 ( i2TexCoord . x , i2TexCoord . y , 0 ) ; 
         float4 f4Texel = tex2D [ 0 ] . Load ( i3Pos ) ; 
         
-#line 522
+#line 521
         if ( ( f4Texel . r == f4ChromaKey . r ) && ( f4Texel . g == f4ChromaKey . g ) && ( f4Texel . b == f4ChromaKey . b ) ) 
         f4TexCol . a = 0 ; 
         
-#line 526
+#line 525
         float2 f2TexPos1 = float2 ( f2TexCoord2 . x - 0.5 , f2TexCoord2 . y - 0.5 ) ; 
         float2 f2TexPos2 = float2 ( f2TexCoord2 . x + 0.5 , f2TexCoord2 . y - 0.5 ) ; 
         float2 f2TexPos3 = float2 ( f2TexCoord2 . x - 0.5 , f2TexCoord2 . y + 0.5 ) ; 
@@ -505,11 +504,11 @@ float4 PS ( PS_INPUT input ) : SV_Target
         if ( ( f4Col4 . r == f4ChromaKey . r ) && ( f4Col4 . g == f4ChromaKey . g ) && ( f4Col4 . b == f4ChromaKey . b ) ) f4Col4 = 0 ; 
         f2TexPos1 = float2 ( frac ( f2TexPos1 . x ) , frac ( f2TexPos1 . y ) ) ; 
         
-#line 541
+#line 540
         float fAlpha = ( f4Col2 . a - f4Col1 . a ) * f2TexPos1 . x + f4Col1 . a ; 
         fAlpha = ( ( ( f4Col4 . a - f4Col3 . a ) * f2TexPos1 . x + f4Col3 . a ) - fAlpha ) * f2TexPos1 . y + fAlpha ; 
         
-#line 545
+#line 544
         if ( fAlpha < 0.73 ) 
         f4TexCol . a = fAlpha - 0.40 ; 
         
@@ -531,7 +530,7 @@ float4 PS ( PS_INPUT input ) : SV_Target
         
     } 
     
-#line 567
+#line 566
     float4 f4Glow ; 
     if ( aiTexFlag [ 1 ] ) 
     { 
@@ -551,10 +550,10 @@ float4 PS ( PS_INPUT input ) : SV_Target
     if ( aiTexFlag [ 12 ] ) 
     f4TexCol . rgb *= f4Diffuse . rgb ; 
     
-#line 587
+#line 586
     float4 f4ColorOut = f4ColorAmbient + f4TexCol + f4Glow + f4SpecCol ; 
     
-#line 590
+#line 589
     if ( aiTexFlag [ 15 ] ) 
     { 
         float3 f3EyeVector = normalize ( input . f3CamPos - input . f4VertexPos . xyz ) ; 
@@ -563,16 +562,35 @@ float4 PS ( PS_INPUT input ) : SV_Target
         
         float4 f4RefrColor = tex2D [ 4 ] . Sample ( linearSampler , f3Refraction . xy ) ; 
         float4 f4ReflColor = tex2D [ 4 ] . Sample ( linearSampler , f3Reflection . xy ) ; 
-        f4ColorOut += ( lerp ( f4RefrColor , f4ReflColor , .5f ) / f4ColorSSS . a ) * length ( f4ColorOut . rgb ) ; 
+        f4ColorOut += ( lerp ( f4RefrColor , f4ReflColor , .5f ) / f4ColorSSS . a ) * ( length ( f4ColorOut . rgb ) * length ( f4ColorOut . rgb ) ) ; 
     } 
     
-#line 603
+#line 602
     if ( aiTexFlag [ 0 ] ) 
     f4ColorOut . a = saturate ( f4TexCol . a ) * ( 1 - frTransparency ) + f4ColorAmbient . a ; 
     else 
     f4ColorOut . a = f4ColorAmbient . a ; 
     
-#line 609
+#line 608
+    if ( aiTexFlag [ 17 ] && aiTexFlag [ 3 ] && aiTexFlag [ 16 ] ) 
+    { 
+        float3 f3LightDir ; 
+        float3 f3LightColor ; 
+        
+        [ unroll ] 
+        for ( uint i = 0 ; i < input . iLightCount ; i ++ ) 
+        { 
+            AffectingLight alLight = input . aAffectingLights [ i ] ; 
+            f3LightDir = alLight . f3Direction ; 
+            f3LightColor = alLight . f4Color . rgb ; 
+            
+            if ( f3LightColor . r > 0.01f ) 
+            f4ColorOut . rgb += ( texBRDF ( input , f4TexCol . rgb , f3LightColor , f4ColorAmbient . rgb , f3LightDir , 
+            f4Diffuse . rgb ) ) / ( input . iLightCount * ( 20.f / f4SSSBRDFParams . g ) ) ; 
+        } 
+    } 
+    
+#line 627
     if ( aiTexFlag [ 18 ] ) 
     { 
         const float fMaterialThickness = f4SSSBRDFParams . r ; 
@@ -583,12 +601,13 @@ float4 PS ( PS_INPUT input ) : SV_Target
         const float fSpecPower = 1.f ; 
         const float3 f3SpecColor = f4SpecCol . rgb ; 
         const float4 f4TexColor = tex2D [ 0 ] . Sample ( linearSampler , f2ParallaxTex ) ; 
-        const float fThickVal = length ( tex2D [ 6 ] . Sample ( linearSampler , f2ParallaxTex ) . rgb ) ; 
+        const float fThickValue = length ( tex2D [ 6 ] . Sample ( linearSampler , f2ParallaxTex ) . rgb ) ; 
         float4 f4LightPos ; 
         float3 f3LightDir ; 
         float4 f4LightCol ; 
         float4 f4FinColor ; 
         
+        [ unroll ] 
         for ( uint i = 0 ; i < input . iLightCount ; i ++ ) 
         { 
             AffectingLight alLight = input . aAffectingLights [ i ] ; 
@@ -611,7 +630,7 @@ float4 PS ( PS_INPUT input ) : SV_Target
             f3IndirectLightComponent . r *= fExtinctionCoefficientRed ; 
             f3IndirectLightComponent . g *= fExtinctionCoefficientGreen ; 
             f3IndirectLightComponent . b *= fExtinctionCoefficientBlue ; 
-            f3IndirectLightComponent . rgb *= fThickVal ; 
+            f3IndirectLightComponent . rgb *= fThickValue ; 
             
             float3 f3Rim = ( float3 ) ( 1.f - max ( 0.f , dot ( f3Normal , f3Eye ) ) ) ; 
             f3Rim *= f3Rim ; 
@@ -625,35 +644,21 @@ float4 PS ( PS_INPUT input ) : SV_Target
             f4FinColor . rgb += ( BlinnPhongSpec ( f3Normal , f3LightDir , fSpecPower ) * fAttenuation * f3SpecColor * f4FinColor . a * .05f ) ; 
             f4FinColor . rgb *= f4LightCol . rgb ; 
             
+            [ branch ] 
             if ( alLight . iType == 3 ) 
             { 
                 f4ColorOut *= f4FinColor ; 
+                float fEdge = max ( dot ( normalize ( input . f3CamPos - ( float3 ) input . f4VertexPos ) , input . f3Normal ) , 0 ) ; 
+                [ branch ] 
+                if ( ( fEdge < 0.8f ) && ( fMaterialThickness > 2.f ) ) 
+                f4ColorOut . rgb = f3IndirectLightComponent ; 
             } 
-        } 
-    } 
-    
-#line 669
-    if ( aiTexFlag [ 17 ] && aiTexFlag [ 3 ] && aiTexFlag [ 16 ] ) 
-    { 
-        float3 f3LightDir ; 
-        float3 f3LightColor ; 
-        
-        [ unroll ] 
-        for ( uint i = 0 ; i < input . iLightCount ; i ++ ) 
-        { 
-            AffectingLight alLight = input . aAffectingLights [ i ] ; 
-            f3LightDir = alLight . f3Direction ; 
-            f3LightColor = alLight . f4Color . rgb ; 
-            
-            if ( f3LightColor . r > 0.01f ) 
-            f4ColorOut . rgb += ( texBRDF ( input , f4TexCol . rgb , f3LightColor , f4ColorAmbient . rgb , f3LightDir , 
-            f4Diffuse . rgb ) ) / ( input . iLightCount * ( 20.f / f4SSSBRDFParams . g ) ) ; 
         } 
     } 
     
     if ( abArt [ 1 ] ) 
     { 
-        f4ColorOut *= 0.5f ; 
+        f4ColorOut *= 0.5 ; 
     } 
     if ( abArt [ 3 ] ) 
     { 

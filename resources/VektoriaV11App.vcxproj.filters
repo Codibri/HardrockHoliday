@@ -61,6 +61,24 @@
     <Filter Include="Quelldateien\Engine\States">
       <UniqueIdentifier>{075523c5-9b58-4d0a-8882-0b3905e14134}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\Game\GameObjects">
+      <UniqueIdentifier>{adb7edcb-3afc-416f-bc80-be2f883f0cfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Resources">
+      <UniqueIdentifier>{9617fdf8-753e-41df-90f4-92e924f35abd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Resources">
+      <UniqueIdentifier>{f46008d2-2777-431d-b9d0-a1c7d973ba18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Game\GameObjects">
+      <UniqueIdentifier>{41778f38-4a8a-479d-8853-267da9c42373}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Game\Level">
+      <UniqueIdentifier>{addabc32-bea0-44fb-8973-227297b8b329}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Game\Levels">
+      <UniqueIdentifier>{563d0c89-c087-4dac-9839-b436effd4b2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -105,6 +123,48 @@
     <ClInclude Include="headers\Utility\DebugLog.h">
       <Filter>Headerdateien\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Game\Scene.h">
+      <Filter>Headerdateien\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\Player.h">
+      <Filter>Headerdateien\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\MapPartManager.h">
+      <Filter>Headerdateien\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\MapPart.h">
+      <Filter>Headerdateien\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Utility\TangentCalculator.h">
+      <Filter>Headerdateien\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Utility\TangentSpaceHelper.h">
+      <Filter>Headerdateien\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\Camera.h">
+      <Filter>Headerdateien\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Graphics\playervisual.h">
+      <Filter>Headerdateien\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Resources\levelloader.h">
+      <Filter>Headerdateien\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\Level.h">
+      <Filter>Headerdateien\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\Levels\level1.h">
+      <Filter>Headerdateien\Game\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\Levels\Level1Part1.h">
+      <Filter>Headerdateien\Game\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\Levels\Level1Part2.h">
+      <Filter>Headerdateien\Game\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\Levels\Level1Part3.h">
+      <Filter>Headerdateien\Game\Levels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -112,9 +172,6 @@
     </ClCompile>
     <ClCompile Include="VektoriaApp.cpp">
       <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\StateMachine.cpp">
-      <Filter>Quelldateien\Engine</Filter>
     </ClCompile>
     <ClCompile Include="sources\Engine\State.cpp">
       <Filter>Quelldateien\Engine</Filter>
@@ -133,6 +190,48 @@
     </ClCompile>
     <ClCompile Include="sources\Utility\DebugLog.cpp">
       <Filter>Quelldateien\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Scene.cpp">
+      <Filter>Quelldateien\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Player.cpp">
+      <Filter>Quelldateien\Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\MapPartManager.cpp">
+      <Filter>Quelldateien\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\MapPart.cpp">
+      <Filter>Quelldateien\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Utility\TangentSpaceHelper.cpp">
+      <Filter>Quelldateien\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Camera.cpp">
+      <Filter>Quelldateien\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Resources\LevelLoader.cpp">
+      <Filter>Quelldateien\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Levels\Level1.cpp">
+      <Filter>Quelldateien\Game\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Levels\Level1Part1.cpp">
+      <Filter>Quelldateien\Game\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Levels\Level1Part2.cpp">
+      <Filter>Quelldateien\Game\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Levels\Level1Part3.cpp">
+      <Filter>Quelldateien\Game\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Level.cpp">
+      <Filter>Quelldateien\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Graphics\PlayerVisual.cpp">
+      <Filter>Quelldateien\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\StateMachine.cpp">
+      <Filter>Quelldateien\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

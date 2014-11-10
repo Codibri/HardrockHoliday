@@ -4,7 +4,7 @@
 #include "Game\GameObject.h"
 
 
-GameObject::GameObject(Vektoria::CHVector position) : _position(position), _geometry(nullptr)
+GameObject::GameObject(Vektoria::CPlacement position) : _position(position), _geometry(nullptr)
 {}
 
 
@@ -12,7 +12,13 @@ GameObject::~GameObject()
 {}
 
 
-void GameObject::update(float timeDelta)
+void GameObject::update(float timeDelta, float time)
 {
 	//does nothing
+}
+
+
+Vektoria::CPlacement* GameObject::getPlacement() 
+{
+	return &_position;
 }

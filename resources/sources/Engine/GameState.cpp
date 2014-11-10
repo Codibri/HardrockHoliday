@@ -6,14 +6,17 @@
 
 GameState::GameState() : State("GameState"), _hwnd(Engine::getInstance()->globalResources.hWnd)
 {
-	_root.Init(Engine::getInstance()->globalResources.splash);
-	_frame.Init(Engine::getInstance()->globalResources.hWnd);
+	_rootVektoria.Init(Engine::getInstance()->globalResources.splash);
+	_frameVektoria.Init(Engine::getInstance()->globalResources.hWnd);
 
-	_camera.Init();
-	_viewport.InitFull(&_camera);
+	_cameraVektoria.Init();
+	_viewportVektoria.InitFull(&_cameraVektoria);
 
-	_root.AddFrameHere(&_frame);
-	_frame.AddViewport(&_viewport);
+	_rootVektoria.AddFrameHere(&_frameVektoria);
+	_frameVektoria.AddViewport(&_viewportVektoria);
+
+	_scene.init(&_sceneVektoria, &_rootVektoria);
+	_scene.loadLevel(1);
 }
 
 
@@ -21,9 +24,9 @@ GameState::~GameState()
 {}
 
 
-NextState GameState::update(float deltaTime)
+NextState GameState::update(float deltaTime, float time)
 {
-	_root.Tick(deltaTime);
+	_rootVektoria.Tick(deltaTime);
 
 	std::string debugMSG = "Updated " + _stateName;
 	DEBUG_OUT(debugMSG)

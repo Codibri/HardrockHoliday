@@ -157,7 +157,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 			}
 
 			//Alexander Weiﬂ
-			core.update(fTimeDelta);
+			core.update(fTimeDelta, fTime);
 			//#-#-#-#-#-A.W.
 
 			if (bFirstTick)

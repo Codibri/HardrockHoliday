@@ -4,7 +4,7 @@
 #include "Game\PhysicalGameObject.h"
 
 
-PhysicalGameObject::PhysicalGameObject(Vektoria::CHVector position) : GameObject(position)
+PhysicalGameObject::PhysicalGameObject(Vektoria::CPlacement position) : GameObject(position)
 {}
 
 

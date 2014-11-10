@@ -11,15 +11,18 @@
 class GameObject
 {
 public:
-	GameObject(Vektoria::CHVector position);
+	GameObject(Vektoria::CPlacement position);
 
 	~GameObject();
 
 	// the GameObject will automatically be updated by the State it belongs to. Add all its permanently looped logic here
-	virtual void update(float deltaTime);
+	virtual void update(float deltaTime, float time);
+
+	// retrieves a pointer to the placement that is used to position the GameObject
+	Vektoria::CPlacement* getPlacement();
 
 protected:
-	Vektoria::CHVector _position;
+	Vektoria::CPlacement _position;
 	Vektoria::CGeo* _geometry;
 };
 

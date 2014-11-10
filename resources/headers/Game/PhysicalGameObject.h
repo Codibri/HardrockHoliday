@@ -9,11 +9,11 @@
 class Collider; //TODO: replace by actual physics implementation
 
 
-// a PhysicalGameObject represents a base template for every object in a Scene that will use a physical collision service of some kind. Its designates to be inherited from
+// a PhysicalGameObject represents a base template for every object in a Scene that will use a physical collision service of some kind. Its designated to be inherited from
 class PhysicalGameObject : public GameObject
 {
 public:
-	PhysicalGameObject(Vektoria::CHVector position);
+	PhysicalGameObject(Vektoria::CPlacement position);
 
 	~PhysicalGameObject();
 

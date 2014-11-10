@@ -21,7 +21,7 @@ public:
 	~State();
 
 	// the State will automatically be updated by the StateMachine it belongs to. Add all its permanently looped logic here
-	virtual NextState update(float deltaTime) = 0;
+	virtual NextState update(float deltaTime, float time) = 0;
 
 	// will be called when this State is set to be the active State by the StateMachine it belongs to
 	virtual void onActivation();
