@@ -79,6 +79,9 @@
     <Filter Include="Headerdateien\Game\Levels">
       <UniqueIdentifier>{563d0c89-c087-4dac-9839-b436effd4b2f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Quelldateien\Game\Level\Level1">
+      <UniqueIdentifier>{973b1244-fa20-42c8-92f7-3a8d9e63437e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -165,6 +168,15 @@
     <ClInclude Include="headers\Game\Levels\Level1Part3.h">
       <Filter>Headerdateien\Game\Levels</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Game\GameObjects\Player.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\GameObjects\LochFalle.h">
+      <Filter>Headerdateien\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Graphics\LochFalleVisual.h">
+      <Filter>Headerdateien\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -194,9 +206,6 @@
     <ClCompile Include="sources\Game\Scene.cpp">
       <Filter>Quelldateien\Game</Filter>
     </ClCompile>
-    <ClCompile Include="sources\Game\Player.cpp">
-      <Filter>Quelldateien\Game\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="sources\Game\MapPartManager.cpp">
       <Filter>Quelldateien\Game</Filter>
     </ClCompile>
@@ -212,18 +221,6 @@
     <ClCompile Include="sources\Resources\LevelLoader.cpp">
       <Filter>Quelldateien\Resources</Filter>
     </ClCompile>
-    <ClCompile Include="sources\Game\Levels\Level1.cpp">
-      <Filter>Quelldateien\Game\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\Game\Levels\Level1Part1.cpp">
-      <Filter>Quelldateien\Game\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\Game\Levels\Level1Part2.cpp">
-      <Filter>Quelldateien\Game\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\Game\Levels\Level1Part3.cpp">
-      <Filter>Quelldateien\Game\Level</Filter>
-    </ClCompile>
     <ClCompile Include="sources\Game\Level.cpp">
       <Filter>Quelldateien\Game</Filter>
     </ClCompile>
@@ -232,6 +229,27 @@
     </ClCompile>
     <ClCompile Include="sources\Engine\StateMachine.cpp">
       <Filter>Quelldateien\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Levels\Level1\Level1.cpp">
+      <Filter>Quelldateien\Game\Level\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Levels\Level1\Level1Part1.cpp">
+      <Filter>Quelldateien\Game\Level\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Levels\Level1\Level1Part2.cpp">
+      <Filter>Quelldateien\Game\Level\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Levels\Level1\Level1Part3.cpp">
+      <Filter>Quelldateien\Game\Level\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\GameObjects\Player.cpp">
+      <Filter>Quelldateien\Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\GameObjects\LochFalle.cpp">
+      <Filter>Quelldateien\Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Graphics\LochFalleVisual.cpp">
+      <Filter>Quelldateien\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

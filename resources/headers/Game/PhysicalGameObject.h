@@ -13,7 +13,7 @@ class Collider; //TODO: replace by actual physics implementation
 class PhysicalGameObject : public GameObject
 {
 public:
-	PhysicalGameObject(Vektoria::CPlacement position);
+	PhysicalGameObject(Vektoria::CPlacement position = Vektoria::CPlacement());
 
 	~PhysicalGameObject();
 

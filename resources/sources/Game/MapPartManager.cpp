@@ -17,19 +17,29 @@ void MapPartManager::setScene(CScene* scene){
 	mScenePtr = scene;
 }
 
-void MapPartManager::initWithActiveLevel(Level* level){
+void MapPartManager::initWithActiveLevel(Level* level, Vektoria::CRoot* root){
 	mActiveLevelPtr = level;
+
+	// Alle Parts an Szene anhängen und switchOff aufrufen
+	level->attachAllMapPartsToScene(mScenePtr);
+	float f = 0.001;
+	root->Tick(f);
+	//level->switchOffAllMapParts();
 
 	// Ersten MapPart laden und zur Scene hinzufügen
 	mFirstActiveMapPart = mActiveLevelPtr->getNextMapPart();
-	mScenePtr->AddPlacement(mFirstActiveMapPart->getPlacement());
+	//mScenePtr->AddPlacement(mFirstActiveMapPart->getPlacement());
+	mFirstActiveMapPart->getPlacement()->SwitchOn();
 
 	// Falls weitere Mapparts vorhanden: zweiten Mapparte ladens
 	if (!mFirstActiveMapPart->getIsLastMapPartOfLevel()){
 		mSecondActiveMapPart = mActiveLevelPtr->getNextMapPart();
-		mSecondActiveMapPart->getPlacement()->TranslateZDelta(-MAP_PART_SIZE);
-		mScenePtr->AddPlacement(mSecondActiveMapPart->getPlacement());
+		//mSecondActiveMapPart->getPlacement()->TranslateZDelta(-MAP_PART_SIZE);
+		//mScenePtr->AddPlacement(mSecondActiveMapPart->getPlacement());
+		mSecondActiveMapPart->getPlacement()->SwitchOn();
 	}
+	
+	
 
 }
 
@@ -84,7 +94,10 @@ bool MapPartManager::playerIsAtMapPartMid(float absoluteZPos){
 void MapPartManager::switchMapsParts(){
 
 	// Placement aus sczene entfernen
-	mScenePtr->m_placements.Sub(mFirstActiveMapPart->getPlacement());
+	//mScenePtr->m_placements.Sub(mFirstActiveMapPart->getPlacement());
+	//Placement ausschalten
+	mFirstActiveMapPart->getPlacement()->SwitchOff();
+
 
 	// Hinterer Mappart nun erster
 	mFirstActiveMapPart = mSecondActiveMapPart;
@@ -104,9 +117,11 @@ void MapPartManager::loadNextMapPart(){
 	mSecondActiveMapPart = mActiveLevelPtr->getNextMapPart();
 
 	// neuen MapPart an sezene anhängen
-	mSecondActiveMapPart->getPlacement()->TranslateZDelta(-MAP_PART_SIZE * 2);
-	mScenePtr->AddPlacement(mSecondActiveMapPart->getPlacement());
-	
+	//mSecondActiveMapPart->getPlacement()->TranslateZDelta(-MAP_PART_SIZE * 2);
+
+	// Placement anschalten statt an scene anhängen
+	//mScenePtr->AddPlacement(mSecondActiveMapPart->getPlacement());
+	mSecondActiveMapPart->getPlacement()->SwitchOn();
 }
 
 

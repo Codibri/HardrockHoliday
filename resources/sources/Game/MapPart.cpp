@@ -37,6 +37,9 @@ void MapPart::setIsLastMapPartOfLevel(){
 
 void MapPart::addGameObject(GameObject* obj){
 	mGameObjects.push_back(std::unique_ptr<GameObject>(obj));
+
+	// GameObject an MapPart Root anhängen
+	mRootPlacement.AddPlacement(obj->getPlacement());
 }
 
 

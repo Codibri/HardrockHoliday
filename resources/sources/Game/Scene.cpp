@@ -34,7 +34,8 @@ void Scene::loadLevel(int lvlNr){
 
 	mVectoriaScene->AddPlacement(mActiveLevel->getPlayer()->getPlacement());
 	
-	mMapPartManager.initWithActiveLevel(mActiveLevel.get());
+	mMapPartManager.initWithActiveLevel(mActiveLevel.get(), mRoot);
+
 	
 }
 

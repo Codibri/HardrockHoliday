@@ -1,11 +1,7 @@
 #include "Graphics\PlayerVisual.h"
 
 
-PlayerVisual::PlayerVisual() : Player(Vektoria::CPlacement())
-{}
-
-
-PlayerVisual::PlayerVisual(Vektoria::CPlacement position) : Player(position)
+PlayerVisual::PlayerVisual() : Player()
 {
 	loadMaterial();
 	loadMesh();
@@ -26,14 +22,15 @@ void PlayerVisual::update(float deltaMillis, float time){
 }
 
 void PlayerVisual::loadMaterial(){
-	mPlayerMaterial.MakeTextureImage("textures\\boulder_COLOR.png");
-	mPlayerMaterial.MakeTextureBump("textures\\boulder_NRM.png");
-	mPlayerMaterial.MakeTextureSpecular("textures\\boulder_SPEC.png");
-	mPlayerMaterial.MakeTextureGlow("textures\\boulder_SPEC.png");
+	mPlayerMaterial.MakeTextureImage("GameResources\\Textures\\boulder_COLOR.png");
+	//mPlayerMaterial.MakeTextureBump("GameResources\\Textures\\boulder_NRM.png");
+	mPlayerMaterial.MakeTextureSpecular("GameResources\\textures\\boulder_SPEC.png");
+	mPlayerMaterial.MakeTextureGlow("GameResources\\T\\boulder_SPEC.png");
 }
 
 void PlayerVisual::loadMesh(){
-	mPlayerMesh.Init(0.25, &mPlayerMaterial, 12, 12);
-	_position.AddGeo(&mPlayerMesh);
+	mPlayerMesh.Init(0.15, &mPlayerMaterial, 12, 12);
+	getPlacement()->AddGeo(&mPlayerMesh);
+	getPlacement()->TranslateY(0.15);
 }
 

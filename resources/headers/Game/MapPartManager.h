@@ -34,7 +34,7 @@ public:
 
 	void setScene(CScene* scene);
 
-	void initWithActiveLevel(Level* level);
+	void initWithActiveLevel(Level* level, Vektoria::CRoot* root);
 
 	void update(float deltaMillis, float fTime);
 
