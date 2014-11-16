@@ -18,6 +18,7 @@ public:
 
 private:
 
+
 protected:
 	// Nur für Rotation der Spieler Kugel
 	Vektoria::CPlacement _rotationPlacement;
