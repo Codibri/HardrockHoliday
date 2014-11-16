@@ -98,6 +98,8 @@
     <ClInclude Include="headers\Game\Levels\Level1Part1.h" />
     <ClInclude Include="headers\Game\Levels\Level1Part2.h" />
     <ClInclude Include="headers\Game\Levels\Level1Part3.h" />
+    <ClInclude Include="headers\Game\Levels\Level1Part4.h" />
+    <ClInclude Include="headers\Game\Levels\Level1Part5.h" />
     <ClInclude Include="headers\Game\MapPart.h" />
     <ClInclude Include="headers\Game\MapPartManager.h" />
     <ClInclude Include="headers\Game\PhysicalGameObject.h" />
@@ -126,6 +128,8 @@
     <ClCompile Include="sources\Game\Levels\Level1\Level1Part1.cpp" />
     <ClCompile Include="sources\Game\Levels\Level1\Level1Part2.cpp" />
     <ClCompile Include="sources\Game\Levels\Level1\Level1Part3.cpp" />
+    <ClCompile Include="sources\Game\Levels\Level1\Level1Part4.cpp" />
+    <ClCompile Include="sources\Game\Levels\Level1\Level1Part5.cpp" />
     <ClCompile Include="sources\Game\MapPart.cpp" />
     <ClCompile Include="sources\Game\MapPartManager.cpp" />
     <ClCompile Include="sources\Game\PhysicalGameObject.cpp" />

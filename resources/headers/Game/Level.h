@@ -17,14 +17,14 @@ public:
 	virtual void initialize(Vektoria::CScene* scene);
 
 	void attachAllMapPartsToScene(Vektoria::CScene* scene);
+	void switchOffAllMapParts();
+	void switchOnAllMapParts();
 
 	PlayerVisual* getPlayer();
 
 	MapPart* getNextMapPart();
 
 private:
-
-	float MAP_PART_SIZE = 8.0;
 
 	int mMapPartLoadIndex;
 

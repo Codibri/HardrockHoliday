@@ -4,7 +4,7 @@
 MapPartManager::MapPartManager()
 {
 	mLastMapPartLoaded = false;
-	mCheck = true;
+	mCheck = false;
 }
 
 
@@ -20,11 +20,7 @@ void MapPartManager::setScene(CScene* scene){
 void MapPartManager::initWithActiveLevel(Level* level, Vektoria::CRoot* root){
 	mActiveLevelPtr = level;
 
-	// Alle Parts an Szene anhängen und switchOff aufrufen
-	level->attachAllMapPartsToScene(mScenePtr);
-	float f = 0.001;
-	root->Tick(f);
-	//level->switchOffAllMapParts();
+	preRenderMapParts(root);
 
 	// Ersten MapPart laden und zur Scene hinzufügen
 	mFirstActiveMapPart = mActiveLevelPtr->getNextMapPart();
@@ -43,17 +39,25 @@ void MapPartManager::initWithActiveLevel(Level* level, Vektoria::CRoot* root){
 
 }
 
+const void MapPartManager::preRenderMapParts(Vektoria::CRoot* r) const {
+	// Alle Parts an Szene anhängen und switchOff aufrufen
+	mActiveLevelPtr->attachAllMapPartsToScene(mScenePtr);
+	mActiveLevelPtr->switchOnAllMapParts();
+	float f = 0.001;
+	r->Tick(f);
+	mActiveLevelPtr->switchOffAllMapParts();
+}
 
 
-void MapPartManager::update(float deltaMillis, float fTime){
 
-	Vektoria::CHVector pos = mActiveLevelPtr->getPlayer()->getPlacement()->GetTranslation();
-	float playerZPos = pos.z;
+void MapPartManager::update(float deltaMillis, float fTime) {
 
-	
+	float playerZPos = mActiveLevelPtr->getPlayer()
+		->getPlacement()->GetTranslation().z;
+
 	// Wenn sich der Spieler in der Mitte eines MapPartsbefinden soll 
 	// der Nächste Mappart geladen werden
-	if (playerIsAtMapPartMid(playerZPos)){
+	if (checkLoadNextMapPart(playerZPos)){
 		switchMapsParts();
 	}
 
@@ -62,7 +66,7 @@ void MapPartManager::update(float deltaMillis, float fTime){
 /*
 *	Tick nur die aktiven GameObjects/Mapparts und den Player
 */
-void MapPartManager::tickActiveObjects(float deltaMillis, float time){
+void MapPartManager::tickActiveObjects(float deltaMillis, float time) const {
 	// Spieler ticken
 	mActiveLevelPtr->getPlayer()->update(deltaMillis, time);
 	// Aktive MapParts ticken
@@ -76,14 +80,17 @@ void MapPartManager::tickActiveObjects(float deltaMillis, float time){
 *	Prüft ob sch der Spieler in der Mitte eines MapParts befindet
 *
 */
-bool MapPartManager::playerIsAtMapPartMid(float absoluteZPos){
-	if (mCheck){
-		if (absoluteZPos < -8.0){
-			mCheck = false;
-			return true;
-		}
+const bool MapPartManager::checkLoadNextMapPart(float absoluteZPos){
+	int activePartProgress = (int)-absoluteZPos % MapPart::MAP_PART_SIZE;
+	if (activePartProgress == 1 && mCheck){
+		mCheck = false;
+		return true;
+	}
+	else if (activePartProgress > 1){
+		mCheck = true;
 	}
 	return false;
+
 }
 
 

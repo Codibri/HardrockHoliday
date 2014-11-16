@@ -21,5 +21,7 @@ void Level1::addMapParts(){
 	this->addMapPart(mPart1.get());
 	this->addMapPart(mPart2.get());
 	this->addMapPart(mPart3.get());
+	this->addMapPart(mPart4.get());
+	this->addMapPart(mPart5.get());
 }
 

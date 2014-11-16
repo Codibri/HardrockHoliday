@@ -11,6 +11,9 @@ class MapPart
 public:
 	MapPart(int nr);
 	~MapPart();
+
+	static const int MAP_PART_SIZE;
+
 	virtual void tick(float deltaMillis, float time);
 	Vektoria::CPlacement* getPlacement();
 

@@ -21,18 +21,26 @@ void  Level::attachAllMapPartsToScene(Vektoria::CScene* scene){
 
 	for (int i = 0; i < mMapParts.size(); i++){
 		MapPart* p = mMapParts[i];
-		p->getPlacement()->TranslateZ(-MAP_PART_SIZE * i);
-		p->getPlacement()->SwitchOff();
+		p->getPlacement()->TranslateZ(-MapPart::MAP_PART_SIZE * i);
 		scene->AddPlacement(p->getPlacement());
 	}
 
+}
+
+void Level::switchOffAllMapParts(){
+	for (MapPart* part : mMapParts)
+		part->getPlacement()->SwitchOff();
+}
+
+void Level::switchOnAllMapParts(){
+	for (MapPart* part : mMapParts)
+		part->getPlacement()->SwitchOn();
 }
 
 
 PlayerVisual* Level::getPlayer(){
 	return &mPlayer;
 }
-
 
 
 MapPart* Level::getNextMapPart(){

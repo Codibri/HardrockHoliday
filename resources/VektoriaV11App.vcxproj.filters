@@ -177,6 +177,12 @@
     <ClInclude Include="headers\Graphics\LochFalleVisual.h">
       <Filter>Headerdateien\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Game\Levels\Level1Part4.h">
+      <Filter>Headerdateien\Game\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\Levels\Level1Part5.h">
+      <Filter>Headerdateien\Game\Levels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -250,6 +256,12 @@
     </ClCompile>
     <ClCompile Include="sources\Graphics\LochFalleVisual.cpp">
       <Filter>Quelldateien\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Levels\Level1\Level1Part4.cpp">
+      <Filter>Quelldateien\Game\Level\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\Levels\Level1\Level1Part5.cpp">
+      <Filter>Quelldateien\Game\Level\Level1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
