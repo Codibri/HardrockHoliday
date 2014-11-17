@@ -83,9 +83,11 @@
   <ItemGroup>
     <ClInclude Include="headers\Engine\Engine.h" />
     <ClInclude Include="headers\Engine\EngineMakros.h" />
+    <ClInclude Include="headers\Engine\EngineModule.h" />
     <ClInclude Include="headers\Engine\EngineModules.h" />
     <ClInclude Include="headers\Engine\GameState.h" />
     <ClInclude Include="headers\Engine\GlobalResources.h" />
+    <ClInclude Include="headers\Engine\HardrockHolidayModules.h" />
     <ClInclude Include="headers\Engine\State.h" />
     <ClInclude Include="headers\Engine\StateMachine.h" />
     <ClInclude Include="headers\Engine\States.h" />
@@ -117,7 +119,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sources\Engine\Engine.cpp" />
+    <ClCompile Include="sources\Engine\EngineModule.cpp" />
+    <ClCompile Include="sources\Engine\EngineModules.cpp" />
     <ClCompile Include="sources\Engine\GameState.cpp" />
+    <ClCompile Include="sources\Engine\HardrockHolidayModules.cpp" />
     <ClCompile Include="sources\Engine\State.cpp" />
     <ClCompile Include="sources\Engine\StateMachine.cpp" />
     <ClCompile Include="sources\Game\Camera.cpp" />

@@ -95,21 +95,14 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 //Alexander Weiß
 	// set important references to globally accessed things
-	Engine::getInstance()->globalResources.hWnd = hWnd;
-	Engine::getInstance()->globalResources.splash = &splash;
+	Engine::globalResources.hWnd = hWnd;
+	Engine::globalResources.splash = &splash;
 
 	// allocate a standard windows console for debug purposes
 	#ifdef _DEBUG
 	AllocConsole();
 	freopen("CONOUT$", "w", stdout);
 	#endif
-
-	// create and initialize our game core
-	StateMachine core;
-	std::shared_ptr<State> gameState = std::shared_ptr<State>( new GameState() );
-	core.addState(gameState);
-
-	core.startExecution(gameState->getName());
 //#-#-#-#-#-A.W.
 
 
@@ -157,7 +150,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 			}
 
 			//Alexander Weiß
-			core.update(fTimeDelta, fTime);
+			ENGINE_STATE_MACHINE->update(fTimeDelta, fTime);
 			//#-#-#-#-#-A.W.
 
 			if (bFirstTick)

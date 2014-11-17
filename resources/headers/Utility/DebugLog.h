@@ -1,6 +1,9 @@
 
 //by Alexander Weiﬂ, 2014
 
+#ifndef DEBUG_LOG_H
+#define DEBUG_LOG_H
+
 #include <iostream>
 
 #define DEBUG_OUT(debugMessage) DebugLog::getInstance()->log(debugMessage);
@@ -14,7 +17,7 @@ public:
 
 	static DebugLog* getInstance();
 
-	void log(std::string& debugMessage);
+	void log(const std::string& debugMessage);
 
 
 private:
@@ -22,3 +25,5 @@ private:
 
 	static DebugLog* _instance;
 };
+
+#endif

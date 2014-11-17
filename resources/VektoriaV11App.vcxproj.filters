@@ -183,6 +183,12 @@
     <ClInclude Include="headers\Game\Levels\Level1Part5.h">
       <Filter>Headerdateien\Game\Levels</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Engine\HardrockHolidayModules.h">
+      <Filter>Headerdateien\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Engine\EngineModule.h">
+      <Filter>Headerdateien\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -262,6 +268,15 @@
     </ClCompile>
     <ClCompile Include="sources\Game\Levels\Level1\Level1Part5.cpp">
       <Filter>Quelldateien\Game\Level\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\HardrockHolidayModules.cpp">
+      <Filter>Quelldateien\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\EngineModules.cpp">
+      <Filter>Quelldateien\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\EngineModule.cpp">
+      <Filter>Quelldateien\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

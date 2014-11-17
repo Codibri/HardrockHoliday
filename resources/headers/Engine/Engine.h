@@ -17,10 +17,12 @@ public:
 
 	~Engine();
 
-	EngineModules modules;
-	GlobalResources globalResources;
+	EngineModules* engineModules;
+	static GlobalResources globalResources;
 
 private:
+	void initialize();
+
 	static Engine* _instance;
 
 	Engine();

@@ -7,10 +7,10 @@
 
 // these are makros to make coding life easier / cleaner later on
 
+#define ENGINE Engine::getInstance()
+#define ENGINE_STATE_MACHINE static_cast<StateMachine*>(Engine::getInstance()->engineModules->access(typeid(StateMachine)))
+
 //TODO finish these
-
-//#define ENGINE Engine::getInstance()
-
 //#define AUDIO Engine::getInstance()->modules.
 //#define PHYSICS Engine::getInstance()->modules.
 

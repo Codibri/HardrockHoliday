@@ -4,7 +4,7 @@
 #include "Engine\StateMachine.h"
 
 
-StateMachine::StateMachine() : _currentState(nullptr), _isRunning(false)
+StateMachine::StateMachine() : EngineModule(), _currentState(nullptr), _isRunning(false)
 {}
 
 
@@ -12,7 +12,7 @@ StateMachine::~StateMachine()
 {}
 
 
-void StateMachine::startExecution(StateName stateName)
+void StateMachine::startExecution(const StateName& stateName)
 {
 	if (!_isRunning)
 	{
@@ -32,7 +32,7 @@ void StateMachine::addState(std::shared_ptr<State> state)
 	}
 	else
 	{
-		std::cout << "Error (StateMachine): Couldn't add state as state was a nullptr. \n";
+		DEBUG_OUT("Error (StateMachine): Couldn't add state as state was a nullptr. \n")
 	}
 }
 
@@ -57,7 +57,7 @@ void StateMachine::update(float deltaTime, float time)
 	}
 	else
 	{
-		std::cout << "Error (StateMachine): StateMachine is currently not running. Call \"startExecution()\" first. \n";
+		DEBUG_OUT("Error (StateMachine): StateMachine is currently not running. Call \"startExecution()\" first. \n")
 	}
 }
 
@@ -68,7 +68,7 @@ bool StateMachine::isRunning() const
 }
 
 
-bool StateMachine::activateState(StateName stateName)
+bool StateMachine::activateState(const StateName& stateName)
 {
 	bool success = false;
 
@@ -85,7 +85,7 @@ bool StateMachine::activateState(StateName stateName)
 	}
 	catch (const std::out_of_range&)
 	{
-		std::cout << "Error (StateMachine): State not found. \n";
+		DEBUG_OUT("Error (StateMachine): State not found. \n")
 	}
 
 	return success;

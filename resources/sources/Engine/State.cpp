@@ -4,7 +4,7 @@
 #include "Engine\State.h"
 
 
-State::State(StateName stateName) : _stateName(stateName)
+State::State(const StateName& stateName) : _stateName(stateName)
 {}
 
 

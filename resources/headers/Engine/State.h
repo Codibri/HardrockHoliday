@@ -16,8 +16,8 @@ typedef std::string NextState;
 class State
 {
 public:
-	State(StateName stateName);
-
+	State(const StateName& stateName);
+	
 	~State();
 
 	// the State will automatically be updated by the StateMachine it belongs to. Add all its permanently looped logic here

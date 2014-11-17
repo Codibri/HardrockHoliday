@@ -12,7 +12,12 @@ DebugLog::DebugLog()
 
 
 DebugLog::~DebugLog()
-{}
+{
+	if (nullptr != _instance)
+	{
+		delete _instance;
+	}
+}
 
 
 DebugLog* DebugLog::getInstance()
@@ -27,7 +32,7 @@ DebugLog* DebugLog::getInstance()
 }
 
 
-void DebugLog::log(std::string& debugMessage)
+void DebugLog::log(const std::string& debugMessage)
 {
 #ifdef _Debug
 		std::cout << debugMessage << std::endl;
