@@ -24,11 +24,10 @@ public:
 	void addState(std::shared_ptr<State> state);
 
 	// calls the StateMachine to update its states and then switches to a new state if the current state signals to do so, otherwise keeps the current state active. Ignored if no valid state is set
-	void update(float deltaTime, float time);
+	void update(float deltaTime, float time) override;
 
 	// is the StateMachine currently running? FALSE until startExecution has been called successfully, TRUE afterwards as long no error has occurred during any update
 	bool isRunning() const;
-
 
 private:
 	bool activateState(const StateName& stateName);

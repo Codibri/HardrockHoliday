@@ -25,8 +25,12 @@ public:
 	// returns a pointer to an added EngineModule. Returns nullptr if the requested module is not found
 	EngineModule* access(std::type_index moduleType) const;
 
+	// updates all EngineModules and should be called each game cycle. Its mandatory to implemented this seperately for each game
+	virtual void update(float deltaTime, float time) = 0;
+
 protected:
-	// override this method in your implementation of your games EngineModules class. You need to call this in the Ctor of your derived class because c++ does not let you call an overriden virtual method from a base class
+	// add / create the EngineModule instances in this method. Its mandatory to implemented this seperately for each game.
+	// You need to call this in the Ctor of your derived class because c++ does not let you call an overriden virtual method from a base class
 	virtual void initialize() = 0;
 
 	std::map<std::type_index, EngineModule*> _modules;

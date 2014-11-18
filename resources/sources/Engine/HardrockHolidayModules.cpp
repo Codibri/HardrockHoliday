@@ -13,6 +13,18 @@ HardrockHolidayModules::~HardrockHolidayModules()
 {}
 
 
+void HardrockHolidayModules::update(float deltaTime, float time)
+{
+	ENGINE_STATE_MACHINE->update(deltaTime, time);
+
+	//TODO: update the other modules for HardrockHoliday
+
+	//Physics
+
+	//Audio etc..
+}
+
+
 void HardrockHolidayModules::initialize()
 {
 	DEBUG_OUT("initializing")

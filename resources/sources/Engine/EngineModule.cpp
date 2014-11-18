@@ -10,3 +10,15 @@ EngineModule::EngineModule()
 
 EngineModule::~EngineModule()
 {}
+
+
+void EngineModule::preUpdate()
+{}
+
+
+void EngineModule::update(float deltaTime, float time)
+{}
+
+
+void EngineModule::postUpdate()
+{}

@@ -21,8 +21,6 @@ public:
 	static GlobalResources globalResources;
 
 private:
-	void initialize();
-
 	static Engine* _instance;
 
 	Engine();

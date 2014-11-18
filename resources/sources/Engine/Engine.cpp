@@ -28,19 +28,11 @@ Engine::~Engine()
 }
 
 
-void Engine::initialize()
-{
-	engineModules = new HardrockHolidayModules();
-}
-
-
 Engine* Engine::getInstance()
 {
 	if (nullptr == _instance)
 	{
 		_instance = new Engine();
-
-		_instance->initialize();
 
 		return _instance;
 	}

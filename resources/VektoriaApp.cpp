@@ -14,6 +14,7 @@
 #include "Engine\Engine.h"
 #include "Engine\StateMachine.h"
 #include "Engine\States.h"
+#include "Engine\HardrockHolidayModules.h"
 //#-#-#-#-#-A.W.
 
 #pragma comment(lib, "winmm.lib")
@@ -98,6 +99,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	Engine::globalResources.hWnd = hWnd;
 	Engine::globalResources.splash = &splash;
 
+	ENGINE->engineModules = new HardrockHolidayModules();
+
 	// allocate a standard windows console for debug purposes
 	#ifdef _DEBUG
 	AllocConsole();
@@ -150,7 +153,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 			}
 
 			//Alexander Weiß
-			ENGINE_STATE_MACHINE->update(fTimeDelta, fTime);
+			ENGINE->engineModules->update(fTimeDelta, fTime);
 			//#-#-#-#-#-A.W.
 
 			if (bFirstTick)
