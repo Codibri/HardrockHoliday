@@ -111,6 +111,7 @@
     <ClInclude Include="headers\Graphics\LochFalleVisual.h" />
     <ClInclude Include="headers\Graphics\MapWallVisual.h" />
     <ClInclude Include="headers\Graphics\playervisual.h" />
+    <ClInclude Include="headers\Graphics\Visual.h" />
     <ClInclude Include="headers\Resources\levelloader.h" />
     <ClInclude Include="headers\Utility\DebugLog.h" />
     <ClInclude Include="headers\Utility\TangentCalculator.h" />
@@ -146,6 +147,7 @@
     <ClCompile Include="sources\Graphics\LochFalleVisual.cpp" />
     <ClCompile Include="sources\Graphics\MapWallVisual.cpp" />
     <ClCompile Include="sources\Graphics\PlayerVisual.cpp" />
+    <ClCompile Include="sources\Graphics\Visual.cpp" />
     <ClCompile Include="sources\Resources\LevelLoader.cpp" />
     <ClCompile Include="sources\Utility\DebugLog.cpp" />
     <ClCompile Include="sources\Utility\TangentSpaceHelper.cpp" />

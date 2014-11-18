@@ -1,8 +1,8 @@
 #include "Graphics\LochFalleVisual.h"
 
 
-LochFalleVisual::LochFalleVisual(Vektoria::CHVector boxColliderSize) 
-	 : LochFalle(boxColliderSize)
+LochFalleVisual::LochFalleVisual(Vektoria::CHVector boxColliderSize, Vektoria::CPlacement *p)
+	: Visual(p)
 {
 
 	mCubeMaterial.SetTransparencyOn();
@@ -10,7 +10,7 @@ LochFalleVisual::LochFalleVisual(Vektoria::CHVector boxColliderSize)
 	//mCubeMaterial.SetShadingOff();
 	boxColliderSize *= 0.5;
 	mCubeGeo.Init(boxColliderSize, &mCubeMaterial);
-	getPlacement()->AddGeo(&mCubeGeo);
+	_placement->AddGeo(&mCubeGeo);
 }
 
 

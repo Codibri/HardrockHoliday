@@ -1,9 +1,11 @@
 #include "Game\GameObjects\Player.h"
+#include "Graphics\playervisual.h"
 
 
 Player::Player() : PhysicalGameObject(Vektoria::CPlacement())
 {
 	_position.AddPlacement(&_rotationPlacement);
+	_visual = new PlayerVisual(getPlacement());
 }
 
 

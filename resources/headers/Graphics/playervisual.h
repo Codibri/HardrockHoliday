@@ -1,18 +1,17 @@
 #pragma once
 
 #include "root.h"
-#include "Game\GameObjects\Player.h"
+#include "Graphics\Visual.h"
 
 using namespace Vektoria;
 
 // TODO discuss how to integrate / rework this into the architecture
 
 
-class PlayerVisual : public Player
+class PlayerVisual : public Visual
 {
 public:
-	PlayerVisual();
-	PlayerVisual(Vektoria::CPlacement position);
+	PlayerVisual(Vektoria::CPlacement* p);
 	~PlayerVisual();
 
 	void update(float deltaMillis, float time) override;

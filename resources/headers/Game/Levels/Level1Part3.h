@@ -1,7 +1,7 @@
 #pragma once
 #include "Game\MapPart.h"
-#include "Graphics\LochFalleVisual.h"
-#include "Graphics\MapWallVisual.h"
+#include "Game\GameObjects\LochFalle.h"
+#include "Game\GameObjects\MapWall.h"
 class Level1Part3 :
 	public MapPart
 {
@@ -10,8 +10,6 @@ public:
 	~Level1Part3();
 
 private:
-	LochFalleVisual* mFalle1Ptr;
-	LochFalleVisual* mFalle2Ptr;
 
 
 	void loadMaterial();

@@ -9,8 +9,7 @@ Level1Part5::Level1Part5() : MapPart(5)
 
 	initGameObjects();
 
-	addGameObject(mFalle1Ptr);
-	addGameObject(mFalle2Ptr);
+;
 }
 
 
@@ -27,10 +26,12 @@ void Level1Part5::loadMaterial(){
 
 void Level1Part5::initGameObjects(){
 
-	mFalle1Ptr = new LochFalleVisual(Vektoria::CHVector(1.0, 0.5, 1.0));
-	mFalle1Ptr->getPlacement()->Translate(0, 0, -3);
+	auto falle1 = new LochFalle(Vektoria::CHVector(1.0, 0.5, 1.0));
+	falle1->getPlacement()->Translate(0, 0, -3);
+	addGameObject(falle1);
 
-	mFalle2Ptr = new LochFalleVisual(Vektoria::CHVector(1.0, 0.5, 1.0));
-	mFalle2Ptr->getPlacement()->Translate(0, 0, -6);
+	auto falle2 = new LochFalle(Vektoria::CHVector(1.0, 0.5, 1.0));
+	falle2->getPlacement()->Translate(0, 0, -6);
+	addGameObject(falle2);
 
 }

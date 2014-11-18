@@ -1,7 +1,7 @@
 #pragma once
 #include "Game\MapPart.h"
-#include "Graphics\LochFalleVisual.h"
-#include "Graphics\MapWallVisual.h"
+#include "Game\GameObjects\LochFalle.h"
+#include "Game\GameObjects\MapWall.h"
 #include "root.h"
 
 class Level1Part1 : public MapPart
@@ -12,10 +12,6 @@ public:
 
 private:
 	
-	// Um das löschen der GameObjects kümmert sich der 
-	// zuständige MapPart
-	LochFalleVisual* mFalle1Ptr;
-	LochFalleVisual* mFalle2Ptr;
 
 
 	void loadMaterial();

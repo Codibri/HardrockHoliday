@@ -22,3 +22,7 @@ Vektoria::CPlacement* GameObject::getPlacement()
 {
 	return &_position;
 }
+
+void GameObject::setVisual(Visual* v){
+	_visual = v;
+}

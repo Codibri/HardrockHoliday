@@ -1,12 +1,13 @@
 #pragma once
-#include "Game\GameObjects\MapWall.h"
+
 #include "root.h"
+#include "Graphics\Visual.h"
 
 // Debug Klasse zum darstellen des Box-Colliders
-class MapWallVisual : public MapWall
+class MapWallVisual : public Visual
 {
 public:
-	MapWallVisual(Vektoria::CHVector boxColliderSize);
+	MapWallVisual(Vektoria::CHVector boxColliderSize, Vektoria::CPlacement *p);
 	~MapWallVisual();
 
 private:

@@ -1,13 +1,13 @@
 #pragma once
-#include "Game\GameObjects\LochFalle.h"
+
 #include "root.h"
+#include "Graphics\Visual.h"
 
 // Debug Klasse zum darstellen der Box-Colliders
-class LochFalleVisual :
-	public LochFalle
+class LochFalleVisual : public Visual
 {
 public:
-	LochFalleVisual(Vektoria::CHVector boxColliderSize);
+	LochFalleVisual(Vektoria::CHVector boxColliderSize, Vektoria::CPlacement *p);
 	~LochFalleVisual();
 
 private:

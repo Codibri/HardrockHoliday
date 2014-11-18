@@ -1,7 +1,7 @@
 #include "Graphics\PlayerVisual.h"
 
 
-PlayerVisual::PlayerVisual() : Player()
+PlayerVisual::PlayerVisual(Vektoria::CPlacement *p) : Visual(p)
 {
 	loadMaterial();
 	loadMesh();
@@ -17,8 +17,6 @@ void PlayerVisual::update(float deltaMillis, float time){
 	// stuff...
 
 
-	// Player logik ticken
-	Player::update(deltaMillis, time);
 }
 
 void PlayerVisual::loadMaterial(){
@@ -30,7 +28,7 @@ void PlayerVisual::loadMaterial(){
 
 void PlayerVisual::loadMesh(){
 	mPlayerMesh.Init(0.15, &mPlayerMaterial, 12, 12);
-	_rotationPlacement.AddGeo(&mPlayerMesh);
-	getPlacement()->TranslateY(0.15);
+	_placement->AddGeo(&mPlayerMesh);
+
 }
 

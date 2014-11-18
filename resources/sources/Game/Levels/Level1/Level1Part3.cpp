@@ -9,8 +9,6 @@ Level1Part3::Level1Part3() : MapPart(3)
 
 	initGameObjects();
 
-	addGameObject(mFalle1Ptr);
-	addGameObject(mFalle2Ptr);
 }
 
 
@@ -27,17 +25,23 @@ void Level1Part3::loadMaterial(){
 
 void Level1Part3::initGameObjects(){
 
-	mFalle1Ptr = new LochFalleVisual(Vektoria::CHVector(1.0, 0.5, 1.0));
-	mFalle1Ptr->getPlacement()->Translate(0, 0, -3);
 
-	mFalle2Ptr = new LochFalleVisual(Vektoria::CHVector(1.0, 0.5, 1.0));
-	mFalle2Ptr->getPlacement()->Translate(0, 0, -6);
+	
+	
 
-	auto wallLeft = new MapWallVisual(Vektoria::CHVector(1.0, 0.5, 8.0));
+	auto falle1 = new LochFalle(Vektoria::CHVector(1.0, 0.5, 1.0));
+	falle1->getPlacement()->Translate(0, 0, -3);
+	addGameObject(falle1);
+
+	auto falle2 = new LochFalle(Vektoria::CHVector(1.0, 0.5, 1.0));
+	falle2->getPlacement()->Translate(0, 0, -6);
+	addGameObject(falle2);
+
+	auto wallLeft = new MapWall(Vektoria::CHVector(1.0, 0.5, 8.0));
 	wallLeft->getPlacement()->Translate(-1.1, 0.25, -4.0);
 	addGameObject(wallLeft);
 
-	auto wallRight = new MapWallVisual(Vektoria::CHVector(1.0, 0.5, 8.0));
+	auto wallRight = new MapWall(Vektoria::CHVector(1.0, 0.5, 8.0));
 	wallRight->getPlacement()->Translate(1.1, 0.25, -4.0);
 	addGameObject(wallRight);
 

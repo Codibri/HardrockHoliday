@@ -38,7 +38,7 @@ void Level::switchOnAllMapParts(){
 }
 
 
-PlayerVisual* Level::getPlayer(){
+Player* Level::getPlayer(){
 	return &mPlayer;
 }
 

@@ -5,7 +5,7 @@
 #define GAME_OBJECT_H
 
 #include "Root.h"
-
+#include "Graphics\Visual.h"
 
 // the GameObject is the base template for every Object that can appear in a Scene. Its designated to be inherited from 
 class GameObject
@@ -21,9 +21,12 @@ public:
 	// retrieves a pointer to the placement that is used to position the GameObject
 	Vektoria::CPlacement* getPlacement();
 
+	void setVisual(Visual* v);
+
 protected:
 	Vektoria::CPlacement _position;
 	Vektoria::CGeo* _geometry;
+	Visual* _visual;
 };
 
 #endif

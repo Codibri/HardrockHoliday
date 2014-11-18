@@ -2,7 +2,7 @@
 
 #include "Root.h"
 #include "MapPart.h"
-#include "Graphics\PlayerVisual.h"
+#include "Game\GameObjects\Player.h"
 #include <memory>
 
 using namespace Vektoria;
@@ -20,7 +20,7 @@ public:
 	void switchOffAllMapParts();
 	void switchOnAllMapParts();
 
-	PlayerVisual* getPlayer();
+	Player* getPlayer();
 
 	MapPart* getNextMapPart();
 
@@ -28,7 +28,7 @@ private:
 
 	int mMapPartLoadIndex;
 
-	PlayerVisual mPlayer;
+	Player mPlayer;
 
 	std::vector<MapPart*> mMapParts;
 

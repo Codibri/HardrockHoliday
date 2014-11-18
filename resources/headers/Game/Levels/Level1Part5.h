@@ -1,6 +1,7 @@
 #pragma once
 #include "Game\MapPart.h"
-#include "Graphics\LochFalleVisual.h"
+#include "Game\GameObjects\LochFalle.h"
+#include "Game\GameObjects\MapWall.h"
 class Level1Part5 :
 	public MapPart
 {
@@ -10,9 +11,6 @@ public:
 
 
 private:
-	LochFalleVisual* mFalle1Ptr;
-	LochFalleVisual* mFalle2Ptr;
-
 
 	void loadMaterial();
 	void initGameObjects();

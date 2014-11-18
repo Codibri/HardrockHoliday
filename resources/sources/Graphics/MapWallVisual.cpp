@@ -1,8 +1,8 @@
 #include "Graphics\MapWallVisual.h"
 
 
-MapWallVisual::MapWallVisual(Vektoria::CHVector boxColliderSize)
-	: MapWall(boxColliderSize)
+MapWallVisual::MapWallVisual(Vektoria::CHVector boxColliderSize, Vektoria::CPlacement *p)
+	: Visual(p)
 {
 
 	mCubeMaterial.SetTransparencyOn();
@@ -10,7 +10,7 @@ MapWallVisual::MapWallVisual(Vektoria::CHVector boxColliderSize)
 	//mCubeMaterial.SetShadingOff();
 	boxColliderSize *= 0.5;
 	mCubeGeo.Init(boxColliderSize, &mCubeMaterial);
-	getPlacement()->AddGeo(&mCubeGeo);
+	_placement->AddGeo(&mCubeGeo);
 }
 
 
