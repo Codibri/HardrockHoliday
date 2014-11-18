@@ -195,10 +195,10 @@
     <ClInclude Include="headers\Graphics\MapWallVisual.h">
       <Filter>Headerdateien\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Audio\SoundManager.h">
-      <Filter>Headerdateien\Audio</Filter>
-    </ClInclude>
     <ClInclude Include="headers\Graphics\Visual.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Audio\SoundManager.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -295,6 +295,12 @@
     </ClCompile>
     <ClCompile Include="sources\Graphics\MapWallVisual.cpp">
       <Filter>Quelldateien\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Graphics\Visual.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Audio\SoundManager.cpp">
+      <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

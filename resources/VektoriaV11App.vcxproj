@@ -46,10 +46,10 @@
     <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(ProjectDir)\VektoriaV11;(ProjectDir)\sources;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)\VektoriaV11;$(IncludePath);(ProjectDir)\headers\</IncludePath>
+    <IncludePath>$(DXSDK_DIR)\Include;$(ProjectDir)\VektoriaV11;$(IncludePath);(ProjectDir)\headers\</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LibraryPath>$(ProjectDir)\VektoriaV11;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath);(ProjectDir)\sources\</LibraryPath>
+    <LibraryPath>$(ProjectDir)\VektoriaV11;$(DXSDK_DIR)\Lib\x86;$(LibraryPath);(ProjectDir)\sources\</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
