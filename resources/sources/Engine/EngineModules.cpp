@@ -10,14 +10,14 @@ EngineModules::EngineModules()
 
 EngineModules::~EngineModules()
 {
-	for (std::map<std::type_index, void*>::iterator it = _modules.begin(); it != _modules.end(); ++it)
+	for (std::map<std::type_index, EngineModule*>::iterator it = _modules.begin(); it != _modules.end(); ++it)
 	{
 		delete it->second;
 	}
 }
 
 
-bool EngineModules::addModule(void* engineModule, std::type_index moduleType)
+bool EngineModules::addModule(EngineModule* engineModule, std::type_index moduleType)
 {
 	bool success = false;
 
@@ -31,9 +31,9 @@ bool EngineModules::addModule(void* engineModule, std::type_index moduleType)
 }
 
 
-void* EngineModules::access(std::type_index moduleType) const
+EngineModule* EngineModules::access(std::type_index moduleType) const
 {
-	void* module = nullptr;
+	EngineModule* module = nullptr;
 
 	if (_modules.end() != _modules.find(moduleType))
 	{
