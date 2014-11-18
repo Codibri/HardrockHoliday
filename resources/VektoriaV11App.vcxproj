@@ -94,6 +94,7 @@
     <ClInclude Include="headers\Game\Camera.h" />
     <ClInclude Include="headers\Game\GameObject.h" />
     <ClInclude Include="headers\Game\GameObjects\LochFalle.h" />
+    <ClInclude Include="headers\Game\GameObjects\MapWall.h" />
     <ClInclude Include="headers\Game\GameObjects\Player.h" />
     <ClInclude Include="headers\Game\Level.h" />
     <ClInclude Include="headers\Game\Levels\level1.h" />
@@ -108,6 +109,7 @@
     <ClInclude Include="headers\Game\Player.h" />
     <ClInclude Include="headers\Game\Scene.h" />
     <ClInclude Include="headers\Graphics\LochFalleVisual.h" />
+    <ClInclude Include="headers\Graphics\MapWallVisual.h" />
     <ClInclude Include="headers\Graphics\playervisual.h" />
     <ClInclude Include="headers\Resources\levelloader.h" />
     <ClInclude Include="headers\Utility\DebugLog.h" />
@@ -128,6 +130,7 @@
     <ClCompile Include="sources\Game\Camera.cpp" />
     <ClCompile Include="sources\Game\GameObject.cpp" />
     <ClCompile Include="sources\Game\GameObjects\LochFalle.cpp" />
+    <ClCompile Include="sources\Game\GameObjects\MapWall.cpp" />
     <ClCompile Include="sources\Game\Level.cpp" />
     <ClCompile Include="sources\Game\Levels\Level1\Level1.cpp" />
     <ClCompile Include="sources\Game\Levels\Level1\Level1Part1.cpp" />
@@ -141,6 +144,7 @@
     <ClCompile Include="sources\Game\GameObjects\Player.cpp" />
     <ClCompile Include="sources\Game\Scene.cpp" />
     <ClCompile Include="sources\Graphics\LochFalleVisual.cpp" />
+    <ClCompile Include="sources\Graphics\MapWallVisual.cpp" />
     <ClCompile Include="sources\Graphics\PlayerVisual.cpp" />
     <ClCompile Include="sources\Resources\LevelLoader.cpp" />
     <ClCompile Include="sources\Utility\DebugLog.cpp" />

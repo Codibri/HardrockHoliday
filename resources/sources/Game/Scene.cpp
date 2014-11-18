@@ -17,11 +17,17 @@ void Scene::init(CScene* scene, CRoot* root){
 	mVectoriaScene = scene;
 	mRoot = root;
 	mMapPartManager.setScene(mVectoriaScene);
+
+	
+	
 }
 
 
 void Scene::initViewport(Vektoria::CViewport* viewport){
 	mCamera.initViewPort(1.2, viewport);
+
+	//Debug
+	viewport->SetWireframeOn();
 }
 
 

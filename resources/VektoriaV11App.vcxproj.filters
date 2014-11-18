@@ -189,6 +189,12 @@
     <ClInclude Include="headers\Engine\EngineModule.h">
       <Filter>Headerdateien\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Game\GameObjects\MapWall.h">
+      <Filter>Headerdateien\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Graphics\MapWallVisual.h">
+      <Filter>Headerdateien\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -277,6 +283,12 @@
     </ClCompile>
     <ClCompile Include="sources\Engine\EngineModule.cpp">
       <Filter>Quelldateien\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\GameObjects\MapWall.cpp">
+      <Filter>Quelldateien\Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Graphics\MapWallVisual.cpp">
+      <Filter>Quelldateien\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

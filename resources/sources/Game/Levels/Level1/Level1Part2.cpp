@@ -33,4 +33,12 @@ void Level1Part2::initGameObjects(){
 	mFalle2Ptr = new LochFalleVisual(Vektoria::CHVector(1.0, 0.5, 1.0));
 	mFalle2Ptr->getPlacement()->Translate(0, 0, -6);
 
+	auto wallLeft = new MapWallVisual(Vektoria::CHVector(1.0, 0.5, 8.0));
+	wallLeft->getPlacement()->Translate(-1.1, 0.25, -4.0);
+	addGameObject(wallLeft);
+
+	auto wallRight = new MapWallVisual(Vektoria::CHVector(1.0, 0.5, 8.0));
+	wallRight->getPlacement()->Translate(1.1, 0.25, -4.0);
+	addGameObject(wallRight);
+
 }

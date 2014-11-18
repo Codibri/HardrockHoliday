@@ -1,6 +1,7 @@
 #pragma once
 #include "Game\MapPart.h"
 #include "Graphics\LochFalleVisual.h"
+#include "Graphics\MapWallVisual.h"
 class Level1Part3 :
 	public MapPart
 {
