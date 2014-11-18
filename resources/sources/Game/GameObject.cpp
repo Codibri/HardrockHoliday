@@ -1,5 +1,11 @@
 
-//by Alexander Weiﬂ, 2014
+/*by Alexander Weiﬂ, 2014
+ _____           _ _ _          _ 
+/  __ \         | (_) |        (_)
+| /  \/ ___   __| |_| |__  _ __ _ 
+| |    / _ \ / _` | | '_ \| '__| |
+| \__/\ (_) | (_| | | |_) | |  | |
+ \____/\___/ \__,_|_|_.__/|_|  |_|*/
 
 #include "Game\GameObject.h"
 
@@ -13,9 +19,7 @@ GameObject::~GameObject()
 
 
 void GameObject::update(float timeDelta, float time)
-{
-	//does nothing
-}
+{}
 
 
 Vektoria::CPlacement* GameObject::getPlacement() 
@@ -23,6 +27,8 @@ Vektoria::CPlacement* GameObject::getPlacement()
 	return &_position;
 }
 
-void GameObject::setVisual(Visual* v){
-	_visual = v;
+
+void GameObject::setVisual(Visual* visual)
+{
+	_visual = visual;
 }
