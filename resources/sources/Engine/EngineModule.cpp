@@ -18,7 +18,7 @@ EngineModule::~EngineModule()
 {}
 
 
-void EngineModule::preUpdate(float deltaTime, float time)
+void EngineModule::preUpdate()
 {}
 
 
@@ -26,5 +26,5 @@ void EngineModule::update(float deltaTime, float time)
 {}
 
 
-void EngineModule::postUpdate(float deltaTime, float time)
+void EngineModule::postUpdate()
 {}
