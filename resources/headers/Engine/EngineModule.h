@@ -20,13 +20,13 @@ public:
 	virtual ~EngineModule();
 
 	// this method is called each game cycle by the Engine at any time before the update methode is called
-	virtual void preUpdate();
+	virtual void preUpdate(float deltaTime, float time);
 
 	// this method is called each game cycle by the Engine at any time after the preUpdate method has been called but before postUpdate is called
 	virtual void update(float deltaTime, float time);
 
 	// this method is called each game cycle by the Engine at any time after the update method has been called
-	virtual void postUpdate();
+	virtual void postUpdate(float deltaTime, float time);
 };
 
 #endif
