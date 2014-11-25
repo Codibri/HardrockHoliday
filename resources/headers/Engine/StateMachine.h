@@ -10,12 +10,14 @@
 #ifndef STATE_MACHINE_H
 #define STATE_MACHINE_H
 
+#include <atomic>
 #include "EngineModule.h"
 #include "State.h"
-#include "Utility\DebugLog.h"
 
 
-// A StateMachine is capable of holding a number of states that it can manage. It updates a single actives State in its own update method
+// A StateMachine is capable of holding a number of states that it can manage. It updates a single actives State in its own update method.
+// NEVER call any of the StateMachines public methods from the StateMachine itself as a deadlock will occur. Use the members directly instead.
+// No class in hierachy below the StateMachine shall ever gain access to the public methods of the StateMachine as otherwise a deadlock will occur.
 class StateMachine : public EngineModule
 {
 public:
@@ -38,7 +40,7 @@ public:
 	void update(float deltaTime, float time) override;
 
 	// Is the StateMachine currently running? FALSE until startExecution has been called successfully, TRUE afterwards as long no error has occurred during any update.
-	bool isRunning() const;
+	bool isRunning();
 
 private:
 	bool activateState(const StateName& stateName);
@@ -46,6 +48,7 @@ private:
 	std::map<StateName, std::shared_ptr<State>> _states;
 	std::shared_ptr<State> _currentState;
 	bool _isRunning;
+	std::atomic_flag _lock_machine;
 };
 
 #endif

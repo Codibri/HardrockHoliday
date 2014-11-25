@@ -11,7 +11,9 @@
 
 
 StateMachine::StateMachine() : EngineModule(), _currentState(nullptr), _isRunning(false)
-{}
+{
+	_lock_machine.clear();
+}
 
 
 StateMachine::~StateMachine()
@@ -20,6 +22,9 @@ StateMachine::~StateMachine()
 
 void StateMachine::startExecution(const StateName& stateName)
 {
+	while (_lock_machine.test_and_set())
+	{}
+
 	if (!_isRunning)
 	{
 		if (activateState(stateName))
@@ -27,11 +32,16 @@ void StateMachine::startExecution(const StateName& stateName)
 			_isRunning = true;
 		}
 	}
+
+	_lock_machine.clear();
 }
 
 
 void StateMachine::addState(std::shared_ptr<State> state)
 {
+	while (_lock_machine.test_and_set())
+	{}
+
 	if (!_isRunning)
 	{
 		if (state != nullptr)
@@ -47,11 +57,16 @@ void StateMachine::addState(std::shared_ptr<State> state)
 	{
 		DEBUG_OUT("Error (StateMachine): Couldn't add state as the StateMachine was already running. Initialize all states before calling startExecution(). \n")
 	}
+
+	_lock_machine.clear();
 }
 
 
 void StateMachine::update(float deltaTime, float time)
 {
+	while (_lock_machine.test_and_set())
+	{}
+
 	if (_isRunning)
 	{
 		if (_currentState != nullptr)
@@ -72,12 +87,23 @@ void StateMachine::update(float deltaTime, float time)
 	{
 		DEBUG_OUT("Error (StateMachine): StateMachine is currently not running. Call \"startExecution()\" first. \n")
 	}
+
+	_lock_machine.clear();
 }
 
 
-bool StateMachine::isRunning() const
+bool StateMachine::isRunning()
 {
-	return _isRunning;
+	bool isRunning = false;
+
+	while (_lock_machine.test_and_set())
+	{}
+
+	isRunning = _isRunning;
+
+	_lock_machine.clear();
+
+	return isRunning;
 }
 
 

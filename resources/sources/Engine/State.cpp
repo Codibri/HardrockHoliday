@@ -20,13 +20,13 @@ State::~State()
 
 void State::onActivation()
 {
-	std::cout << _stateName.c_str() << " activated. \n";
+	DEBUG_OUT(_stateName + " activated. \n")
 }
 
 
 void State::onDeactivation()
 {
-	std::cout << _stateName.c_str() << " deactivated. \n";
+	DEBUG_OUT(_stateName + " deactivated. \n")
 }
 
 

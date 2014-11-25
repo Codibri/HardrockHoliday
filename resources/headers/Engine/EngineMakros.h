@@ -14,7 +14,11 @@
 // These are makros to make coding life easier / cleaner later on.
 
 #define ENGINE Engine::getInstance()
-#define ENGINE_STATE_MACHINE static_cast<StateMachine*>(Engine::getInstance()->engineModules->access(typeid(StateMachine)))
+
+//#define MAKRO_NAME static_cast<ModuleClass*>(Engine::getInstance()->engineModules->accesPublicModule(typeid(ModuleClass)))
+
+
+#define ENGINE_STATE_MACHINE this->accessPrivateModule(typeid(StateMachine))
 
 //TODO finish these
 //#define AUDIO Engine::getInstance()->modules.

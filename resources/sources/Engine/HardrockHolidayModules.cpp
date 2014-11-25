@@ -12,8 +12,9 @@
 
 HardrockHolidayModules::HardrockHolidayModules() : EngineModules()
 {
-	initialize();
+	this->initialize();
 }
+
 
 HardrockHolidayModules::~HardrockHolidayModules()
 {}
@@ -21,7 +22,7 @@ HardrockHolidayModules::~HardrockHolidayModules()
 
 void HardrockHolidayModules::update(float deltaTime, float time)
 {
-	ENGINE_STATE_MACHINE->update(deltaTime, time);
+	this->accessPrivateModule(typeid(StateMachine))->update(deltaTime, time);
 
 	//TODO: Update the other modules for HardrockHoliday.
 
@@ -33,11 +34,9 @@ void HardrockHolidayModules::update(float deltaTime, float time)
 
 void HardrockHolidayModules::initialize()
 {
-	DEBUG_OUT("initializing")
-
 	// Initialize the StateMachine for HardrockHoliday.
 	StateMachine* stateMachine = new StateMachine();
-	this->addModule(stateMachine, typeid(StateMachine));
+	this->addPrivateModule(stateMachine, typeid(StateMachine));
 
 	std::shared_ptr<State> gameState = std::shared_ptr<State>(new GameState());
 

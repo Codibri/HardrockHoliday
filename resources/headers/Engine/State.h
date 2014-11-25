@@ -13,6 +13,7 @@
 #include <iostream>
 #include <map>
 #include <memory>
+#include "Utility\DebugLog.h"
 
 typedef std::string StateName;
 typedef std::string NextState;
