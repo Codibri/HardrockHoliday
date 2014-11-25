@@ -16,7 +16,7 @@
 #include "Utility\DebugLog.h"
 
 
-// implementation of EngineModules for the game HardrockHoliday
+// Implementation of EngineModules for the game HardrockHoliday
 class HardrockHolidayModules : public EngineModules
 {
 public:

@@ -32,13 +32,20 @@ void StateMachine::startExecution(const StateName& stateName)
 
 void StateMachine::addState(std::shared_ptr<State> state)
 {
-	if (state != nullptr)
+	if (!_isRunning)
 	{
-		_states[state->getName()] = state;
+		if (state != nullptr)
+		{
+			_states[state->getName()] = state;
+		}
+		else
+		{
+			DEBUG_OUT("Error (StateMachine): Couldn't add state as state was a nullptr. \n")
+		}
 	}
 	else
 	{
-		DEBUG_OUT("Error (StateMachine): Couldn't add state as state was a nullptr. \n")
+		DEBUG_OUT("Error (StateMachine): Couldn't add state as the StateMachine was already running. Initialize all states before calling startExecution(). \n")
 	}
 }
 

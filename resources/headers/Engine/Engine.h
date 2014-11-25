@@ -15,7 +15,7 @@
 #include "Engine\GlobalResources.h"
 
 
-// the Engine is available to all other classes as it is a singleton. It provides important core-services to many other classes through the modules it holds 
+// The Engine is available to all other classes as it is a singleton. It provides important core-services to many other classes through the modules it holds. 
 class Engine
 {
 public:

@@ -13,7 +13,7 @@
 #include "Root.h"
 #include "Graphics\Visual.h"
 
-// the GameObject is the base template for every Object that can appear in a Scene. Its designated to be inherited from 
+// The GameObject is the base template for every Object that can appear in a Scene. Its designated to be inherited from. 
 class GameObject
 {
 public:
@@ -21,10 +21,11 @@ public:
 
 	~GameObject();
 
-	// the GameObject will automatically be updated by the State it belongs to. Add all its permanently looped logic here
+	// The GameObject will automatically be updated by the State it belongs to. 
+	// Add all its permanently looped logic here.
 	virtual void update(float deltaTime, float time);
 
-	// retrieves a pointer to the placement that is used to position the GameObject
+	// Retrieves a pointer to the placement that is used to position the GameObject.
 	Vektoria::CPlacement* getPlacement();
 
 	void setVisual(Visual* v);

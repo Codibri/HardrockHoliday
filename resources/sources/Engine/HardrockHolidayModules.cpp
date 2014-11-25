@@ -23,7 +23,7 @@ void HardrockHolidayModules::update(float deltaTime, float time)
 {
 	ENGINE_STATE_MACHINE->update(deltaTime, time);
 
-	//TODO: update the other modules for HardrockHoliday
+	//TODO: Update the other modules for HardrockHoliday.
 
 	//Physics
 
@@ -35,7 +35,7 @@ void HardrockHolidayModules::initialize()
 {
 	DEBUG_OUT("initializing")
 
-	// initialize the StateMachine for HardrockHoliday
+	// Initialize the StateMachine for HardrockHoliday.
 	StateMachine* stateMachine = new StateMachine();
 	this->addModule(stateMachine, typeid(StateMachine));
 
@@ -47,7 +47,7 @@ void HardrockHolidayModules::initialize()
 
 	stateMachine->startExecution(beginningState);
 
-	//TODO: initialize the other modules for HardrockHoliday
+	//TODO: Initialize the other modules for HardrockHoliday.
 
 	//Physics
 

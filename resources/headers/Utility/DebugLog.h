@@ -15,7 +15,7 @@
 #define DEBUG_OUT(debugMessage) DebugLog::getInstance()->log(debugMessage);
 
 
-// the DebugLog is global singleton interface for easy debug messages that are only triggered on debug builds
+// The DebugLog is global singleton interface for easy debug messages that are only triggered on debug builds.
 class DebugLog
 {
 public:

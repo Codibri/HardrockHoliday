@@ -11,15 +11,22 @@
 
 
 EngineModules::EngineModules()
-{}
+{
+	_lock_modules.clear();
+}
 
 
 EngineModules::~EngineModules()
 {
+	while (_lock_modules.test_and_set())
+	{}
+
 	for (std::map<std::type_index, EngineModule*>::iterator it = _modules.begin(); it != _modules.end(); ++it)
 	{
 		delete it->second;
 	}
+
+	_lock_modules.clear();
 }
 
 
@@ -27,19 +34,27 @@ bool EngineModules::addModule(EngineModule* engineModule, std::type_index module
 {
 	bool success = false;
 
+	while (_lock_modules.test_and_set())
+	{}
+
 	if (_modules.end() == _modules.find(moduleType))
 	{
 		_modules[moduleType] = engineModule;
 		success = true;
 	}
 
+	_lock_modules.clear();
+
 	return success;
 }
 
 
-EngineModule* EngineModules::access(std::type_index moduleType) const
+EngineModule* EngineModules::access(std::type_index moduleType)
 {
 	EngineModule* module = nullptr;
+
+	while (_lock_modules.test_and_set())
+	{}
 
 	if (_modules.end() != _modules.find(moduleType))
 	{
@@ -47,8 +62,10 @@ EngineModule* EngineModules::access(std::type_index moduleType) const
 	}
 	else
 	{
-		DEBUG_OUT("Error (EngineModules): module of moduleType was not found. Returned a nullptr. \n");
+		DEBUG_OUT("Error (EngineModules): Module of moduleType was not found. Returned a nullptr. \n");
 	}
+
+	_lock_modules.clear();
 
 	return module;
 }

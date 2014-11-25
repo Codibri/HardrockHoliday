@@ -15,7 +15,7 @@
 #include "..\Utility\DebugLog.h"
 #include "Game\Scene.h"
 
-// the State is a superstate for everything that happens in the game itself. It holds the Scene, the GameObjects and everything else basically
+// The State is a superstate for everything that happens in the game itself. It holds the Scene, the GameObjects and everything else basically.
 class GameState : public State
 {
 public:

@@ -13,7 +13,7 @@
 #include "Root.h"
 
 
-// add all resources here that should be available through the engine to all objects in the program. Seldom use appreciated...
+// Add all resources here that should be available through the engine to all objects in the program. Seldom use appreciated...
 struct GlobalResources
 {
 	HWND hWnd;

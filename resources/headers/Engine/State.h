@@ -18,21 +18,22 @@ typedef std::string StateName;
 typedef std::string NextState;
 
 
-// a State is an object used by a StateMachine to represent a single active state the StateMachine holds. Its designated to be inherited from
+// A State is an object used by a StateMachine to represent a single active state the StateMachine holds. Its designated to be inherited from.
 class State
 {
 public:
 	State(const StateName& stateName);
 	
-	~State();
+	virtual ~State();
 
-	// the State will automatically be updated by the StateMachine it belongs to. Add all its permanently looped logic here
+	// The State will automatically be updated by the StateMachine it belongs to.
+	// Add all its permanently looped logic here.
 	virtual NextState update(float deltaTime, float time) = 0;
 
-	// will be called when this State is set to be the active State by the StateMachine it belongs to
+	// Will be called when this State is set to be the active State by the StateMachine it belongs to.
 	virtual void onActivation();
 
-	// will be called when another State is set to be the active State by the StateMachine it belongs to
+	// Will be called when another State is set to be the active State by the StateMachine it belongs to.
 	virtual void onDeactivation();
 
 	const StateName getName() const;
