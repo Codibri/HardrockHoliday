@@ -201,6 +201,9 @@
     <ClInclude Include="headers\Audio\SoundManager.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Engine\Keyboard.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
