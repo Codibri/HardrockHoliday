@@ -116,14 +116,13 @@
     <ClInclude Include="headers\Utility\DebugLog.h" />
     <ClInclude Include="headers\Utility\TangentCalculator.h" />
     <ClInclude Include="headers\Utility\TangentSpaceHelper.h" />
-    <ClInclude Include="Keyboard.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="headers\Audio\SoundManager.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Keyboard.cpp" />
+    <ClCompile Include="sources\Engine\Keyboard.cpp" />
     <ClCompile Include="sources\Audio\SoundManager.cpp" />
     <ClCompile Include="sources\Engine\Engine.cpp" />
     <ClCompile Include="sources\Engine\EngineModule.cpp" />
