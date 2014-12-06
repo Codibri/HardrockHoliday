@@ -2,7 +2,8 @@
 
 #include "Engine\EngineModules.h"
 
-class Keyboard : public EngineModule {
+class Keyboard : public EngineModule 
+{
 public:
 	Keyboard();
 
