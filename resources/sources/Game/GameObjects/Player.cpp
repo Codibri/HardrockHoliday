@@ -24,9 +24,9 @@ void Player::update(float deltaMillis, float time){
 
 
 	// Beispielsweise spieler noch vorne bewegen
-	_position.TranslateZDelta(-deltaMillis);
+	_position.TranslateZDelta(-deltaMillis * 0.5);
 
-	_rotationPlacement.RotateX(-time * 1.5);
+	_rotationPlacement.RotateX(-time );
 
 	// Gameobject.tick()
 	GameObject::update(deltaMillis, time);

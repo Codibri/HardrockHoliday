@@ -5,9 +5,8 @@ Camera::Camera()
 {
 	mCamPlacement.AddCamera(&mVektoriaCamera);
 
-
-	mCamPlacement.TranslateY(0.75);
-	mCamPlacement.TranslateZDelta(2.0);
+	mCamPlacement.TranslateY(0.45);
+	mCamPlacement.TranslateZDelta(1.1);
 
 }
 
