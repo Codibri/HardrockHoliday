@@ -88,6 +88,7 @@
     <ClInclude Include="headers\Engine\GameState.h" />
     <ClInclude Include="headers\Engine\GlobalResources.h" />
     <ClInclude Include="headers\Engine\HardrockHolidayModules.h" />
+    <ClInclude Include="headers\Engine\Keyboard.h" />
     <ClInclude Include="headers\Engine\State.h" />
     <ClInclude Include="headers\Engine\StateMachine.h" />
     <ClInclude Include="headers\Engine\States.h" />
@@ -122,6 +123,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="sources\Engine\Keyboard.cpp" />
     <ClCompile Include="sources\Audio\SoundManager.cpp" />
     <ClCompile Include="sources\Engine\Engine.cpp" />
     <ClCompile Include="sources\Engine\EngineModule.cpp" />
