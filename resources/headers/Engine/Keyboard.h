@@ -14,4 +14,7 @@ public:
 	float getXPosition();
 
 	float getYPosition();
+
+private: 
+	float xPosition, yPosition;
 };
