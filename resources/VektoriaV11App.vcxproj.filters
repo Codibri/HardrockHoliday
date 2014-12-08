@@ -199,7 +199,7 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="headers\Audio\SoundManager.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -300,7 +300,7 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="sources\Audio\SoundManager.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\Audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
