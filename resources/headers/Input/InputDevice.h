@@ -26,7 +26,7 @@ public:
 	float getXPosition();
 
 	float getYPosition();
-
+	//Keyboard keyboard;
 	//Schnittstellen fuer Forcefeedback
 	void rumble(bool on, float strength);
 	void block(bool on, Direction direction);
@@ -37,7 +37,7 @@ private:
 
 	//ist Falcon angeschlossen
 	bool falcon;
-	Keyboard keyboard;
+	
 };
 
 #endif

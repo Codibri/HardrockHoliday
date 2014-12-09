@@ -7,7 +7,7 @@ InputDevice::InputDevice(CFrame* frame) : EngineModule() {
 	// Wenn keine Falcon, dann Keyboard verwenden
 	falcon = false;
 	//benutze Keyboard
-	frame->AddDeviceKeyboard(&keyboard.getDeviceKeyboard());
+	//frame->AddDeviceKeyboard(&keyboard.getDeviceKeyboard());
 	xPosition = 0.0;
 	yPosition = 0.0;
 }
@@ -18,7 +18,7 @@ InputDevice::~InputDevice() {
 
 void InputDevice::update(float deltaTime, float time) {
 	//wenn pfeiltasten grdrueckt, dann neue xPosition
-	xPosition = keyboard.getNewXPosition(xPosition);
+	//xPosition = keyboard.getNewXPosition(xPosition);
 }
 
 float InputDevice::getXPosition() {
