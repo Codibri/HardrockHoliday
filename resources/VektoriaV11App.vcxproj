@@ -40,10 +40,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)\VektoriaV11;(ProjectDir)\headers;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\VektoriaV11;(ProjectDir)\headers;$(DXSDK_DIR)\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(ProjectDir)\VektoriaV11;(ProjectDir)\sources;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)\VektoriaV11;(ProjectDir)\sources;$(DXSDK_DIR)\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(DXSDK_DIR)\Include;$(ProjectDir)\VektoriaV11;$(IncludePath);(ProjectDir)\headers\</IncludePath>
@@ -116,6 +116,19 @@
     <ClInclude Include="headers\Graphics\MapWallVisual.h" />
     <ClInclude Include="headers\Graphics\playervisual.h" />
     <ClInclude Include="headers\Graphics\Visual.h" />
+    <ClInclude Include="headers\Physics\BoxCollider.h" />
+    <ClInclude Include="headers\Physics\Callbacks.h" />
+    <ClInclude Include="headers\Physics\CLink.h" />
+    <ClInclude Include="headers\Physics\Collider.h" />
+    <ClInclude Include="headers\Physics\CPhysiX.h" />
+    <ClInclude Include="headers\Physics\OctreeX.h" />
+    <ClInclude Include="headers\Physics\PhysicsModule.h" />
+    <ClInclude Include="headers\Physics\RigidBodyOwner.h" />
+    <ClInclude Include="headers\Physics\RigidBodyX.h" />
+    <ClInclude Include="headers\Physics\SphereCollider.h" />
+    <ClInclude Include="headers\Physics\SpinLockX.h" />
+    <ClInclude Include="headers\Physics\ThreadPoolX.h" />
+    <ClInclude Include="headers\Physics\Utilities.h" />
     <ClInclude Include="headers\Resources\levelloader.h" />
     <ClInclude Include="headers\Utility\DebugLog.h" />
     <ClInclude Include="headers\Utility\TangentCalculator.h" />
@@ -160,6 +173,18 @@
     <ClCompile Include="sources\Graphics\PlayerVisual.cpp" />
     <ClCompile Include="sources\Graphics\Visual.cpp" />
     <ClCompile Include="sources\Input\InputDevice.cpp" />
+    <ClCompile Include="sources\Physics\BoxCollider.cpp" />
+    <ClCompile Include="sources\Physics\CLink.cpp" />
+    <ClCompile Include="sources\Physics\Collider.cpp" />
+    <ClCompile Include="sources\Physics\CPhysiX.cpp" />
+    <ClCompile Include="sources\Physics\OctreeX.cpp" />
+    <ClCompile Include="sources\Physics\PhysicsModule.cpp" />
+    <ClCompile Include="sources\Physics\RigidBodyOwner.cpp" />
+    <ClCompile Include="sources\Physics\RigidBodyX.cpp" />
+    <ClCompile Include="sources\Physics\SphereCollider.cpp" />
+    <ClCompile Include="sources\Physics\SpinLockX.cpp" />
+    <ClCompile Include="sources\Physics\ThreadPoolX.cpp" />
+    <ClCompile Include="sources\Physics\Utilities.cpp" />
     <ClCompile Include="sources\Resources\LevelLoader.cpp" />
     <ClCompile Include="sources\Utility\DebugLog.cpp" />
     <ClCompile Include="sources\Utility\TangentSpaceHelper.cpp" />
