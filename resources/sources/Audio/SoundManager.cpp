@@ -1,30 +1,10 @@
 #include "Audio\SoundManager.h"
 #include "Utility\DebugLog.h"
+#include "Engine\Engine.h"
 
-
-/*
-SoundManager* SoundManager::getInstance()
+SoundManager::SoundManager()
 {
-if (nullptr == instance)
-{
-DebugLog::getInstance()->log("Der Soundmanager wurde vor dem Aufruf nicht Initialisiert ('SoundManager::Init(HWND hwnd)')");
-return nullptr;
-}
-return instance;
-};
-
-void SoundManager::Init(HWND hwnd)
-{
-//instance = new SoundManager(hwnd);
-};
-
-void SoundManager::Fini()
-{
-//instance->~SoundManager();
-};
-*/
-SoundManager::SoundManager(HWND hwnd)
-{
+	HWND hwnd = Engine::getInstance()->globalResources.hWnd;
 	mBackgroundMusic.Init("GameResources\\Levels\\test.wav", hwnd);
 	mStoneRolling.Init("GameResources\\Levels\\test.wav", hwnd);
 	mStoneFalling.Init("GameResources\\Levels\\test.wav", hwnd);
