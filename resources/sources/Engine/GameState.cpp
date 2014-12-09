@@ -12,18 +12,10 @@
 
 GameState::GameState() : State("GameState"), _hwnd(Engine::getInstance()->globalResources.hWnd)
 {
-	_rootVektoria.Init(Engine::getInstance()->globalResources.splash);
-	_frameVektoria.Init(Engine::getInstance()->globalResources.hWnd);
+	_scene.init(&Engine::getInstance()->globalResources.vektoriaCoreElements.scene,
+				&Engine::getInstance()->globalResources.vektoriaCoreElements.root);
 
-
-	_rootVektoria.AddScene(&_sceneVektoria);
-
-	_scene.init(&_sceneVektoria, &_rootVektoria);
-	_scene.initViewport(&_viewportVektoria);
-
-	_rootVektoria.AddFrameHere(&_frameVektoria);
-
-	_frameVektoria.AddViewport(&_viewportVektoria);
+	_scene.initViewport(&Engine::getInstance()->globalResources.vektoriaCoreElements.frame);
 
 	_scene.loadLevel(1);
 }

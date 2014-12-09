@@ -27,14 +27,6 @@ public:
 
 private:
 	HWND _hwnd;
-
-	//Vektoria Elemente
-	Vektoria::CRoot _rootVektoria;
-	Vektoria::CFrame _frameVektoria;
-	Vektoria::CViewport _viewportVektoria;
-	//Vektoria::CCamera _cameraVektoria;
-	Vektoria::CScene _sceneVektoria;
-
 	Scene _scene;
 };
 

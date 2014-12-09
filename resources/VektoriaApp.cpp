@@ -96,8 +96,11 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 //Alexander Weiß
 	// set important references to globally accessed things
+	Engine::getInstance();
 	Engine::globalResources.hWnd = hWnd;
 	Engine::globalResources.splash = &splash;
+
+	Engine::globalResources.vektoriaCoreElements.initialize(hWnd, &splash);
 
 	ENGINE->engineModules = new HardrockHolidayModules();
 

@@ -17,9 +17,10 @@ Camera::~Camera()
 }
 
 
-void Camera::initViewPort(float camAngle, Vektoria::CViewport* viewport){
+void Camera::initViewPort(float camAngle, Vektoria::CFrame* frame){
 	mVektoriaCamera.Init(camAngle);
-	viewport->InitFull(&mVektoriaCamera);
+	mViewPort.InitFull(&mVektoriaCamera);
+	frame->AddViewport(&mViewPort);
 }
 
 
