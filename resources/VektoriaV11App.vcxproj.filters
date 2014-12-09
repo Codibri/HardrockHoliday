@@ -216,6 +216,12 @@
     <ClInclude Include="headers\Audio\SoundManager.h">
       <Filter>Headerdateien\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Engine\VektoriaCoreElements.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Input.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -330,6 +336,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="sources\Input\Input.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
