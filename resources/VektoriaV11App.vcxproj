@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp" />
     <ClCompile Include="sources\Input\Falcon.cpp" />
+    <ClCompile Include="sources\Input\Input.cpp" />
     <ClCompile Include="sources\Input\Keyboard.cpp" />
     <ClCompile Include="sources\Audio\SoundManager.cpp" />
     <ClCompile Include="sources\Engine\Engine.cpp" />
@@ -169,6 +170,7 @@
     <None Include="res\VektoriaTest.ico" />
     <None Include="shaders.hlsl" />
     <None Include="shadowmap.hlsl" />
+    <None Include="VektoriaApp.aps" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VektoriaApp.rc" />

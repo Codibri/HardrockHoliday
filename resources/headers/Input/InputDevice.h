@@ -5,13 +5,7 @@
 
 #include "Engine\EngineModules.h"
 #include "Input/Keyboard.h"
-#include "Input/Input.h"
-
-enum Direction
-{
-	Left,
-	Right
-};
+#include "Input/Falcon.h"
 
 using namespace Vektoria;
 
@@ -26,7 +20,6 @@ public:
 	float getXPosition();
 
 	float getYPosition();
-	//Keyboard keyboard;
 	//Schnittstellen fuer Forcefeedback
 	void rumble(bool on, float strength);
 	void block(bool on, Direction direction);
@@ -35,8 +28,10 @@ private:
 	float xPosition;
 	float yPosition;
 
+	Keyboard keyboard;	//SemikolonFehler kommt wenn sich Dateien gegenseitig includen
+	Falcon falcon;	//Falcon noch nicht implementiert
 	//ist Falcon angeschlossen
-	bool falcon;
+	bool useFalcon;
 	
 };
 

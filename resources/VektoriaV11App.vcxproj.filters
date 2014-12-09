@@ -335,10 +335,10 @@
     <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="sources\Input\Input.cpp">
+    <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp">
+    <ClCompile Include="sources\Input\Input.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -352,6 +352,7 @@
     <None Include="res\VektoriaTest.ico">
       <Filter>Ressourcendateien</Filter>
     </None>
+    <None Include="VektoriaApp.aps" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VektoriaApp.rc">
