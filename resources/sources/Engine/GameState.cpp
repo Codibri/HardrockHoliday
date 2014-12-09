@@ -15,7 +15,7 @@ GameState::GameState() : State("GameState"), _hwnd(Engine::getInstance()->global
 	_scene.init(&Engine::getInstance()->globalResources.vektoriaCoreElements.scene,
 				&Engine::getInstance()->globalResources.vektoriaCoreElements.root);
 
-	_scene.initViewport(&Engine::getInstance()->globalResources.vektoriaCoreElements.viewport);
+	_scene.initViewport(&Engine::getInstance()->globalResources.vektoriaCoreElements.frame);
 
 	_scene.loadLevel(1);
 }
