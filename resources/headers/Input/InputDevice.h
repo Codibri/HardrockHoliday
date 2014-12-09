@@ -6,7 +6,7 @@
 
 class InputDevice : public EngineModule {
 public:
-	InputDevice();
+	InputDevice(CFrame* frame);
 
 	virtual ~InputDevice();
 
