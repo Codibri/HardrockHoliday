@@ -1,8 +1,19 @@
-// Mareike
+// Mareike u. Flip
+
+#ifndef INPUTDEVICE_H
+#define INPUTDEVICE_H
 
 #include "Engine\EngineModules.h"
-#include "Keyboard.h"
+#include "Input/Keyboard.h"
+#include "Input/Input.h"
 
+enum Direction
+{
+	Left,
+	Right
+};
+
+using namespace Vektoria;
 
 class InputDevice : public EngineModule {
 public:
@@ -16,8 +27,17 @@ public:
 
 	float getYPosition();
 
-private:
-	float xPosition, yPosition;
+	//Schnittstellen fuer Forcefeedback
+	void rumble(bool on, float strength);
+	void block(bool on, Direction direction);
 
+private:
+	float xPosition;
+	float yPosition;
+
+	//ist Falcon angeschlossen
+	bool falcon;
 	Keyboard keyboard;
 };
+
+#endif

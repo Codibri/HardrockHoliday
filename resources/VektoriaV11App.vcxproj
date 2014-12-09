@@ -119,12 +119,14 @@
     <ClInclude Include="headers\Utility\DebugLog.h" />
     <ClInclude Include="headers\Utility\TangentCalculator.h" />
     <ClInclude Include="headers\Utility\TangentSpaceHelper.h" />
+    <ClInclude Include="headers\Input\Input.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="headers\Audio\SoundManager.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="sources\Input\Input.cpp" />
     <ClCompile Include="sources\Input\Falcon.cpp" />
     <ClCompile Include="sources\Input\Keyboard.cpp" />
     <ClCompile Include="sources\Audio\SoundManager.cpp" />

@@ -210,6 +210,9 @@
     <ClInclude Include="headers\Input\Falcon.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Input\Input.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -318,6 +321,9 @@
       <Filter>Quelldateien\Engine</Filter>
     </ClCompile>
     <ClCompile Include="sources\Input\Falcon.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\Input.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

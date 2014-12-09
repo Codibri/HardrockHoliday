@@ -1,6 +1,10 @@
-// Mareike
+// Mareike u. Flip
+
+#ifndef KEYBOARD_H
+#define KEYBOARD_H
 
 #include "root.h"
+#include "Input/Input.h"
 
 using namespace Vektoria;
 
@@ -19,3 +23,5 @@ public:
 private:
 	CDeviceKeyboard deviceKeyboard;
 };
+
+#endif
