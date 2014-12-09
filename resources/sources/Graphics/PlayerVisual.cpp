@@ -1,10 +1,14 @@
 #include "Graphics\PlayerVisual.h"
 
 
-PlayerVisual::PlayerVisual(Vektoria::CPlacement *p) : Visual(p)
+PlayerVisual::PlayerVisual(Vektoria::CPlacement* rotationPlacement, CPlacement* posPlacement) : Visual(rotationPlacement)
 {
 	loadMaterial();
 	loadMesh();
+	
+	// Kugel um halben durchmesser anheben
+	posPlacement->TranslateY(0.1);
+
 }
 
 
@@ -24,11 +28,13 @@ void PlayerVisual::loadMaterial(){
 	//mPlayerMaterial.MakeTextureBump("GameResources\\Textures\\boulder_NRM.png");
 	mPlayerMaterial.MakeTextureSpecular("GameResources\\textures\\boulder_SPEC.png");
 	mPlayerMaterial.MakeTextureGlow("GameResources\\textures\\boulder_GLOW.png");
+	mPlayerMaterial.SetShadingOff();
 }
 
 void PlayerVisual::loadMesh(){
-	mPlayerMesh.Init(0.15, &mPlayerMaterial, 12, 12);
+	mPlayerMesh.Init(0.1, &mPlayerMaterial, 12, 12);
 	_placement->AddGeo(&mPlayerMesh);
+	
 
 }
 

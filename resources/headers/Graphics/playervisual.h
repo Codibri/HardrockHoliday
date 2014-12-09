@@ -11,7 +11,7 @@ using namespace Vektoria;
 class PlayerVisual : public Visual
 {
 public:
-	PlayerVisual(Vektoria::CPlacement* p);
+	PlayerVisual(Vektoria::CPlacement* rotationPlacement, CPlacement* posPlacement);
 	~PlayerVisual();
 
 	void update(float deltaMillis, float time) override;

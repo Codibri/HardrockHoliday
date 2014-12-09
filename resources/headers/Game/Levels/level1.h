@@ -24,9 +24,15 @@ private:
 	std::unique_ptr<Level1Part3> mPart3{ new Level1Part3() };
 	std::unique_ptr<Level1Part4> mPart4{ new Level1Part4() };
 	std::unique_ptr<Level1Part5> mPart5{ new Level1Part5() };
-	void addMapParts();
+	
 
 	CParallelLight mLight1;
+	std::unique_ptr<CGeo> mSkyDome;
+	CPlacement mSkyPlacement;
+	CMaterial mSkyMaterial;
 
+
+	void addMapParts();
+	void loadSkyBox(Vektoria::CScene* scene);
 };
 
