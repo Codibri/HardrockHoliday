@@ -198,17 +198,23 @@
     <ClInclude Include="headers\Graphics\Visual.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Audio\SoundManager.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Input\Keyboard.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="headers\Input\InputDevice.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Input\Falcon.h">
+    <ClInclude Include="headers\Engine\VektoriaCoreElements.h">
       <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Falcon.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Input.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Keyboard.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Audio\SoundManager.h">
+      <Filter>Headerdateien\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -308,16 +314,22 @@
     <ClCompile Include="sources\Graphics\Visual.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="sources\Audio\SoundManager.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\Input\InputDevice.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="sources\Input\Keyboard.cpp">
       <Filter>Quelldateien\Engine</Filter>
     </ClCompile>
     <ClCompile Include="sources\Input\Falcon.cpp">
+      <Filter>Quelldateien\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\InputDevice.cpp">
+      <Filter>Quelldateien\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Audio\SoundManager.cpp">
+      <Filter>Quelldateien\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\Input.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
