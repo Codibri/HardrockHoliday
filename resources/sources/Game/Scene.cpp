@@ -27,7 +27,7 @@ void Scene::initViewport(Vektoria::CViewport* viewport){
 	mCamera.initViewPort(1.7, viewport);
 
 	//Debug
-	viewport->SetWireframeOn();
+	//viewport->SetWireframeOn();
 }
 
 

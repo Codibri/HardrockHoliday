@@ -5,8 +5,9 @@ Camera::Camera()
 {
 	mCamPlacement.AddCamera(&mVektoriaCamera);
 
-	mCamPlacement.TranslateY(0.45);
-	mCamPlacement.TranslateZDelta(1.1);
+	// Kameraabstand zur Spieler-Kugel
+	mCamPlacement.TranslateY(0.35);
+	mCamPlacement.TranslateZDelta(0.8);
 
 }
 

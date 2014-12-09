@@ -9,13 +9,20 @@ Level1::Level1()
 
 Level1::~Level1()
 {
+	
 }
 
 
 void Level1::initialize(Vektoria::CScene* scene){
-	mLight1.Init(CHVector(1, 2, 1), CColor(255, 255, 255));
+
+	// Licht
+	mLight1.Init(CHVector(0, 2, 1), CColor(255, 255, 255));
 	scene->AddParallelLight(&mLight1);
+
+	// Himmel
+	loadSkyBox(scene);
 }
+
 
 void Level1::addMapParts(){
 	this->addMapPart(mPart1.get());
@@ -23,5 +30,16 @@ void Level1::addMapParts(){
 	this->addMapPart(mPart3.get());
 	this->addMapPart(mPart4.get());
 	this->addMapPart(mPart5.get());
+}
+
+
+void Level1::loadSkyBox(Vektoria::CScene* scene){
+	CFileWavefront loader;
+	mSkyDome = std::unique_ptr<CGeo>(loader.LoadGeo("GameResources\\Levels\\level1\\sky.obj"));
+	mSkyMaterial.MakeTextureSky("GameResources\\Levels\\level1\\skybox.jpg");
+	mSkyDome->SetMaterial(&mSkyMaterial);
+	mSkyPlacement.AddGeo(mSkyDome.get());
+	mSkyPlacement.SetSky();
+	scene->AddPlacement(&mSkyPlacement);
 }
 
