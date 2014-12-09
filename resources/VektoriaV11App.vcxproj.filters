@@ -210,6 +210,9 @@
     <ClInclude Include="headers\Input\Falcon.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Engine\VektoriaCoreElements.h">
+      <Filter>Headerdateien\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -319,6 +322,9 @@
     </ClCompile>
     <ClCompile Include="sources\Input\Falcon.cpp">
       <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp">
+      <Filter>Quelldateien\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

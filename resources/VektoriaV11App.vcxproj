@@ -88,6 +88,7 @@
     <ClInclude Include="headers\Engine\GameState.h" />
     <ClInclude Include="headers\Engine\GlobalResources.h" />
     <ClInclude Include="headers\Engine\HardrockHolidayModules.h" />
+    <ClInclude Include="headers\Engine\VektoriaCoreElements.h" />
     <ClInclude Include="headers\Input\Falcon.h" />
     <ClInclude Include="headers\Input\InputDevice.h" />
     <ClInclude Include="headers\Input\Keyboard.h" />
@@ -125,6 +126,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp" />
     <ClCompile Include="sources\Input\Falcon.cpp" />
     <ClCompile Include="sources\Input\Keyboard.cpp" />
     <ClCompile Include="sources\Audio\SoundManager.cpp" />
