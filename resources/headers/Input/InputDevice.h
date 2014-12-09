@@ -1,13 +1,14 @@
 // Mareike
 
 #include "Engine\EngineModules.h"
+#include "Keyboard.h"
 
-class Keyboard : public EngineModule 
-{
+
+class InputDevice : public EngineModule {
 public:
-	Keyboard();
+	InputDevice();
 
-	virtual ~Keyboard();
+	virtual ~InputDevice();
 
 	void update(float deltaTime, float time) override;
 
@@ -15,6 +16,8 @@ public:
 
 	float getYPosition();
 
-private: 
+private:
 	float xPosition, yPosition;
+
+	Keyboard keyboard;
 };

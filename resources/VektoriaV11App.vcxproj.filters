@@ -201,7 +201,13 @@
     <ClInclude Include="headers\Audio\SoundManager.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Engine\Keyboard.h">
+    <ClInclude Include="headers\Input\Keyboard.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\InputDevice.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Falcon.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -305,8 +311,14 @@
     <ClCompile Include="sources\Audio\SoundManager.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="sources\Engine\Keyboard.cpp">
+    <ClCompile Include="sources\Input\InputDevice.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\Keyboard.cpp">
       <Filter>Quelldateien\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\Falcon.cpp">
+      <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
