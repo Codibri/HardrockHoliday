@@ -88,7 +88,9 @@
     <ClInclude Include="headers\Engine\GameState.h" />
     <ClInclude Include="headers\Engine\GlobalResources.h" />
     <ClInclude Include="headers\Engine\HardrockHolidayModules.h" />
-    <ClInclude Include="headers\Engine\Keyboard.h" />
+    <ClInclude Include="headers\Input\Falcon.h" />
+    <ClInclude Include="headers\Input\InputDevice.h" />
+    <ClInclude Include="headers\Input\Keyboard.h" />
     <ClInclude Include="headers\Engine\State.h" />
     <ClInclude Include="headers\Engine\StateMachine.h" />
     <ClInclude Include="headers\Engine\States.h" />
@@ -123,7 +125,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sources\Engine\Keyboard.cpp" />
+    <ClCompile Include="sources\Input\Falcon.cpp" />
+    <ClCompile Include="sources\Input\Keyboard.cpp" />
     <ClCompile Include="sources\Audio\SoundManager.cpp" />
     <ClCompile Include="sources\Engine\Engine.cpp" />
     <ClCompile Include="sources\Engine\EngineModule.cpp" />
@@ -152,6 +155,7 @@
     <ClCompile Include="sources\Graphics\MapWallVisual.cpp" />
     <ClCompile Include="sources\Graphics\PlayerVisual.cpp" />
     <ClCompile Include="sources\Graphics\Visual.cpp" />
+    <ClCompile Include="sources\Input\InputDevice.cpp" />
     <ClCompile Include="sources\Resources\LevelLoader.cpp" />
     <ClCompile Include="sources\Utility\DebugLog.cpp" />
     <ClCompile Include="sources\Utility\TangentSpaceHelper.cpp" />
