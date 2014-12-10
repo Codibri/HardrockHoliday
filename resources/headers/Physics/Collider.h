@@ -131,6 +131,7 @@ namespace phyX
 		float m_collisionRadius;
 		bool m_isColliding;
 		int m_physicLayer;
+		std::atomic_bool m_updateProjectionLines;
 		Vektoria::CHMat* m_mat;
 		std::set<detail::OctreeX*> m_octrees;
 		detail::SpinLockX m_responseLock;
@@ -150,7 +151,7 @@ namespace phyX
 
 		//removes octreeleave from collider
 		void RemoveFromOctree(detail::OctreeX* octree);
-
+		
 		//returns projection lines for collision calculation, be sure to delete the result when no longer needed
 		virtual Vektoria::CHVector* GetProjectionLines(Collider* otherCollider) = 0;
 

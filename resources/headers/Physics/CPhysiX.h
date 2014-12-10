@@ -153,7 +153,7 @@ namespace phyX
 		//calculates response
 		void CalcResponse(Collider* coll, Collider* coll1, Vektoria::CHVector intersection, Vektoria::CHVector collNormal);
 		//returns true if the point is inside the AABB described by the corner1 and corner2 vector
-		bool PointInsideAABB(Vektoria::CHVector boxCorner1, Vektoria::CHVector boxCorner2, Vektoria::CHVector point);
+		bool PointInsideAABB(Vektoria::CHVector& boxCorner1, Vektoria::CHVector& boxCorner2, Vektoria::CHVector& point);
 	};
 }
 

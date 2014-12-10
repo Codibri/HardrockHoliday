@@ -21,6 +21,7 @@
 #include <iostream>
 #include "Physics\CPhysiX.h"
 #include "Physics\RigidBodyOwner.h"
+#include <algorithm>
 
 #include "Physics\Utilities.h"
 
@@ -53,11 +54,8 @@ namespace phyX
 
 	void RigidBodyX::Reset()
 	{
-		m_staticDirs = { { m_isStatic, m_isStatic, m_isStatic, m_isStatic, m_isStatic, m_isStatic } };
-
-		for (auto& dir : m_links)
-			dir.clear();
-
+		m_staticDirs.assign(m_isStatic);
+		std::for_each(m_links.begin(), m_links.end(), [](std::vector<detail::CLink>& links){ links.clear(); });
 	}
 
 	void RigidBodyX::AddForce(Vektoria::CHVector force, float strength, bool constant)
@@ -67,12 +65,12 @@ namespace phyX
 
 	void RigidBodyX::AddImpulse(Vektoria::CHVector impulse, float strength, bool fromStatic)
 	{
-		m_staticDirs[1] = (impulse.x > 0.f) && fromStatic;
-		m_staticDirs[0] = (impulse.x < 0.f) && fromStatic;
-		m_staticDirs[3] = (impulse.y > 0.f) && fromStatic;
-		m_staticDirs[2] = (impulse.y < 0.f) && fromStatic;
-		m_staticDirs[5] = (impulse.z > 0.f) && fromStatic;
-		m_staticDirs[4] = (impulse.z < 0.f) && fromStatic;
+		m_staticDirs[1] = (impulse.x > detail::FLOATCOMPENSATION) && fromStatic;
+		m_staticDirs[0] = (impulse.x < -detail::FLOATCOMPENSATION) && fromStatic;
+		m_staticDirs[3] = (impulse.y > detail::FLOATCOMPENSATION) && fromStatic;
+		m_staticDirs[2] = (impulse.y < -detail::FLOATCOMPENSATION) && fromStatic;
+		m_staticDirs[5] = (impulse.z > detail::FLOATCOMPENSATION) && fromStatic;
+		m_staticDirs[4] = (impulse.z < -detail::FLOATCOMPENSATION) && fromStatic;
 		
 		m_impulse.push_back(std::make_pair(impulse.Normal(), strength));
 	}
@@ -173,13 +171,13 @@ namespace phyX
 
 	void RigidBodyX::SolveCollisions()
 	{
-		for (unsigned short dir = 0; dir < 6; ++dir)
+		for (unsigned short dir : {0, 1, 2, 3, 4, 5})
 			CorrectPosition(dir);
 	}
 
 	void RigidBodyX::ConvertResponses()
 	{
-		if (m_collider->m_collResponses.size() > 0)
+		if (!m_collider->m_collResponses.empty())
 		{
 			for (auto& respond : m_collider->m_collResponses)
 			{
@@ -194,23 +192,17 @@ namespace phyX
 	void RigidBodyX::CorrectPosition(unsigned short direction)
 	{
 		ConvertResponses();
-
-		detail::BALANCERESULT result;
-		
+	
 		for (auto& link : m_links[direction])
 		{
-			if ((result = link.Balance()) == detail::BALANCERESULT::BR_SUCCESS)
+			switch (link.Balance())
 			{
+			case detail::BALANCERESULT::BR_SUCCESS:
 				link.GetTarget()->CorrectPosition(direction);
-			}
-			else if (result == detail::BALANCERESULT::BR_SUCCESS_REVERT)
-			{
-				unsigned short oppdirection = (direction % 2 == 1) ? direction - 1 : direction + 1;
-				SetStatic(oppdirection, direction);
-				CorrectPosition(oppdirection);
-			}
-			else if (result == detail::BALANCERESULT::BR_NONE_REVERT)
-			{
+				break;
+			case detail::BALANCERESULT::BR_SUCCESS_REVERT:
+				CorrectPosition((direction % 2 == 1) ? direction - 1 : direction + 1);
+			case detail::BALANCERESULT::BR_NONE_REVERT:
 				SetStatic((direction % 2 == 1) ? direction - 1 : direction + 1, direction);
 			}
 		}
@@ -221,15 +213,12 @@ namespace phyX
 		ConvertResponses();
 
 		m_staticDirs[staticDirection] = true;
-
-		for (auto& links : m_links[linkdirektion])
-			links.GetTarget()->SetStatic(linkdirektion, staticDirection);
+		std::for_each(m_links[linkdirektion].begin(), m_links[linkdirektion].end(), [&](detail::CLink& link){link.GetTarget()->SetStatic(linkdirektion, staticDirection); });
 	}
 
 	void RigidBodyX::PostRenderUpdate_second(float fTimeDelta)
 	{
 		m_collider->PostRenderUpdate_second(fTimeDelta);
-
 		m_ownerPlacement->SetMat(m_mat);
 	}
 }

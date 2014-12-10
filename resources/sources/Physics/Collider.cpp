@@ -29,7 +29,7 @@ namespace phyX
 		: m_parent(parent), m_isStatic(isStatic), m_isTrigger(isTrigger), m_bounciness(bounciness),
 		m_physicLayer(0), m_isColliding(false), m_collisionRadius(0.f), m_projectionLinesCount(projectionLines)
 	{
-		
+		m_updateProjectionLines.store(false);
 		m_localCenter = Vektoria::CHVector(0.f, 0.f, 0.f, 0.f); // center;
 		m_localCenter.MakePoint();
 
@@ -136,16 +136,12 @@ namespace phyX
 	void Collider::PostRenderUpdate_first(Vektoria::CHMat& mat)
 	{
 		m_mat = &mat;
+		m_ghostImage.m_hasMoved = !phyX_utilties::CompareCHMat(&m_ghostImage.m_position_Last, m_mat);
 
-		if (phyX_utilties::CompareCHMat(&m_ghostImage.m_position_Last, m_mat))
-			m_ghostImage.m_hasMoved = false;
-		else
-			m_ghostImage.m_hasMoved = true;
-
+		m_updateProjectionLines.store(false);
 		m_ghostImage.m_TickColliding = false;
 		m_ghostImage.m_conterCollInLastTick = m_ghostImage.m_conterCollInTick;
 		m_ghostImage.m_conterCollInTick = std::set<Collider*>();
-
 	}
 
 	void Collider::PostRenderUpdate_second(float fTimeDelta)

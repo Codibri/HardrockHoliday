@@ -56,10 +56,13 @@ namespace phyX
 
 	Vektoria::CHVector* BoxCollider::GetProjectionLines(Collider* otherCollider)
 	{
-
-		m_projectionLines[0] = Vektoria::CHVector(*m_mat * m_normals[0]).Normal();
-		m_projectionLines[1] = Vektoria::CHVector(*m_mat * m_normals[2]).Normal();
-		m_projectionLines[2] = Vektoria::CHVector(*m_mat * m_normals[4]).Normal();
+		if (!m_updateProjectionLines)
+		{
+			m_projectionLines[0] = Vektoria::CHVector(*m_mat * m_normals[0]).Normal();
+			m_projectionLines[1] = Vektoria::CHVector(*m_mat * m_normals[2]).Normal();
+			m_projectionLines[2] = Vektoria::CHVector(*m_mat * m_normals[4]).Normal();
+			m_updateProjectionLines.store(true);
+		}
 
 		return m_projectionLines;
 	}

@@ -18,6 +18,7 @@
 ░
 ****************************************/
 
+#include <iterator>
 #include <algorithm>
 #include "Physics\Utilities.h"
 
@@ -35,7 +36,7 @@ namespace phyX
 
 	void CPhysiX::Destroy(){
 
-		this->~CPhysiX();
+		delete m_instance;
 	}
 
 	CPhysiX::CPhysiX() : m_octree(WORLDSIZE, OCTREECHILD_MIN), m_tPool(16), m_layerMatrix(2)
@@ -173,7 +174,7 @@ namespace phyX
 			
 			Vektoria::CHVector interPoint1, interPoint2;
 			
-			std::function<bool()> findNormal = [&]() -> bool {
+			auto findNormal = [&]() -> bool {
 
 				checkTemp = std::min<float>({ ((collPoints[0] - coll1Points[1]).LengthSquare()),
 												((collPoints[1] - coll1Points[0]).LengthSquare()) });
@@ -274,7 +275,7 @@ namespace phyX
 			coll1->AddCollision(coll);
 	}
 
-	bool CPhysiX::PointInsideAABB(Vektoria::CHVector boxCorner1, Vektoria::CHVector boxCorner2, Vektoria::CHVector point)
+	bool CPhysiX::PointInsideAABB(Vektoria::CHVector& boxCorner1, Vektoria::CHVector& boxCorner2, Vektoria::CHVector& point)
 	{
 		if (((point.x < boxCorner1.x) && (point.x < boxCorner2.x))
 			|| ((point.x > boxCorner1.x) && (point.x > boxCorner2.x)))
@@ -433,26 +434,26 @@ namespace phyX
 	//checks a leaf of the octree for all collisions
 	void CPhysiX::CollisionCheck(detail::OctreeX* leaf)
 	{
-		Collider *iter, *iter2;
 
 		auto colliders = leaf->GetEnclosedColliders();
-		unsigned int collider2Check = colliders->size() - 1; //last collider doesn't need to be checked because there are no further colliders
-		unsigned int colliderAmount = colliders->size();
 
-		for (unsigned int i = 0; i < collider2Check; ++i)
+		if (!colliders->empty())		//use prev because you don't need to check the last collider in vector for collision with itself
 		{
-			iter = colliders->at(i);
-
-			if (iter->IsStatic())
-				break;
-
-			for (unsigned int j = i + 1; j < colliderAmount; ++j)
+			auto collCheck_Begin = colliders->begin();
+			std::all_of(colliders->begin(), std::prev(colliders->end()), [&](Collider* coll) -> bool
 			{
-				iter2 = colliders->at(j);
+				//if the collider is static don't check anymore for collision because all further colliders are static
+				if (coll->IsStatic())
+					return FALSE;
 
-				if (CompareLayers(iter->GetCollisionLayer(), iter2->GetCollisionLayer()))
-					Intersect(iter, iter2);
-			}
+				std::for_each(++collCheck_Begin, colliders->end(), [&, coll](Collider* coll2){
+
+					if (CompareLayers(coll->GetCollisionLayer(), coll2->GetCollisionLayer()))
+						Intersect(coll, coll2);
+
+				});
+				return TRUE;
+			});
 		}
 	}
 	

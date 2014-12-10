@@ -18,6 +18,8 @@
 ░
 *****************************************/
 
+#include "Physics\CPhysiX.h"
+
 namespace phyX
 {
 	RigidBodyOwner::RigidBodyOwner(Vektoria::CPlacement* ownerPlacement, Collider* collider, float mass, bool hasGravity)
@@ -28,7 +30,7 @@ namespace phyX
 
 	RigidBodyOwner::~RigidBodyOwner()
 	{
-
+		delete m_rigidBody;
 	}
 
 	RigidBodyX* RigidBodyOwner::GetRigidBody()

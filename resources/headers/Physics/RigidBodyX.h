@@ -44,9 +44,9 @@ namespace phyX
 		RigidBodyX(Vektoria::CPlacement* ownerPlacement, Collider* collider, float mass, bool hasGravity = false);
 		~RigidBodyX();
 
-		//adds an impulse, the strength is reduces in every tick
+		//adds an impulse, the strength is reduces in every tick, fromStatic is true in case the impulse is given by a static object
 		void AddImpulse(Vektoria::CHVector impulse, float strength, bool fromStatic = false);
-		//adds a constant impulse, called force
+		//adds a constant impulse, called force, if constant is true it is added every update else it gets deleted after one update
 		void AddForce(Vektoria::CHVector force, float strength, bool constant = true);
 		//get the collider of the ridigbody
 		Collider* GetCollider();
