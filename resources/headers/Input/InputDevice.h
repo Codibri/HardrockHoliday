@@ -4,10 +4,11 @@
 #define INPUTDEVICE_H
 
 #include "Engine\EngineModules.h"
-#include "Input/Keyboard.h"
-#include "Input/Falcon.h"
+#include "Input\Keyboard.h"
+#include "Input\Falcon.h"
 
 using namespace Vektoria;
+
 
 class InputDevice : public EngineModule {
 public:
@@ -18,9 +19,9 @@ public:
 	void update(float deltaTime, float time) override;
 
 	float getXPosition();
-
 	float getYPosition();
-	//Schnittstellen fuer Forcefeedback
+
+	// Forcefeedback
 	void rumble(bool on, float strength);
 	void block(bool on, Direction direction);
 
@@ -28,11 +29,9 @@ private:
 	float xPosition;
 	float yPosition;
 
-	Keyboard keyboard;	//SemikolonFehler kommt wenn sich Dateien gegenseitig includen
-	Falcon falcon;	//Falcon noch nicht implementiert
-	//ist Falcon angeschlossen
+	Keyboard keyboard;		// SemikolonFehler kommt wenn sich Dateien gegenseitig includen
+	Falcon falcon;			
 	bool useFalcon;
-	
 };
 
 #endif
