@@ -11,7 +11,6 @@
 #define GAME_STATE_H
 
 #include "State.h"
-#include "Engine.h"
 #include "..\Utility\DebugLog.h"
 #include "Game\Scene.h"
 
@@ -26,7 +25,8 @@ public:
 	NextState update(float deltaTime, float time);
 
 private:
-	HWND _hwnd;
+	void handlePlayerAction();
+
 	Scene _scene;
 };
 

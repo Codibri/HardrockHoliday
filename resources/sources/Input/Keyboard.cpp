@@ -21,6 +21,6 @@ float Keyboard::getNewYPosition(float oldPosition) {
 	return 0.0;
 }
 
-CDeviceKeyboard Keyboard::getDeviceKeyboard() {
+CDeviceKeyboard Keyboard::getDeviceKeyboard() {	//<- kann nicht funktionieren so ;)		(Da CDeviceKeybord in diesem Falle kopiert wird. Sollte wohl ein Pointer sein)
 	return deviceKeyboard;
 }

@@ -1,11 +1,11 @@
 
 /*by Alexander Weiﬂ, 2014
-_____           _ _ _          _
+ _____           _ _ _          _ 
 /  __ \         | (_) |        (_)
-| /  \/ ___   __| |_| |__  _ __ _
+| /  \/ ___   __| |_| |__  _ __ _ 
 | |    / _ \ / _` | | '_ \| '__| |
 | \__/\ (_) | (_| | | |_) | |  | |
-\____/\___/ \__,_|_|_.__/|_|  |_|*/
+ \____/\___/ \__,_|_|_.__/|_|  |_|*/
 
 #include "Engine\VektoriaCoreElements.h"
 
@@ -24,12 +24,7 @@ void VektoriaCoreElements::initialize(HWND hWnd, Vektoria::CSplash* splash)
 
 	frame.Init(hWnd);
 
-	scene.Init();
-
 	root.AddScene(&scene);
 
 	root.AddFrameHere(&frame);
-
-
-	
 }

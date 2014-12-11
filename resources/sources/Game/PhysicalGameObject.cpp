@@ -10,7 +10,7 @@
 #include "Game\PhysicalGameObject.h"
 
 
-PhysicalGameObject::PhysicalGameObject(Vektoria::CPlacement position ) : GameObject(position)
+PhysicalGameObject::PhysicalGameObject(Vektoria::CPlacement position, phyX::Collider* collider, float mass, bool hasGravity) : GameObject(position), phyX::RigidBodyOwner(&_position, collider, mass, hasGravity)
 {}
 
 
@@ -18,10 +18,10 @@ PhysicalGameObject::~PhysicalGameObject()
 {}
 
 
-void PhysicalGameObject::onCollision(Collider* collidingObject)
+void PhysicalGameObject::onCollision(phyX::Collider* collidingObject)
 {}
 
 
-void PhysicalGameObject::duringCollision(Collider* collidingObject)
+void PhysicalGameObject::duringCollision(phyX::Collider* collidingObject)
 {}
 
