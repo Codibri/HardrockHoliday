@@ -1,7 +1,8 @@
 #pragma once
 #include "root.h"
 #include "Game\PhysicalGameObject.h"
-
+#include "Physics\SphereCollider.h"
+#include "Input\InputDevice.h"
 
 
 // Logik für Spieler ( Kugel )
@@ -15,6 +16,8 @@ public:
 	~Player();
 
 	virtual void update(float deltaMillis, float time) override;
+
+	void reactToInput();
 
 private:
 

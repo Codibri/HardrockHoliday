@@ -82,6 +82,12 @@
     <Filter Include="Quelldateien\Game\Level\Level1">
       <UniqueIdentifier>{973b1244-fa20-42c8-92f7-3a8d9e63437e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\Physics\detail">
+      <UniqueIdentifier>{3aa3c003-4b67-40df-a8e1-f28392a66788}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Physics\detail">
+      <UniqueIdentifier>{b20d02d8-1b7f-487e-85c0-8087c96f5ae3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -198,23 +204,68 @@
     <ClInclude Include="headers\Graphics\Visual.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Audio\SoundManager.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Input\Keyboard.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="headers\Input\InputDevice.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Input\Falcon.h">
+    <ClInclude Include="headers\Engine\VektoriaCoreElements.h">
       <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Falcon.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Input.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Keyboard.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Audio\SoundManager.h">
+      <Filter>Headerdateien\Audio</Filter>
     </ClInclude>
     <ClInclude Include="headers\Engine\VektoriaCoreElements.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="headers\Input\Input.h">
       <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\Callbacks.h">
+      <Filter>Headerdateien\Physics\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\CLink.h">
+      <Filter>Headerdateien\Physics\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\OctreeX.h">
+      <Filter>Headerdateien\Physics\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\SpinLockX.h">
+      <Filter>Headerdateien\Physics\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\ThreadPoolX.h">
+      <Filter>Headerdateien\Physics\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\Utilities.h">
+      <Filter>Headerdateien\Physics\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\Collider.h">
+      <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\CPhysiX.h">
+      <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\RigidBodyOwner.h">
+      <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\RigidBodyX.h">
+      <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\SphereCollider.h">
+      <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\BoxCollider.h">
+      <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\PhysicsModule.h">
+      <Filter>Headerdateien\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -314,20 +365,62 @@
     <ClCompile Include="sources\Graphics\Visual.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="sources\Audio\SoundManager.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\Input\InputDevice.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="sources\Input\Keyboard.cpp">
       <Filter>Quelldateien\Engine</Filter>
     </ClCompile>
     <ClCompile Include="sources\Input\Falcon.cpp">
+      <Filter>Quelldateien\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\InputDevice.cpp">
+      <Filter>Quelldateien\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Audio\SoundManager.cpp">
+      <Filter>Quelldateien\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp">
       <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\Input.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\CLink.cpp">
+      <Filter>Quelldateien\Physics\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\OctreeX.cpp">
+      <Filter>Quelldateien\Physics\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\SpinLockX.cpp">
+      <Filter>Quelldateien\Physics\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\ThreadPoolX.cpp">
+      <Filter>Quelldateien\Physics\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\Utilities.cpp">
+      <Filter>Quelldateien\Physics\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\BoxCollider.cpp">
+      <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\Collider.cpp">
+      <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\CPhysiX.cpp">
+      <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\RigidBodyOwner.cpp">
+      <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\RigidBodyX.cpp">
+      <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\SphereCollider.cpp">
+      <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\PhysicsModule.cpp">
+      <Filter>Quelldateien\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -340,6 +433,7 @@
     <None Include="res\VektoriaTest.ico">
       <Filter>Ressourcendateien</Filter>
     </None>
+    <None Include="VektoriaApp.aps" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VektoriaApp.rc">

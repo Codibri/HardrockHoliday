@@ -8,6 +8,7 @@
  \____/\___/ \__,_|_|_.__/|_|  |_|*/
 
 #include "Engine\HardrockHolidayModules.h"
+#include "Engine\Engine.h"
 
 
 HardrockHolidayModules::HardrockHolidayModules() : EngineModules()
@@ -22,19 +23,55 @@ HardrockHolidayModules::~HardrockHolidayModules()
 
 void HardrockHolidayModules::update(float deltaTime, float time)
 {
-	this->accessPrivateModule(typeid(StateMachine))->update(deltaTime, time);
+	EngineModule* inputDevice = this->accessPublicModule(typeid(InputDevice));
+	EngineModule* stateMachine = this->accessPrivateModule(typeid(StateMachine));
+	EngineModule* physicsModule = this->accessPublicModule(typeid(PhysicsModule));
+	EngineModule* soundManager = this->accessPublicModule(typeid(SoundManager));
 
-	//TODO: Update the other modules for HardrockHoliday.
+	// Pre-Updates
+	if (inputDevice) { inputDevice->preUpdate(deltaTime, time); }
 
-	//Physics
+	if (stateMachine){ stateMachine->preUpdate(deltaTime, time); }
 
-	//Audio etc..
+	if (physicsModule){ physicsModule->preUpdate(deltaTime, time); }
+
+	if (soundManager){ soundManager->preUpdate(deltaTime, time); }
+
+	// Updates
+	if (inputDevice) { inputDevice->update(deltaTime, time); }
+
+	if (stateMachine){ stateMachine->update(deltaTime, time); }
+
+	if (physicsModule){ physicsModule->update(deltaTime, time); }
+
+	if (soundManager){ soundManager->update(deltaTime, time); }
+
+	// Post-Updates
+	if (inputDevice) { inputDevice->postUpdate(deltaTime, time); }
+
+	if (stateMachine){ stateMachine->postUpdate(deltaTime, time); }
+
+	if (physicsModule){ physicsModule->postUpdate(deltaTime, time); }
+
+	if (soundManager){ soundManager->postUpdate(deltaTime, time); }
 }
 
 
 void HardrockHolidayModules::initialize()
 {
-	// Initialize the StateMachine for HardrockHoliday.
+	PhysicsModule* physicsModule = new PhysicsModule();
+	this->addPublicModule(physicsModule, typeid(PhysicsModule));
+
+
+	SoundManager* soundManager = new SoundManager();
+	//TODO: Request to have SoundManager inherit publicly
+	//this->addPublicModule(soundManager, typeid(SoundManager)); 
+
+
+	InputDevice* inputDevice = new InputDevice(&Engine::globalResources.vektoriaCoreElements.frame);
+	this->addPublicModule(inputDevice, typeid(InputDevice));
+
+
 	StateMachine* stateMachine = new StateMachine();
 	this->addPrivateModule(stateMachine, typeid(StateMachine));
 
@@ -45,10 +82,4 @@ void HardrockHolidayModules::initialize()
 	stateMachine->addState(std::move(gameState));
 
 	stateMachine->startExecution(beginningState);
-
-	//TODO: Initialize the other modules for HardrockHoliday.
-
-	//Physics
-
-	//Audio etc..
 }

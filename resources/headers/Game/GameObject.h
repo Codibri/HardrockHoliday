@@ -28,7 +28,7 @@ public:
 	// Retrieves a pointer to the placement that is used to position the GameObject.
 	Vektoria::CPlacement* getPlacement();
 
-	void setVisual(Visual* v);
+	void setVisual(Visual* visual);
 
 protected:
 	Vektoria::CPlacement _position;

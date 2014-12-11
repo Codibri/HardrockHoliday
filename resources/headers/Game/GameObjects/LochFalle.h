@@ -1,6 +1,8 @@
 #pragma once
 #include "root.h"
 #include "Game\PhysicalGameObject.h"
+#include "Physics\BoxCollider.h"
+
 // Logik für Lochfallen
 
 class LochFalle : public PhysicalGameObject

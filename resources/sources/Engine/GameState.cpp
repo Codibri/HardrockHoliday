@@ -8,9 +8,10 @@
  \____/\___/ \__,_|_|_.__/|_|  |_|*/
 
 #include "Engine\GameState.h"
+#include "Engine\Engine.h"
 
 
-GameState::GameState() : State("GameState"), _hwnd(Engine::getInstance()->globalResources.hWnd)
+GameState::GameState() : State("GameState")
 {
 	_scene.init(&Engine::getInstance()->globalResources.vektoriaCoreElements.scene,
 				&Engine::getInstance()->globalResources.vektoriaCoreElements.root);
@@ -29,9 +30,10 @@ NextState GameState::update(float deltaTime, float time)
 {
 	_scene.tick(deltaTime, time);
 
-	std::string debugMSG = "Updated " + _stateName;
-	DEBUG_OUT(debugMSG)
 
 	return _stateName;
 }
+
+
+
 

@@ -2,6 +2,7 @@
 
 #include "root.h"
 #include "Game\PhysicalGameObject.h"
+#include "Physics\BoxCollider.h"
 
 // Logik für Wand als Map Grenze
 
