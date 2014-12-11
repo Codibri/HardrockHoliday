@@ -4,13 +4,14 @@
 
 Level1Part1::Level1Part1() : MapPart(1)
 {
-	loadMesh("GameResources\\Levels\\level1\\part1\\part.obj");
+	loadMesh("GameResources\\Levels\\level1\\part1\\level1_part1.obj");
 
 	loadMaterial();
 
 	initGameObjects();
 
 }
+
 
 Level1Part1::~Level1Part1()
 {
