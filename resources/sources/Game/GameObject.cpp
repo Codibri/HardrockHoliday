@@ -10,7 +10,7 @@
 #include "Game\GameObject.h"
 
 
-GameObject::GameObject(Vektoria::CPlacement position) : _position(position), _geometry(nullptr)
+GameObject::GameObject(Vektoria::CPlacement position, const std::string& name) : _position(position), _geometry(nullptr), _name(name)
 {}
 
 
@@ -31,4 +31,10 @@ Vektoria::CPlacement* GameObject::getPlacement()
 void GameObject::setVisual(Visual* visual)
 {
 	_visual = visual;
+}
+
+
+const std::string GameObject::getName() const
+{
+	return _name;
 }

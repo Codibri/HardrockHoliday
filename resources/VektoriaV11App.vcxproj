@@ -89,6 +89,8 @@
     <ClInclude Include="headers\Engine\GlobalResources.h" />
     <ClInclude Include="headers\Engine\HardrockHolidayModules.h" />
     <ClInclude Include="headers\Engine\VektoriaCoreElements.h" />
+    <ClInclude Include="headers\Game\GameObjectPrototypes.h" />
+    <ClInclude Include="headers\Game\GameObjects\Ground.h" />
     <ClInclude Include="headers\Input\Falcon.h" />
     <ClInclude Include="headers\Input\InputDevice.h" />
     <ClInclude Include="headers\Input\Keyboard.h" />
@@ -110,7 +112,6 @@
     <ClInclude Include="headers\Game\MapPart.h" />
     <ClInclude Include="headers\Game\MapPartManager.h" />
     <ClInclude Include="headers\Game\PhysicalGameObject.h" />
-    <ClInclude Include="headers\Game\Player.h" />
     <ClInclude Include="headers\Game\Scene.h" />
     <ClInclude Include="headers\Graphics\LochFalleVisual.h" />
     <ClInclude Include="headers\Graphics\MapWallVisual.h" />
@@ -141,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp" />
+    <ClCompile Include="sources\Game\GameObjects\Ground.cpp" />
     <ClCompile Include="sources\Input\Falcon.cpp" />
     <ClCompile Include="sources\Input\Input.cpp" />
     <ClCompile Include="sources\Input\Keyboard.cpp" />

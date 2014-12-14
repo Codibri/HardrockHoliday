@@ -9,6 +9,7 @@
 
 #include "Engine\GameState.h"
 #include "Engine\Engine.h"
+#include "Audio\SoundManager.h"
 
 
 GameState::GameState() : State("GameState")
@@ -19,6 +20,8 @@ GameState::GameState() : State("GameState")
 	_scene.initViewport(&Engine::getInstance()->globalResources.vektoriaCoreElements.frame);
 
 	_scene.loadLevel(1);
+
+	//SoundManager* soundManager = ENGINE_SOUND_MANAGER; // play background music
 }
 
 
@@ -28,10 +31,12 @@ GameState::~GameState()
 
 NextState GameState::update(float deltaTime, float time)
 {
+	NextState nextState = _stateName;
+
 	_scene.tick(deltaTime, time);
 
 
-	return _stateName;
+	return nextState;
 }
 
 

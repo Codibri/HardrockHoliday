@@ -18,5 +18,8 @@ public:
 	~MapWall();
 
 	// wird vom Level aufgerufen wenn zugehöriger Mappart aktiv
-	virtual void update(float deltaTime, float time) override;
+	void update(float deltaTime, float time) override;
+
+	// This will be called once after collision with another collider.
+	void onCollision(phyX::RigidBodyOwner* other, float timeDelta) override;
 };

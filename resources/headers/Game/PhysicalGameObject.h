@@ -12,21 +12,23 @@
 
 #include "Game\GameObject.h"
 #include "Physics\RigidBodyOwner.h"
+#include "Physics\Utilities.h"
+#include "Physics\Collider.h"
 
 
 // A PhysicalGameObject represents a base template for every object in a Scene that will use a physical collision service of some kind. Its designated to be inherited from.
 class PhysicalGameObject : public GameObject, public phyX::RigidBodyOwner
 {
 public:
-	PhysicalGameObject(Vektoria::CPlacement position, phyX::Collider* collider, float mass, bool hasGravity);
+	PhysicalGameObject(Vektoria::CPlacement position, const std::string& name, phyX::Collider* collider, float mass, bool hasGravity);
 
 	~PhysicalGameObject();
 
 	// This will be called once after collision with another collider.
-	virtual void onCollision(phyX::Collider* otherCollider);
+	virtual void onCollision(phyX::RigidBodyOwner* other, float timeDelta);
 
 	// This will be called during collision with another collider.
-	virtual void duringCollision(phyX::Collider* otherCollider);
+	virtual void duringCollision(phyX::RigidBodyOwner* other, float timeDelta);
 };
 
 #endif

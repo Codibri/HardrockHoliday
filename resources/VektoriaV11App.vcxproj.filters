@@ -135,9 +135,6 @@
     <ClInclude Include="headers\Game\Scene.h">
       <Filter>Headerdateien\Game</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Game\Player.h">
-      <Filter>Headerdateien\Game\GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="headers\Game\MapPartManager.h">
       <Filter>Headerdateien\Game</Filter>
     </ClInclude>
@@ -266,6 +263,12 @@
     </ClInclude>
     <ClInclude Include="headers\Physics\PhysicsModule.h">
       <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\GameObjects\Ground.h">
+      <Filter>Headerdateien\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\GameObjectPrototypes.h">
+      <Filter>Headerdateien\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -421,6 +424,9 @@
     </ClCompile>
     <ClCompile Include="sources\Physics\PhysicsModule.cpp">
       <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\GameObjects\Ground.cpp">
+      <Filter>Quelldateien\Game\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

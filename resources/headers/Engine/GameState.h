@@ -25,8 +25,6 @@ public:
 	NextState update(float deltaTime, float time);
 
 private:
-	void handlePlayerAction();
-
 	Scene _scene;
 };
 

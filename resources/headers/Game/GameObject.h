@@ -17,7 +17,7 @@
 class GameObject
 {
 public:
-	GameObject(Vektoria::CPlacement position);
+	GameObject(Vektoria::CPlacement position, const std::string& name);
 
 	~GameObject();
 
@@ -30,10 +30,13 @@ public:
 
 	void setVisual(Visual* visual);
 
+	const std::string getName() const;
+
 protected:
 	Vektoria::CPlacement _position;
 	Vektoria::CGeo* _geometry;
 	Visual* _visual;
+	std::string _name;
 };
 
 #endif
