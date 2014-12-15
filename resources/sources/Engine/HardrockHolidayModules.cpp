@@ -74,6 +74,12 @@ void HardrockHolidayModules::initialize()
 
 	StateMachine* stateMachine = new StateMachine();
 	this->addPrivateModule(stateMachine, typeid(StateMachine));
+}
+
+
+void HardrockHolidayModules::run()
+{
+	StateMachine* stateMachine = static_cast<StateMachine*>(this->accessPrivateModule(typeid(StateMachine)));
 
 	std::shared_ptr<State> gameState = std::shared_ptr<State>(new GameState());
 

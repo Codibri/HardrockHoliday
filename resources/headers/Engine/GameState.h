@@ -25,7 +25,7 @@ public:
 	NextState update(float deltaTime, float time);
 
 private:
-	Scene _scene;
+	Scene _scene; // TODO: use a clean HardrockHoliday-GameState instead
 };
 
 #endif

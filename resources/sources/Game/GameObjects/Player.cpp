@@ -4,17 +4,24 @@
 #include "Engine\Engine.h"
 
 
-Player::Player() : PhysicalGameObject(Vektoria::CPlacement(), "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, false), _alive(true)
+Player::Player() : PhysicalGameObject(Vektoria::CPlacement(), "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, true), _alive(true)
 {
-	_position.AddPlacement(&_rotation);
-	_visual = new PlayerVisual(&_rotation, &_position);
+	this->initialize();
 }
 
 
-Player::Player(Vektoria::CPlacement position) : PhysicalGameObject(position, "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, false), _alive(true)
+Player::Player(Vektoria::CPlacement position) : PhysicalGameObject(position, "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, true), _alive(true)
+{
+	this->initialize();
+}
+
+
+void Player::initialize()
 {
 	_position.AddPlacement(&_rotation);
 	_visual = new PlayerVisual(&_rotation, &_position);
+
+	this->GetRigidBody()->GetCollider()->SetLayer(_name);
 }
 
 
@@ -34,7 +41,7 @@ void Player::reactToInput()
 {
 	InputDevice* inputDevice = ENGINE_INPUT_DEVICE;
 
-	if (inputDevice)
+	if (inputDevice && this->isAlive())
 	{
 		float x = inputDevice->getXPosition();
 		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(1, 0, 0), -0.5, false);
@@ -52,16 +59,10 @@ void Player::onCollision(phyX::RigidBodyOwner* other, float timeDelta)
 {
 	std::string name = std::type_index(typeid(*other)).name();
 
-	// Collision with wall
-	if (std::type_index(typeid(MapWall)).name() == name)
+	if (std::type_index(typeid(LochFalle)).name() == name) 
 	{
-		std::cout << "hit wall" << std::endl;
-	}
-
-	// Collision with trap
-	else if (std::type_index(typeid(LochFalle)).name() == name)
-	{
-		std::cout << "hit trap" << std::endl;
+		this->GetRigidBody()->GetCollider()->SetLayer("PitGround");
+		_alive = false;
 	}
 }
 

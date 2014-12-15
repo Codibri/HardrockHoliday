@@ -102,7 +102,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 	Engine::globalResources.vektoriaCoreElements.initialize(hWnd, &splash);
 
-	ENGINE->engineModules = new HardrockHolidayModules();
+	HardrockHolidayModules* modules = new HardrockHolidayModules();
+	ENGINE->engineModules = modules;
+
+	modules->run();
 
 	// allocate a standard windows console for debug purposes
 	#ifdef _DEBUG
