@@ -39,6 +39,7 @@ void Level1::loadSkyBox(Vektoria::CScene* scene){
 	mSkyMaterial.MakeTextureSky("GameResources\\Levels\\level1\\skybox.jpg");
 	mSkyDome->SetMaterial(&mSkyMaterial);
 	mSkyPlacement.AddGeo(mSkyDome.get());
+	mSkyPlacement.TranslateY(-1.0);
 	mSkyPlacement.SetSky();
 	scene->AddPlacement(&mSkyPlacement);
 }

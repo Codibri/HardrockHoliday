@@ -19,19 +19,22 @@ Level1Part5::~Level1Part5()
 
 void Level1Part5::loadMaterial(){
 	mGroundMaterial.MakeTextureImage("GameResources\\Levels\\level1\\part5\\part_COLOR.png");
-	mGroundMaterial.MakeTextureGlow("GameResources\\Levels\\level1\\part5\\part_GLOW.png");
+	//mGroundMaterial.MakeTextureGlow("GameResources\\Levels\\level1\\part5\\part_GLOW.png");
+	mGroundMaterial.MakeTextureSpecular("GameResources\\Textures\\black_image.jpg");
+	mGroundMaterial.SetShadingOff();
 	mGroundMesh->SetMaterial(&mGroundMaterial);
 }
 
 
 void Level1Part5::initGameObjects(){
 
-	auto falle1 = new LochFalle(Vektoria::CHVector(1.0, 0.5, 1.0));
-	falle1->getPlacement()->Translate(0, 0, -3);
-	addGameObject(falle1);
+	// Wände
+	auto wallLeft = new MapWall(Vektoria::CHVector(2.0, 0.5, 8.0));
+	wallLeft->getPlacement()->Translate(-2.6, 0.25, 0.0);
+	addGameObject(wallLeft);
 
-	auto falle2 = new LochFalle(Vektoria::CHVector(1.0, 0.5, 1.0));
-	falle2->getPlacement()->Translate(0, 0, -6);
-	addGameObject(falle2);
+	auto wallRight = new MapWall(Vektoria::CHVector(2.0, 0.5, 8.0));
+	wallRight->getPlacement()->Translate(2.6, 0.25, 0.0);
+	addGameObject(wallRight);
 
 }

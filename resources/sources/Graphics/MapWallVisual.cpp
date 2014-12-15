@@ -5,7 +5,7 @@ MapWallVisual::MapWallVisual(Vektoria::CHVector boxColliderSize, Vektoria::CPlac
 	: Visual(p)
 {
 
-	//mCubeMaterial.SetTransparencyOn();
+	mCubeMaterial.SetTransparencyOn();
 	mCubeMaterial.MakeTextureImage("GameResources\\Levels\\level1\\collidervisualwall_COLOR.png");
 	//mCubeMaterial.SetShadingOff();
 	//boxColliderSize *= 0.5;
