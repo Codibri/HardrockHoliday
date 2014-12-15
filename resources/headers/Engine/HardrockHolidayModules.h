@@ -28,11 +28,12 @@ public:
 
 	~HardrockHolidayModules();
 
+	void run();
+
 protected:
 	void update(float deltaTime, float time) override;
 
 	void initialize() override;
-
 };
 
 #endif

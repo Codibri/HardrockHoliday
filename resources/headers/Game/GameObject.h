@@ -19,7 +19,7 @@ class GameObject
 public:
 	GameObject(Vektoria::CPlacement position, const std::string& name);
 
-	~GameObject();
+	virtual ~GameObject();
 
 	// The GameObject will automatically be updated by the State it belongs to. 
 	// Add all its permanently looped logic here.
@@ -31,6 +31,7 @@ public:
 	void setVisual(Visual* visual);
 
 	const std::string getName() const;
+	void setName(const std::string& name);
 
 protected:
 	Vektoria::CPlacement _position;

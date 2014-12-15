@@ -29,6 +29,8 @@ public:
 	bool isAlive() const;
 
 protected:
+	void initialize();
+
 	Vektoria::CPlacement _rotation;
 	bool _alive;
 };

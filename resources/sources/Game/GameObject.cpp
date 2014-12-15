@@ -15,14 +15,23 @@ GameObject::GameObject(Vektoria::CPlacement position, const std::string& name) :
 
 
 GameObject::~GameObject()
-{}
+{
+	if (_visual)
+	{
+		delete _visual;
+	}
+	if (_geometry)
+	{
+		delete _geometry;
+	}
+}
 
 
 void GameObject::update(float timeDelta, float time)
 {}
 
 
-Vektoria::CPlacement* GameObject::getPlacement() 
+Vektoria::CPlacement* GameObject::getPlacement()
 {
 	return &_position;
 }
@@ -37,4 +46,10 @@ void GameObject::setVisual(Visual* visual)
 const std::string GameObject::getName() const
 {
 	return _name;
+}
+
+
+void GameObject::setName(const std::string& name)
+{
+	_name = name;
 }

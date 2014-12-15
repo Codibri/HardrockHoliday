@@ -1,4 +1,6 @@
 #include "Game\Levels\Level1Part1.h"
+#include "Engine\EngineMakros.h"
+#include "Engine\Engine.h"
 
 
 
@@ -28,6 +30,24 @@ void Level1Part1::loadMaterial(){
 
 
 void Level1Part1::initGameObjects(){
+
+	// Boden
+	auto normalGround = new Ground(Vektoria::CHVector(2, 2.0, 25));
+	normalGround->setName("NormalGround");
+	normalGround->GetRigidBody()->GetCollider()->SetLayer(normalGround->getName());
+	normalGround->getPlacement()->Translate(0, -2.0, 0);
+	addGameObject(normalGround);
+
+	auto pitGround = new Ground(Vektoria::CHVector(2, 2.0, 25));
+	pitGround->setName("PitGround");
+	pitGround->GetRigidBody()->GetCollider()->SetLayer(pitGround->getName());
+	pitGround->getPlacement()->Translate(0, -2.5, 0);
+	addGameObject(pitGround);
+
+	PhysicsModule* physicsModule = ENGINE_PHYSICS;
+	physicsModule->SetLayerProperty("NormalGround", "PitGround", false);
+	physicsModule->SetLayerProperty("Player", "NormaleGround", true);
+	physicsModule->SetLayerProperty("Player", "PitGround", false);
 
 	// Löcher
 	auto falle1 = new LochFalle(Vektoria::CHVector(0.25, 1.0, 0.5));
