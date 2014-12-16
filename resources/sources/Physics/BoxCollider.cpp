@@ -28,7 +28,7 @@ namespace phyX
 	BoxCollider::BoxCollider(RigidBodyOwner* parent, Vektoria::CHVector size, float bounciness, bool isStatic, bool isTrigger) : Collider(parent, 3, bounciness, isStatic, isTrigger),
 		m_cornerIndex({ { 4, 0, 3, 7, 1, 5, 6, 2, 5, 4, 0, 1, 3, 2, 6, 7, 5, 4, 7, 6, 0, 1, 2, 3 } })
 	{
-		size *= 0.5f
+		size *= 0.5f;
 		m_collisionRadius = size.Length();
 
 		m_corners[0] = Vektoria::CHVector(-size.x, -size.y, -size.z, 0.0f);

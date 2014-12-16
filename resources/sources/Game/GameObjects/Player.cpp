@@ -4,13 +4,13 @@
 #include "Engine\Engine.h"
 
 
-Player::Player() : PhysicalGameObject(Vektoria::CPlacement(), "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, true), _alive(true)
+Player::Player() : PhysicalGameObject(Vektoria::CPlacement(), "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, false), _alive(true)
 {
 	this->initialize();
 }
 
 
-Player::Player(Vektoria::CPlacement position) : PhysicalGameObject(position, "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, true), _alive(true)
+Player::Player(Vektoria::CPlacement position) : PhysicalGameObject(position, "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, false), _alive(true)
 {
 	this->initialize();
 }
@@ -44,7 +44,7 @@ void Player::reactToInput()
 	if (inputDevice && this->isAlive())
 	{
 		float x = inputDevice->getXPosition();
-		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(1, 0, 0), -0.5, false);
+		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(1, 0, 0), x, false);
 
 		float y = inputDevice->getYPosition();
 		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), -0.5, false);

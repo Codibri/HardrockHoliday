@@ -12,7 +12,7 @@ InputDevice::InputDevice(CFrame* frame) : EngineModule() {
 		//TODO benutze Falcon
 	}
 	else if (!useFalcon) {
-		frame->AddDeviceKeyboard(&keyboard.getDeviceKeyboard());
+		frame->AddDeviceKeyboard(keyboard.getDeviceKeyboard());
 		xPosition = 0.0;
 		yPosition = 0.0;
 	}
