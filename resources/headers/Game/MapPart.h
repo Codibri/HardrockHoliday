@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include <memory>
 
+#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 
 class MapPart
 {
@@ -33,5 +34,14 @@ protected:
 
 	void loadMesh(std::string objFilePath);
 	void addGameObject(GameObject* obj);
+
+	static Vektoria::CHVector scaleFromBlender(float x, float y, float z){
+		Vektoria::CHVector result(x * 2.0, z * 2.0, y * 2.0);
+		return result;
+	}
+
+	static Vektoria::CHVector locationFromBlender(float x, float y, float z){
+		return Vektoria::CHVector(x, z, -y);
+	}
 };
 

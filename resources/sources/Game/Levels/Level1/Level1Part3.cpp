@@ -27,16 +27,13 @@ void Level1Part3::loadMaterial(){
 
 void Level1Part3::initGameObjects(){
 
-	
-	
-	
 	// Wände
-	auto wallLeft = new MapWall(Vektoria::CHVector(2.0, 0.5, 8.0));
-	wallLeft->getPlacement()->Translate(-2.6, 0.25, 0.0);
+	auto wallLeft = new MapWall(Vektoria::CHVector(1.0, 0.5, 8.0));
+	wallLeft->getPlacement()->Translate(-1.1, 0.25, -4.0);
 	addGameObject(wallLeft);
 
-	auto wallRight = new MapWall(Vektoria::CHVector(2.0, 0.5, 8.0));
-	wallRight->getPlacement()->Translate(2.6, 0.25, 0.0);
+	auto wallRight = new MapWall(Vektoria::CHVector(1.0, 0.5, 8.0));
+	wallRight->getPlacement()->Translate(1.1, 0.25, -4.0);
 	addGameObject(wallRight);
 
 }

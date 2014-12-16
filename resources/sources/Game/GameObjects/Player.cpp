@@ -31,14 +31,18 @@ Player::~Player()
 
 void Player::update(float deltaMillis, float time)
 {
-	this->reactToInput();
+	_position.TranslateZ(-time * 2.5);
 
-	PhysicalGameObject::update(deltaMillis, time);
+	//this->reactToInput();
+
+    //PhysicalGameObject::update(deltaMillis, time);
 }
 
 
 void Player::reactToInput()
 {
+	
+	
 	InputDevice* inputDevice = ENGINE_INPUT_DEVICE;
 
 	if (inputDevice && this->isAlive())
@@ -49,7 +53,7 @@ void Player::reactToInput()
 		float y = inputDevice->getYPosition();
 		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), -0.5, false);
 	}
-
+	
 	// TODO: Spieler abhängig von Bewegungsrichtung rotieren
 	//_rotationPlacement.RotateX(-1 * 1.5);
 }

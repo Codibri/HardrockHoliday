@@ -26,18 +26,23 @@ void Level1Part2::loadMaterial(){
 
 
 void Level1Part2::initGameObjects(){
-
-	auto falle1 = new LochFalle(Vektoria::CHVector(1.0, 1.0, 1.0));
-	falle1->getPlacement()->Translate(0, 0, 0);
-	this->addGameObject(falle1);
-
 	// Wände
-	auto wallLeft = new MapWall(Vektoria::CHVector(2.0, 0.5, 8.0));
-	wallLeft->getPlacement()->Translate(-2.6, 0.25, 0.0);
-	addGameObject(wallLeft);
+	auto wall1 = new MapWall(scaleFromBlender(0.143, 0.143, 0.143));
+	wall1->getPlacement()->RotateY(DEGREES_TO_RADIANS(46.332));
+	wall1->getPlacement()->TranslateDelta(locationFromBlender(0, 0.46861, 0.08028));
+	addGameObject(wall1);
 
-	auto wallRight = new MapWall(Vektoria::CHVector(2.0, 0.5, 8.0));
-	wallRight->getPlacement()->Translate(2.6, 0.25, 0.0);
-	addGameObject(wallRight);
+	auto wall2 = new MapWall(scaleFromBlender(0.207, 0.667, 0.207));
+	wall2->getPlacement()->TranslateDelta(locationFromBlender(0, 1.15952, 0.0));
+	addGameObject(wall2);
 
+	auto wall3 = new MapWall(scaleFromBlender(0.131, 0.555, 0.159));
+	wall3->getPlacement()->TranslateDelta(locationFromBlender(0.0, 2.00814, 0.0));
+	addGameObject(wall3);
+
+
+	//Löcher
+	auto trap1 = new MapWall(scaleFromBlender(0.091, 0.555, 0.159));
+	trap1->getPlacement()->TranslateDelta(locationFromBlender(0.0, 2.00814, 0.0));
+	addGameObject(trap1);
 }
