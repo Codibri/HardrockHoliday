@@ -4,13 +4,13 @@
 #include "Engine\Engine.h"
 
 
-Player::Player() : PhysicalGameObject(Vektoria::CPlacement(), "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, true), _alive(true)
+Player::Player() : PhysicalGameObject(Vektoria::CPlacement(), "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, false), _alive(true)
 {
 	this->initialize();
 }
 
 
-Player::Player(Vektoria::CPlacement position) : PhysicalGameObject(position, "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, true), _alive(true)
+Player::Player(Vektoria::CPlacement position) : PhysicalGameObject(position, "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, false), _alive(true)
 {
 	this->initialize();
 }
@@ -31,11 +31,11 @@ Player::~Player()
 
 void Player::update(float deltaMillis, float time)
 {
-	_position.TranslateZ(-time * 2.5);
+	//_position.TranslateZ(-time * 2.5);
 
-	//this->reactToInput();
+	this->reactToInput();
 
-    //PhysicalGameObject::update(deltaMillis, time);
+    PhysicalGameObject::update(deltaMillis, time);
 }
 
 
@@ -48,7 +48,10 @@ void Player::reactToInput()
 	if (inputDevice && this->isAlive())
 	{
 		float x = inputDevice->getXPosition();
-		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(1, 0, 0), -0.5, false);
+		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(1, 0, 0), x, false);
+		if (x != 0){
+			std::cout << "";
+		}
 
 		float y = inputDevice->getYPosition();
 		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), -0.5, false);
@@ -66,7 +69,8 @@ void Player::onCollision(phyX::RigidBodyOwner* other, float timeDelta)
 	if (std::type_index(typeid(LochFalle)).name() == name) 
 	{
 		this->GetRigidBody()->GetCollider()->SetLayer("PitGround");
-		_alive = false;
+		
+		//_alive = false;
 	}
 }
 

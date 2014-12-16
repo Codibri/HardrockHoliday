@@ -17,7 +17,7 @@ public:
 	float getNewXPosition(float oldPosition);
 	float getNewYPosition(float oldPosition);
 
-	CDeviceKeyboard getDeviceKeyboard();
+	CDeviceKeyboard* getDeviceKeyboard();
 
 private:
 	CDeviceKeyboard deviceKeyboard;
