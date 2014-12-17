@@ -25,6 +25,8 @@ public:
 	Vektoria::CRoot root;
 	Vektoria::CFrame frame;
 	Vektoria::CScene scene;
+
+	Vektoria::CViewport* viewport; //hack to access the current cams viewport. TODO: make this nicer
 };
 
 #endif

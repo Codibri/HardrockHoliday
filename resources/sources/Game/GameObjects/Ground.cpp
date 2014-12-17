@@ -11,7 +11,7 @@
 #include "Physics\BoxCollider.h"
 
 
-Ground::Ground(Vektoria::CHVector boxColliderSize) : PhysicalGameObject(Vektoria::CPlacement(), "Ground", new phyX::BoxCollider(this, boxColliderSize, 1, true, false), 1000, false)
+Ground::Ground(Vektoria::CHVector boxColliderSize) : PhysicalGameObject(Vektoria::CPlacement(), "Ground", PhysicalProperties(new phyX::BoxCollider(this, boxColliderSize, 1, true, false), 1000, false))
 {}
 
 

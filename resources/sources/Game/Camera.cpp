@@ -1,5 +1,5 @@
 #include "Game\Camera.h"
-
+#include "Engine\Engine.h"
 
 Camera::Camera()
 {
@@ -21,6 +21,8 @@ void Camera::initViewPort(float camAngle, Vektoria::CFrame* frame){
 	mVektoriaCamera.Init(camAngle);
 	mViewPort.InitFull(&mVektoriaCamera);
 	frame->AddViewport(&mViewPort);
+
+	ENGINE->globalResources.vektoriaCoreElements.viewport = &mViewPort; //hack access to viewport  :D  don't kill me please
 }
 
 
