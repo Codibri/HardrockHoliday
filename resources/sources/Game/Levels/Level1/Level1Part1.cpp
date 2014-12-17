@@ -36,13 +36,13 @@ void Level1Part1::initGameObjects(){
 	auto normalGround = new Ground(Vektoria::CHVector(2, 2.0, 25));
 	normalGround->setName("NormalGround");
 	normalGround->GetRigidBody()->GetCollider()->SetLayer(normalGround->getName());
-	normalGround->getPlacement()->Translate(0, -2.0, 0);
+	normalGround->getPlacement()->Translate(0, -1.0, 0);
 	addGameObject(normalGround);
 
 	auto pitGround = new Ground(Vektoria::CHVector(2, 2.0, 25));
 	pitGround->setName("PitGround");
 	pitGround->GetRigidBody()->GetCollider()->SetLayer(pitGround->getName());
-	pitGround->getPlacement()->Translate(0, -2.5, 0);
+	pitGround->getPlacement()->Translate(0, -1.5, 0);
 	addGameObject(pitGround);
 
 	PhysicsModule* physicsModule = ENGINE_PHYSICS;

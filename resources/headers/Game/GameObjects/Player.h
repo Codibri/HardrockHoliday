@@ -28,6 +28,7 @@ public:
 	void reactToInput();
 	void onCollision(phyX::RigidBodyOwner* otherCollider, float timeDelta) override;
 	bool isAlive() const;
+	void updateRotation();
 
 protected:
 	void initialize();
