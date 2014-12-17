@@ -18,7 +18,7 @@ void Scene::init(CScene* scene, CRoot* root){
 	mRoot = root;
 	mMapPartManager.setScene(mVectoriaScene);
 
-	
+
 	
 }
 

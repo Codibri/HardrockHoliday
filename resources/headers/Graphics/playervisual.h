@@ -24,6 +24,10 @@ private:
 	CGeoSphere mPlayerMesh;
 	CGeo* mObjPlayerMesh;
 	CMaterial mPlayerMaterial;
+
+	CSpotLight mSpotLight;
+	CPlacement mSpotLightPlacment;
+	CHVector mOrigin;
 };
 
 

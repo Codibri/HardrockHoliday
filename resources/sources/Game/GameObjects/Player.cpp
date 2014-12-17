@@ -33,6 +33,8 @@ void Player::update(float deltaMillis, float time)
 {
 	//_position.TranslateZ(-time * 2.5);
 
+	_visual->update(deltaMillis, time);
+
 	this->reactToInput();
 
     PhysicalGameObject::update(deltaMillis, time);
@@ -54,7 +56,7 @@ void Player::reactToInput()
 		}
 
 		float y = inputDevice->getYPosition();
-		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), -0.5, false);
+		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), -0.1, false);
 	}
 	
 	// TODO: Spieler abhängig von Bewegungsrichtung rotieren
