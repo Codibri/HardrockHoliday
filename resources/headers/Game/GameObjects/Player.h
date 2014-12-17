@@ -15,6 +15,7 @@
 #include "Input\InputDevice.h"
 #include "Game\GameObjectPrototypes.h"
 
+const float BOULDER_RADIUS = 0.1f;
 
 class Player : public PhysicalGameObject
 {
@@ -32,6 +33,8 @@ protected:
 	void initialize();
 
 	Vektoria::CPlacement _rotation;
+	Vektoria::CHVector _oldPosition;
+	Vektoria::CHVector _deltaDistanceMoved;
 	bool _alive;
 };
 
