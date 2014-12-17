@@ -37,11 +37,12 @@ void PlayerVisual::update(float deltaMillis, float time){
 	mOrigin = _placement ->m_amGlobal[0] * mOrigin;
 	mSpotLightPlacment.SetPointing(&mOrigin);
 
+	// Hey Alex - Hab hier auch die Kugel drehen implementiert, wusste nicht das du das schon erledigt hast ;)
 	// Kugel drehen
-	CHVector moveDirection = mPosPlacement->GetTranslation() - mLastPositionPlacement.GetTranslation();
-	moveDirection.Norm();
-	_placement->RotateDelta(CHVector(moveDirection.z, 0, -moveDirection.x), deltaMillis * 1.2);
-	mLastPositionPlacement.Translate(mPosPlacement->GetTranslation());
+	//CHVector moveDirection = mPosPlacement->GetTranslation() - mLastPositionPlacement.GetTranslation();
+	//moveDirection.Norm();
+	//_placement->RotateDelta(CHVector(moveDirection.z, 0, -moveDirection.x), deltaMillis * 1.2);
+	//mLastPositionPlacement.Translate(mPosPlacement->GetTranslation());
 
 }
 

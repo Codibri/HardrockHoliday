@@ -20,12 +20,8 @@ Level1Part1::~Level1Part1()
 }
 
 void Level1Part1::loadMaterial(){
-	
 	mGroundMaterial.MakeTextureImage("GameResources\\Levels\\level1\\part1\\part_COLOR.png");
-	//mGroundMaterial.MakeTextureGlow("GameResources\\Levels\\level1\\part1\\part_COLOR.png");
 	mGroundMaterial.MakeTextureSpecular("GameResources\\Textures\\black_image.jpg");
-	//mGroundMaterial.SetShadingOff();
-	
 	mGroundMesh->SetMaterial(&mGroundMaterial);
 }
 
@@ -52,16 +48,16 @@ void Level1Part1::initGameObjects(){
 
 	
 	// Löcher
-	auto falle1 = new LochFalle(Vektoria::CHVector(0.5, 0.5, 1.0));
-	falle1->getPlacement()->Translate(-0.29319, 0, -1.75256);
+	auto falle1 = new LochFalle(scaleFromBlender(0.201, 0.408, 0.378));
+	falle1->getPlacement()->Translate(locationFromBlender(-0.3211, 1.75064, -0.17448));
 	addGameObject(falle1);
 
-	auto falle2 = new LochFalle(Vektoria::CHVector(.5, 0.5, 1.0));
-	falle2->getPlacement()->Translate(0.32445, 0, -3.89241);
+	auto falle2 = new LochFalle(scaleFromBlender(0.195, 0.396, 0.367));
+	falle2->getPlacement()->Translate(locationFromBlender(0.35178, 3.89644, -0.17448));
 	addGameObject(falle2);
 
-	auto falle3 = new LochFalle(Vektoria::CHVector(0.5, 0.5, 1.0));
-	falle3->getPlacement()->Translate(0.24613, 0, -6.97389);
+	auto falle3 = new LochFalle(scaleFromBlender(0.195, 0.396, 0.367));
+	falle3->getPlacement()->Translate(locationFromBlender(0.29663, 6.96836, -0.17448));
 	addGameObject(falle3);
 	
 	// Wände
@@ -73,6 +69,10 @@ void Level1Part1::initGameObjects(){
 	wallRight->getPlacement()->Translate(1.1, 0.25, -4.0);
 	addGameObject(wallRight);
 
+	auto wall1 = new MapWall(scaleFromBlender(0.287, 0.584, 0.541));
+	wall1->getPlacement()->RotateY(DEGREES_TO_RADIANS(-44.6));
+	wall1->getPlacement()->TranslateDelta(locationFromBlender(-0.52594, 5.10817, 0.04398));
+	addGameObject(wall1);
 
 }
 
