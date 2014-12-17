@@ -21,7 +21,7 @@ void Level1Part4::loadMaterial(){
 	mGroundMaterial.MakeTextureImage("GameResources\\Levels\\level1\\part4\\part_COLOR.png");
 	//mGroundMaterial.MakeTextureGlow("GameResources\\Levels\\level1\\part4\\part_GLOW.png");
 	mGroundMaterial.MakeTextureSpecular("GameResources\\Textures\\black_image.jpg");
-	mGroundMaterial.SetShadingOff();
+	
 	mGroundMesh->SetMaterial(&mGroundMaterial);
 }
 

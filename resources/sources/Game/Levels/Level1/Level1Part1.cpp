@@ -22,7 +22,7 @@ Level1Part1::~Level1Part1()
 void Level1Part1::loadMaterial(){
 	
 	mGroundMaterial.MakeTextureImage("GameResources\\Levels\\level1\\part1\\part_COLOR.png");
-	//mGroundMaterial.MakeTextureGlow("GameResources\\Levels\\level1\\part1\\part_GLOW.png");
+	//mGroundMaterial.MakeTextureGlow("GameResources\\Levels\\level1\\part1\\part_COLOR.png");
 	mGroundMaterial.MakeTextureSpecular("GameResources\\Textures\\black_image.jpg");
 	//mGroundMaterial.SetShadingOff();
 	
@@ -33,7 +33,7 @@ void Level1Part1::loadMaterial(){
 void Level1Part1::initGameObjects(){
 
 	// Boden
-	auto normalGround = new Ground(Vektoria::CHVector(2, 2.0, 25));
+	auto normalGround = new Ground(Vektoria::CHVector(2, 2.0, 42));
 	normalGround->setName("NormalGround");
 	normalGround->GetRigidBody()->GetCollider()->SetLayer(normalGround->getName());
 	normalGround->getPlacement()->Translate(0, -2.0, 0);

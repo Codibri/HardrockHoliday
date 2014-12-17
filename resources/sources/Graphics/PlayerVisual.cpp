@@ -6,35 +6,23 @@ PlayerVisual::PlayerVisual(Vektoria::CPlacement* rotationPlacement, CPlacement* 
 	loadMaterial();
 	loadMesh();
 	
-	// Kugel um halben durchmesser anheben
-	posPlacement->TranslateY(0.1);
+	mPosPlacement = posPlacement;
+	mLastPositionPlacement = CPlacement();
+	mLastPositionPlacement.TranslateZ(0.1);
 
-	
+	// Kugel um halben durchmesser anheben
+	mPosPlacement->TranslateY(0.1);
+
+	// Spotlight
 	mSpotLightPlacment.AddSpotLight(&mSpotLight);
-	mSpotLightPlacment.Translate(0.0, 10.0, 0);
-	mSpotLight.Init(CColor(1.0, 1.0, 1.0), 0.035F, 0.077F);
-	mSpotLight.SetMaxDistance(100.0F);
+	mSpotLightPlacment.Translate(-0.2, 15.7, 7);
+	mSpotLight.Init(CColor(1.0, 1.0, 1.0), 0.105F, 0.227F);
+	mSpotLight.SetMaxDistance(120.0F);
 	mSpotLight.SetMinDistance(0.0F);
 	mSpotLight.SetSoftShadowOn();
 	mSpotLight.SetShadowMapResolution(8096, 8096);
+	mPosPlacement->AddPlacement(&mSpotLightPlacment);
 
-
-	posPlacement->AddPlacement(&mSpotLightPlacment);
-
-
-	/*
-	m_zpSpotLight.AddSpotLight(&m_zlSpot);
-	m_zpSpotLight.Translate(30, 100, 30);
-	m_vUrsprung = CHVector(0, 0, 0, 1);
-	m_zpSpotLight.SetPointing(&m_vUrsprung);
-
-
-	m_zlSpot.Init(CColor(1.0F, 1.0F, 1.0F), 0.05F, 0.07F);
-	m_zlSpot.SetMaxDistance(100.0F);
-	m_zlSpot.SetMinDistance(44.0F);
-	m_zlSpot.SetSoftShadowOn();
-	m_zlSpot.SetShadowMapResolution(8096, 8096);
-	*/
 }
 
 
@@ -44,35 +32,34 @@ PlayerVisual::~PlayerVisual()
 
 
 void PlayerVisual::update(float deltaMillis, float time){
-	// stuff...
+	// Spotlight position updaten
 	mOrigin = CHVector(0, 0, 0, 1);
-
 	mOrigin = _placement ->m_amGlobal[0] * mOrigin;
-
 	mSpotLightPlacment.SetPointing(&mOrigin);
 
+	// Kugel drehen
+	CHVector moveDirection = mPosPlacement->GetTranslation() - mLastPositionPlacement.GetTranslation();
+	moveDirection.Norm();
+	_placement->RotateDelta(CHVector(moveDirection.z, 0, -moveDirection.x), deltaMillis * 1.2);
+	mLastPositionPlacement.Translate(mPosPlacement->GetTranslation());
 
 }
 
 void PlayerVisual::loadMaterial(){
 	mPlayerMaterial.MakeTextureImage("GameResources\\Levels\\level1\\player\\boulder_COLOR.jpg");
-	//mPlayerMaterial.MakeTextureBump("GameResources\\Textures\\boulder_NRM.png");
-	mPlayerMaterial.MakeTextureSpecular("GameResources\\Levels\\level1\\player\\boulder_GLOW.jpg");
+	mPlayerMaterial.MakeTextureBump("GameResources\\Levels\\level1\\player\\boulder_BUMP.jpg");
+	mPlayerMaterial.MakeTextureSpecular("GameResources\\Levels\\level1\\player\\boulder_SPEC.jpg");
 	mPlayerMaterial.MakeTextureGlow("GameResources\\Levels\\level1\\player\\boulder_GLOW.jpg");
-	//mPlayerMaterial.SetShadingOff();
-	
+
 }
 
 void PlayerVisual::loadMesh(){
-	//mPlayerMesh.Init(0.1, &mPlayerMaterial, 12, 12);
-	//_placement->AddGeo(&mPlayerMesh);
-	
 	CFileWavefront objLoader = CFileWavefront();
 	mObjPlayerMesh = objLoader.LoadGeo("GameResources\\Levels\\level1\\player\\level1_boulder.obj");
 	mObjPlayerMesh->SetMaterial(&mPlayerMaterial);
+	rs::TangentSpaceHelper::calculateTangentsAndBitangents(mObjPlayerMesh);
+	CHMat m; m.RotateX(-1.0); m.RotateY(1.7);
+	mObjPlayerMesh->Transform(m);
 	_placement->AddGeo(mObjPlayerMesh);
-	
-
-
 }
 

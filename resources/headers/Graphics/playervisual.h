@@ -2,6 +2,7 @@
 
 #include "root.h"
 #include "Graphics\Visual.h"
+#include "Utility\TangentSpaceHelper.h"
 #include <memory>
 using namespace Vektoria;
 
@@ -28,6 +29,9 @@ private:
 	CSpotLight mSpotLight;
 	CPlacement mSpotLightPlacment;
 	CHVector mOrigin;
+
+	CPlacement* mPosPlacement;
+	CPlacement mLastPositionPlacement;
 };
 
 

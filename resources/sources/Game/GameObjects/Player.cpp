@@ -10,7 +10,7 @@ Player::Player() : PhysicalGameObject(Vektoria::CPlacement(), "Player", new phyX
 }
 
 
-Player::Player(Vektoria::CPlacement position) : PhysicalGameObject(position, "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, false), _alive(true)
+Player::Player(Vektoria::CPlacement position) : PhysicalGameObject(position, "Player", new phyX::SphereCollider(this, 0.1, 1, false), 1, true), _alive(true)
 {
 	this->initialize();
 }
@@ -56,7 +56,7 @@ void Player::reactToInput()
 		}
 
 		float y = inputDevice->getYPosition();
-		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), -0.1, false);
+		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), -0.5, false);
 	}
 	
 	// TODO: Spieler abhängig von Bewegungsrichtung rotieren
