@@ -40,10 +40,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)\VektoriaV11;(ProjectDir)\headers;$(DXSDK_DIR)\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\VektoriaV11;(ProjectDir)\headers;$(NOVINT_DEVICE_SUPPORT)\include;$(DXSDK_DIR)\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>$(ProjectDir)\VektoriaV11;(ProjectDir)\sources;$(DXSDK_DIR)\Lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)\VektoriaV11;(ProjectDir)\sources;$(DXSDK_DIR)\Lib\x86;$(NOVINT_DEVICE_SUPPORT)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(DXSDK_DIR)\Include;$(ProjectDir)\VektoriaV11;$(IncludePath);(ProjectDir)\headers\</IncludePath>
@@ -55,14 +55,15 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_MBCS;_DEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_MBCS;_DEBUG</PreprocessorDefinitions>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <AdditionalIncludeDirectories>$(ProjectDir)\VektoriaV11\;$(ProjectDir)\headers</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\VektoriaV11\;$(ProjectDir)\headers;$(NOVINT_DEVICE_SUPPORT)\include</AdditionalIncludeDirectories>
+      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)\VektoriaV11;$(ProjectDir)\sources</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Vektoria_Debug.lib;Vektoria_Release.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)\VektoriaV11;$(ProjectDir)\sources;$(NOVINT_DEVICE_SUPPORT)\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Vektoria_Debug.lib;Vektoria_Release.lib;hdl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
