@@ -56,6 +56,7 @@ namespace phyX
 		float m_mass;
 		const bool m_isStatic;
 		Vektoria::CHMat m_mat;
+		Vektoria::CHMat m_local;
 		Collider* m_collider;
 		Vektoria::CPlacement* m_ownerPlacement;
 

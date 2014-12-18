@@ -104,6 +104,7 @@ namespace phyX
 					else
 					{
 						m_origin->m_mat.TranslateDelta(offset);
+						m_origin->m_local.TranslateDelta(offset);
 						return BR_SUCCESS_REVERT;
 					}
 
@@ -123,6 +124,7 @@ namespace phyX
 					else
 					{
 						m_target->m_mat.TranslateDelta(offset);
+						m_target->m_local.TranslateDelta(offset);
 						return BR_SUCCESS;
 					}
 				}

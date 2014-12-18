@@ -19,9 +19,12 @@
 *****************************************/
 
 #include <Fcntl.h>
-#include <Root.h>
 #include <math.h>
 #include <iterator>
+#include <Windows.h>
+#include <io.h>
+#include <sstream>
+
 
 namespace phyX_utilties
 {

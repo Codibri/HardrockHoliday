@@ -34,5 +34,7 @@ private:
 	std::unique_ptr<Level>	 mActiveLevel;
 	MapPartManager mMapPartManager;
 	LevelLoader mLevelLoader;
+
+
 };
 

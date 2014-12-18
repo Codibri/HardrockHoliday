@@ -16,11 +16,26 @@
 #include "Physics\Collider.h"
 
 
+struct PhysicalProperties
+{
+	PhysicalProperties(phyX::Collider* collider, float mass, bool hasGravity) 
+	{
+		_collider = collider;
+		_mass = mass;
+		_hasGravity = hasGravity;
+	}
+
+	phyX::Collider* _collider;
+	float _mass;
+	bool _hasGravity;
+};
+
+
 // A PhysicalGameObject represents a base template for every object in a Scene that will use a physical collision service of some kind. Its designated to be inherited from.
 class PhysicalGameObject : public GameObject, public phyX::RigidBodyOwner
 {
 public:
-	PhysicalGameObject(Vektoria::CPlacement position, const std::string& name, phyX::Collider* collider, float mass, bool hasGravity);
+	PhysicalGameObject(Vektoria::CPlacement position, const std::string& name, PhysicalProperties physicalProperties);
 
 	~PhysicalGameObject();
 

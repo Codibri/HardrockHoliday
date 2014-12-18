@@ -133,6 +133,7 @@ namespace phyX
 	{
 
 		m_mat = m_ownerPlacement->m_amGlobal[0];
+		m_local = m_ownerPlacement->m_mLocal;
 
 		if (!m_isStatic)
 		{
@@ -163,6 +164,7 @@ namespace phyX
 
 			deflection.MakeDirection();
 			m_mat.TranslateDelta(deflection);
+			m_local.TranslateDelta(deflection);
 		}
 
 		Reset();
@@ -219,6 +221,6 @@ namespace phyX
 	void RigidBodyX::PostRenderUpdate_second(float fTimeDelta)
 	{
 		m_collider->PostRenderUpdate_second(fTimeDelta);
-		m_ownerPlacement->SetMat(m_mat);
+		m_ownerPlacement->m_mLocal = m_local;
 	}
 }

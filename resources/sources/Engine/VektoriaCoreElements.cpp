@@ -27,4 +27,6 @@ void VektoriaCoreElements::initialize(HWND hWnd, Vektoria::CSplash* splash)
 	root.AddScene(&scene);
 
 	root.AddFrameHere(&frame);
+
+	viewport = nullptr;
 }

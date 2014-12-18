@@ -21,6 +21,7 @@
 #include <iterator>
 #include <algorithm>
 #include "Physics\Utilities.h"
+#include "Physics\RigidBodyOwner.h"
 
 namespace phyX
 {
@@ -256,18 +257,14 @@ namespace phyX
 
 		Vektoria::CHVector perfectDistance = (coll->GetGlobalCenter() - coll1->GetGlobalCenter()) + intersection;
 
-		float forceStrength = 0;
-		if (coll1->m_bounciness > 0.f)
-			forceStrength = 1.0f * coll1->m_bounciness;
+		float forceStrength = (coll1->m_bounciness > 0.f) ? coll1->m_bounciness/* * coll1->GetParent()->GetRigidBody()->m_mass*/ : 0.f;
 
 		coll->AddCollision(coll1, detail::CollisionResponse(collNormal, forceStrength, perfectDistance, coll1->IsStatic(), coll1));
 
 		//check if second collider is static
 		if (!coll1->IsStatic())
 		{
-			forceStrength = 0;
-			if (coll->m_bounciness > 0.f)
-				forceStrength = 1.0f * coll->m_bounciness;
+			forceStrength = (coll->m_bounciness > 0.f) ? coll->m_bounciness/* * coll->GetParent()->GetRigidBody()->m_mass*/ : 0.f;
 
 			coll1->AddCollision(coll, detail::CollisionResponse(-collNormal, forceStrength, perfectDistance, coll->IsStatic(), coll));
 		}
