@@ -6,7 +6,7 @@ InputDevice::InputDevice(CFrame* frame) : EngineModule() {
 	// TODO: Testen, ob Falcon angeschlossen (siehe anderes Projekt)
 	// TODO: Wenn keine Falcon, dann Keyboard verwenden (immer nur 1)
 	// TODO: (optional) Falls Probleme mit Falcon, dann auch  im laufenden Spiel wechseln ermöglichen
-	useFalcon = true;
+	useFalcon = false;
 
 	if (useFalcon){
 		falcon = new Falcon();

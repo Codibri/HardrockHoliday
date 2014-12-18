@@ -207,6 +207,18 @@
     <ClCompile Include="VektoriaApp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="dhdlc.dll" />
+    <None Include="dhdlcDriver.dll" />
+    <None Include="HDAL_SDK_2.1.3\bin_hdl\dhdlc.dll" />
+    <None Include="HDAL_SDK_2.1.3\bin_hdl\dhdlcDriver.dll" />
+    <None Include="HDAL_SDK_2.1.3\bin_hdl\hdl.dll" />
+    <None Include="HDAL_SDK_2.1.3\bin_hdl\novint_T0.bin" />
+    <None Include="HDAL_SDK_2.1.3\bin_hdl\novint_T2.bin" />
+    <None Include="HDAL_SDK_2.1.3\bin_hdl\nullDriver.dll" />
+    <None Include="hdl.dll" />
+    <None Include="novint_T0.bin" />
+    <None Include="novint_T2.bin" />
+    <None Include="nullDriver.dll" />
     <None Include="res\VektoriaTest.ico" />
     <None Include="shaders.hlsl" />
     <None Include="shadowmap.hlsl" />
