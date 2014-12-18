@@ -9,7 +9,10 @@ LochFalleVisual::LochFalleVisual(Vektoria::CHVector boxColliderSize, Vektoria::C
 	mCubeMaterial.MakeTextureImage("GameResources\\Levels\\level1\\collidervisual_COLOR.png");
 	//mCubeMaterial.SetShadingOff();
 	//boxColliderSize *= 0.5;
-	mCubeGeo.Init(boxColliderSize, &mCubeMaterial);
+
+	Vektoria::CHVector visualBoxSize = boxColliderSize * 0.5; // In Vektoria werden Cubes doppelt so groß dargestellt
+
+	mCubeGeo.Init(visualBoxSize, &mCubeMaterial);
 	_placement->AddGeo(&mCubeGeo);
 }
 

@@ -31,25 +31,32 @@ Player::~Player()
 
 void Player::update(float deltaMillis, float time)
 {
+	//_position.TranslateZ(-time * 2.5);
+
 	this->reactToInput();
 
-	PhysicalGameObject::update(deltaMillis, time);
+    PhysicalGameObject::update(deltaMillis, time);
 }
 
 
 void Player::reactToInput()
 {
+	
+	
 	InputDevice* inputDevice = ENGINE_INPUT_DEVICE;
 
 	if (inputDevice && this->isAlive())
 	{
 		float x = inputDevice->getXPosition();
 		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(1, 0, 0), x, false);
+		if (x != 0){
+			std::cout << "";
+		}
 
 		float y = inputDevice->getYPosition();
 		PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), -0.5, false);
 	}
-
+	
 	// TODO: Spieler abhängig von Bewegungsrichtung rotieren
 	//_rotationPlacement.RotateX(-1 * 1.5);
 }
@@ -62,7 +69,8 @@ void Player::onCollision(phyX::RigidBodyOwner* other, float timeDelta)
 	if (std::type_index(typeid(LochFalle)).name() == name) 
 	{
 		this->GetRigidBody()->GetCollider()->SetLayer("PitGround");
-		_alive = false;
+		
+		//_alive = false;
 	}
 }
 

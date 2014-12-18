@@ -9,6 +9,8 @@ PlayerVisual::PlayerVisual(Vektoria::CPlacement* rotationPlacement, CPlacement* 
 	// Kugel um halben durchmesser anheben
 	posPlacement->TranslateY(0.1);
 
+
+
 }
 
 
@@ -24,17 +26,23 @@ void PlayerVisual::update(float deltaMillis, float time){
 }
 
 void PlayerVisual::loadMaterial(){
-	mPlayerMaterial.MakeTextureImage("GameResources\\Textures\\boulder_COLOR.png");
+	mPlayerMaterial.MakeTextureImage("GameResources\\Levels\\level1\\player\\boulder_COLOR.jpg");
 	//mPlayerMaterial.MakeTextureBump("GameResources\\Textures\\boulder_NRM.png");
-	mPlayerMaterial.MakeTextureSpecular("GameResources\\textures\\boulder_SPEC.png");
-	mPlayerMaterial.MakeTextureGlow("GameResources\\textures\\boulder_GLOW.png");
-	mPlayerMaterial.SetShadingOff();
+	mPlayerMaterial.MakeTextureSpecular("GameResources\\Levels\\level1\\player\\boulder_GLOW.jpg");
+	mPlayerMaterial.MakeTextureGlow("GameResources\\Levels\\level1\\player\\boulder_GLOW.jpg");
+	//mPlayerMaterial.SetShadingOff();
 }
 
 void PlayerVisual::loadMesh(){
-	mPlayerMesh.Init(0.1, &mPlayerMaterial, 12, 12);
-	_placement->AddGeo(&mPlayerMesh);
+	//mPlayerMesh.Init(0.1, &mPlayerMaterial, 12, 12);
+	//_placement->AddGeo(&mPlayerMesh);
 	
+	CFileWavefront objLoader = CFileWavefront();
+	mObjPlayerMesh = objLoader.LoadGeo("GameResources\\Levels\\level1\\player\\level1_boulder.obj");
+	mObjPlayerMesh->SetMaterial(&mPlayerMaterial);
+	_placement->AddGeo(mObjPlayerMesh);
+	
+
 
 }
 

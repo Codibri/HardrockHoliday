@@ -19,8 +19,6 @@ public:
 
 	CDeviceKeyboard* getDeviceKeyboard();
 
-	void testKeyboard();
-
 private:
 	CDeviceKeyboard deviceKeyboard;
 };

@@ -2,6 +2,8 @@
 
 const int MapPart::MAP_PART_SIZE = 8.0;
 
+
+
 MapPart::MapPart(int nr)
 {
 	mIsLastMapPartOfLevel = false;

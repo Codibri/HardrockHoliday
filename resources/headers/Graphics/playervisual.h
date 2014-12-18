@@ -2,7 +2,7 @@
 
 #include "root.h"
 #include "Graphics\Visual.h"
-
+#include <memory>
 using namespace Vektoria;
 
 // TODO discuss how to integrate / rework this into the architecture
@@ -22,6 +22,7 @@ public:
 private:
 
 	CGeoSphere mPlayerMesh;
+	CGeo* mObjPlayerMesh;
 	CMaterial mPlayerMaterial;
 };
 

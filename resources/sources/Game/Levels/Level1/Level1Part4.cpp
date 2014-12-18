@@ -28,12 +28,5 @@ void Level1Part4::loadMaterial(){
 
 void Level1Part4::initGameObjects(){
 
-	// Wände
-	auto wallLeft = new MapWall(Vektoria::CHVector(2.0, 0.5, 8.0));
-	wallLeft->getPlacement()->Translate(-2.6, 0.25, 0.0);
-	addGameObject(wallLeft);
-
-	auto wallRight = new MapWall(Vektoria::CHVector(2.0, 0.5, 8.0));
-	wallRight->getPlacement()->Translate(2.6, 0.25, 0.0);
-	addGameObject(wallRight);
+	
 }
