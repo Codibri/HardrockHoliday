@@ -62,11 +62,13 @@ void Player::reactToInput()
 		if (this->isAlive())
 		{
 			float x = inputDevice->getXPosition();
-			PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(1, 0, 0), x, false);
+			//PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(1, 0, 0), x, false);
+			PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(1, 0, 0), x, false);
 
-			float z = inputDevice->getYPosition();
-			z = 0.2; // <- this is for debug purposes only. TODO: delete when inputDevice is capable of returning real z values
-			PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), -z, false);
+			float z = inputDevice->getZPosition();
+			//z = 0.2; // <- this is for debug purposes only. TODO: delete when inputDevice is capable of returning real z values
+			//PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), 5*z, false);
+			PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(0, 0, 1), 5 * z, false);
 		}
 		else
 		{

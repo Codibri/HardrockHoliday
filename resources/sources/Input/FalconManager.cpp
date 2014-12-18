@@ -82,6 +82,7 @@ void FalconManager::init() {
 	m_forceServo[1] = 0.0;		// 10 sperrt nach unten hin, -10 nach oben
 	m_forceServo[2] = 0.0;		// 10 sperrt nach vorne hin, -10 nach hinten
 	m_inited = true;
+	ContactCB(this);
 }
 
 
@@ -225,6 +226,7 @@ float FalconManager::getNewPosition(int direction) {
 	hdlToolPosition(m_positionServo);
 	// TODO direction checken ob 0 1 2 
 	// TODO 3 inch in z richtung
+	printPosition();
 	return m_positionServo[direction]*100/(2*inch);
 }
 

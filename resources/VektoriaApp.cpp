@@ -110,7 +110,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	// allocate a standard windows console for debug purposes
 	#ifdef _DEBUG
 	AllocConsole();
-	//freopen("CONOUT$", "w", stdout);
+	freopen("CONOUT$", "w", stdout);
 	#endif
 //#-#-#-#-#-A.W.
 
