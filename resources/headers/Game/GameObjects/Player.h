@@ -17,8 +17,6 @@
 
 const float BOULDER_RADIUS = 0.1f;
 
-
-
 class Player : public PhysicalGameObject
 {
 public:
