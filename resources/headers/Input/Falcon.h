@@ -21,6 +21,7 @@ class Falcon {
 public:
 	Falcon();
 
+	
 	virtual ~Falcon();
 
 	float getNewXPosition();
