@@ -270,15 +270,6 @@
     <ClInclude Include="headers\Game\GameObjectPrototypes.h">
       <Filter>Headerdateien\Game</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Input\BlockedArea.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Input\BlockedCube.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Input\BlockedSphericalSector.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="headers\Input\FalconManager.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -286,6 +277,15 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="headers\Input\haptics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\BlockedSphericalSector.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\BlockedCube.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\BlockedArea.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -476,16 +476,6 @@
       <Filter>Ressourcendateien</Filter>
     </None>
     <None Include="VektoriaApp.aps" />
-    <None Include="HDAL_SDK_2.1.3\bin_hdl\dhdlc.dll" />
-    <None Include="HDAL_SDK_2.1.3\bin_hdl\dhdlcDriver.dll" />
-    <None Include="HDAL_SDK_2.1.3\bin_hdl\hdl.dll" />
-    <None Include="HDAL_SDK_2.1.3\bin_hdl\novint_T0.bin">
-      <Filter>Ressourcendateien</Filter>
-    </None>
-    <None Include="HDAL_SDK_2.1.3\bin_hdl\novint_T2.bin">
-      <Filter>Ressourcendateien</Filter>
-    </None>
-    <None Include="HDAL_SDK_2.1.3\bin_hdl\nullDriver.dll" />
     <None Include="dhdlc.dll" />
     <None Include="dhdlcDriver.dll" />
     <None Include="hdl.dll" />
@@ -501,5 +491,10 @@
     <ResourceCompile Include="VektoriaApp.rc">
       <Filter>Ressourcendateien</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="dhd_messages.log" />
+    <Text Include="dhdlcLog.log" />
+    <Text Include="hdal_messages.log" />
   </ItemGroup>
 </Project>
