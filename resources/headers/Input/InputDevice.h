@@ -21,6 +21,9 @@ public:
 	float getXPosition();
 	float getYPosition();
 
+	// In Loch gefallen
+	void fallDown();
+
 	// Forcefeedback
 	void rumble(bool on, float strength);
 	void block(bool on, Direction direction);
@@ -30,7 +33,7 @@ private:
 	float yPosition;
 
 	Keyboard keyboard;		// SemikolonFehler kommt wenn sich Dateien gegenseitig includen
-	Falcon falcon;			
+	Falcon* falcon;
 	bool useFalcon;
 };
 

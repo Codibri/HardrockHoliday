@@ -21,11 +21,17 @@ Have Fun!
 // Mareike 
 
 #include "Input/Falcon.h"
-#include <hdl/hdl.h>
-#include <hdlu/hdlu.h>
+
 
 Falcon::Falcon() {
+	falconManager.init();
+	double pos[3] = { 0.0, 0.04, 0.0 };
+	falconManager.moveToPosition(pos, 0.2);
 }
 
 Falcon::~Falcon() {
+}
+
+float Falcon::getNewXPosition() {
+	return falconManager.getNewXPosition();
 }

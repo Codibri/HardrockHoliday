@@ -6,10 +6,10 @@ InputDevice::InputDevice(CFrame* frame) : EngineModule() {
 	// TODO: Testen, ob Falcon angeschlossen (siehe anderes Projekt)
 	// TODO: Wenn keine Falcon, dann Keyboard verwenden (immer nur 1)
 	// TODO: (optional) Falls Probleme mit Falcon, dann auch  im laufenden Spiel wechseln ermöglichen
-	useFalcon = false;
+	useFalcon = true;
 
 	if (useFalcon){
-		//TODO benutze Falcon
+		falcon = new Falcon();
 	}
 	else if (!useFalcon) {
 		frame->AddDeviceKeyboard(keyboard.getDeviceKeyboard());
@@ -23,7 +23,7 @@ InputDevice::~InputDevice() {
 
 void InputDevice::update(float deltaTime, float time) {
 	if (useFalcon){
-		// TODO: Falcon
+		xPosition = falcon->getNewXPosition();
 	}
 	else if (!useFalcon){
 		xPosition = keyboard.getNewXPosition(xPosition);

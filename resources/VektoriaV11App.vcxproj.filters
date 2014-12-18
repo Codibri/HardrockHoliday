@@ -270,6 +270,24 @@
     <ClInclude Include="headers\Game\GameObjectPrototypes.h">
       <Filter>Headerdateien\Game</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Input\BlockedArea.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\BlockedCube.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\BlockedSphericalSector.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\FalconManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\FalconTestUtil.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\haptics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -427,6 +445,24 @@
     </ClCompile>
     <ClCompile Include="sources\Game\GameObjects\Ground.cpp">
       <Filter>Quelldateien\Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\BlockedArea.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\BlockedCube.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\BlockedSphericalSector.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\FalconManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\FalconTestUtil.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\haptics.cpp">
+      <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
