@@ -111,7 +111,7 @@ void Player::updateRotation()
 void Player::reset()
 {
 	_position.m_mLocal = _startingPosition.m_mLocal;
-	_position.TranslateY(1.0f); //set a little bit higher to give the physics the chance to detect a collision with the ground
+	_position.TranslateY(10.0f); //set a little bit higher to give the physics the chance to detect a collision with the ground
 
 	_gameOverOverlay.SwitchOff();
 }
