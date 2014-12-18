@@ -476,6 +476,26 @@
       <Filter>Ressourcendateien</Filter>
     </None>
     <None Include="VektoriaApp.aps" />
+    <None Include="HDAL_SDK_2.1.3\bin_hdl\dhdlc.dll" />
+    <None Include="HDAL_SDK_2.1.3\bin_hdl\dhdlcDriver.dll" />
+    <None Include="HDAL_SDK_2.1.3\bin_hdl\hdl.dll" />
+    <None Include="HDAL_SDK_2.1.3\bin_hdl\novint_T0.bin">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="HDAL_SDK_2.1.3\bin_hdl\novint_T2.bin">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="HDAL_SDK_2.1.3\bin_hdl\nullDriver.dll" />
+    <None Include="dhdlc.dll" />
+    <None Include="dhdlcDriver.dll" />
+    <None Include="hdl.dll" />
+    <None Include="novint_T0.bin">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="novint_T2.bin">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="nullDriver.dll" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VektoriaApp.rc">
