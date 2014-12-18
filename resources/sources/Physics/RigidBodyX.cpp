@@ -35,7 +35,7 @@ namespace phyX
 		CPhysiX::GetInstance()->AddRigidBody(this);
 
 		if (hasGravity && !m_collider->IsStatic())
-			AddForce(Vektoria::CHVector(0.f, -1.f, 0.f), 30.f);
+			AddForce(Vektoria::CHVector(0.f, -1.f, 0.f), GRAVITY);
 
 	}
 
