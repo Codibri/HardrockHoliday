@@ -43,7 +43,7 @@ void Player::update(float deltaTime, float time)
 {
 	_visual->update(deltaTime, time);
 
-	this->reactToInput();
+	this->reactToInput(deltaTime);
 
 	this->updateRotation();
 
@@ -53,7 +53,7 @@ void Player::update(float deltaTime, float time)
 }
 
 
-void Player::reactToInput()
+void Player::reactToInput(float deltaTime)
 {
 	InputDevice* inputDevice = ENGINE_INPUT_DEVICE;
 
@@ -62,13 +62,25 @@ void Player::reactToInput()
 		if (this->isAlive())
 		{
 			float x = inputDevice->getXPosition();
+			int direction = -1;
+			if (x > 0)
+			{
+				direction = 1;
+			}
+			x = abs(x);
 			//PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(1, 0, 0), x, false);
-			PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(1, 0, 0), x, false);
+			PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(direction, 0, 0), 200 * x * deltaTime, false);
 
 			float z = inputDevice->getZPosition();
+
+			if (z > 0)
+			{
+				z = 0;
+			}
+			z = abs(z);
 			//z = 0.2; // <- this is for debug purposes only. TODO: delete when inputDevice is capable of returning real z values
 			//PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), 5*z, false);
-			PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(0, 0, 1), 5 * z, false);
+			PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(0, 0, -1), 200 * z * deltaTime, false);
 		}
 		else
 		{

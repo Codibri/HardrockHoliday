@@ -32,7 +32,7 @@ protected:
 	void initialize();
 	void updateRotation();
 	void reset();
-	void reactToInput();
+	void reactToInput(float deltaTime);
 
 	Vektoria::CPlacement _startingPosition;
 
