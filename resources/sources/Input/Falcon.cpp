@@ -32,6 +32,6 @@ Falcon::Falcon() {
 Falcon::~Falcon() {
 }
 
-float Falcon::getNewXPosition() {
-	return falconManager.getNewXPosition();
+float Falcon::getNewPosition(int direction) {
+	return falconManager.getNewPosition(direction);
 }

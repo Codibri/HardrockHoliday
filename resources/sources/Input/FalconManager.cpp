@@ -220,10 +220,12 @@ void FalconManager::updateBlocking() {
 	ContactCB(this);
 }
 
-float FalconManager::getNewXPosition() {
+float FalconManager::getNewPosition(int direction) {
 	ContactCB(this);
 	hdlToolPosition(m_positionServo);
-	return m_positionServo[0]*100/(2*inch);
+	// TODO direction checken ob 0 1 2 
+	// TODO 3 inch in z richtung
+	return m_positionServo[direction]*100/(2*inch);
 }
 
 

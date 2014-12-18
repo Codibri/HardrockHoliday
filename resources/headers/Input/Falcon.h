@@ -24,7 +24,7 @@ public:
 	
 	virtual ~Falcon();
 
-	float getNewXPosition();
+	float getNewPosition(int direction);
 
 	void update();
 

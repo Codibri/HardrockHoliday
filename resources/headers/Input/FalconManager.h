@@ -26,7 +26,7 @@ public:
 
 	// Hole aktuelle Position
 	// void getPosition();
-	float getNewXPosition();
+	float getNewPosition(int direction);
 
 	// Fahre zu Position
 	void moveToPosition(double position[3], double precision);
