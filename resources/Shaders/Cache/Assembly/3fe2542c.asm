@@ -3,12 +3,10 @@
 //
 //
 //   fxc /T vs_5_0 /Zi /Od /Gfp /E VS /Fo
-//    \\?\C:\Users\robibobi\Source\Repos\HardrockHoliday\resources\Shaders\Cache\Object\Debug\VS.obj
-//    /Fe
-//    \\?\C:\Users\robibobi\Source\Repos\HardrockHoliday\resources\Shaders\Cache\Error\VS.txt
-//    /Fc
-//    \\?\C:\Users\robibobi\Source\Repos\HardrockHoliday\resources\Shaders\Cache\Assembly\3fe2542c.asm
-//    \\?\C:\Users\robibobi\Source\Repos\HardrockHoliday\resources\shaders\Source\shaders.hlsl
+//    \\?\D:\Daten\Repos\resources\Shaders\Cache\Object\Debug\VS.obj /Fe
+//    \\?\D:\Daten\Repos\resources\Shaders\Cache\Error\VS.txt /Fc
+//    \\?\D:\Daten\Repos\resources\Shaders\Cache\Assembly\3fe2542c.asm
+//    \\?\D:\Daten\Repos\resources\shaders\Source\shaders.hlsl
 //
 //
 // Buffer Definitions: 
@@ -154,7 +152,7 @@ dcl_output o27.xyzw
 dcl_output o28.x
 dcl_temps 34
 
-#line 156 "\\?\C:\Users\robibobi\Source\Repos\HardrockHoliday\resources\shaders\Source\shaders.hlsl"
+#line 156 "\\?\D:\Daten\Repos\resources\shaders\Source\shaders.hlsl"
 dp4 r0.x, v0.xyzw, cb0[0].xyzw  // output<0:NaN:Inf>
 dp4 r0.y, v0.xyzw, cb0[1].xyzw  // output<1:NaN:Inf>
 dp4 r0.z, v0.xyzw, cb0[2].xyzw  // output<2:NaN:Inf>

@@ -3,12 +3,10 @@
 //
 //
 //   fxc /T ps_5_0 /Zi /Od /Gfp /E PS /Fo
-//    \\?\C:\Users\robibobi\Source\Repos\HardrockHoliday\resources\Shaders\Cache\Object\Debug\PS.obj
-//    /Fe
-//    \\?\C:\Users\robibobi\Source\Repos\HardrockHoliday\resources\Shaders\Cache\Error\PS.txt
-//    /Fc
-//    \\?\C:\Users\robibobi\Source\Repos\HardrockHoliday\resources\Shaders\Cache\Assembly\dec5d4d3.asm
-//    \\?\C:\Users\robibobi\Source\Repos\HardrockHoliday\resources\Shaders\Source\shaders.hlsl
+//    \\?\D:\Daten\Repos\resources\Shaders\Cache\Object\Debug\PS.obj /Fe
+//    \\?\D:\Daten\Repos\resources\Shaders\Cache\Error\PS.txt /Fc
+//    \\?\D:\Daten\Repos\resources\Shaders\Cache\Assembly\dec5d4d3.asm
+//    \\?\D:\Daten\Repos\resources\Shaders\Source\shaders.hlsl
 //
 //
 // Buffer Definitions: 
@@ -153,7 +151,7 @@ dcl_input_ps constant v28.x
 dcl_output o0.xyzw
 dcl_temps 28
 
-#line 274 "\\?\C:\Users\robibobi\Source\Repos\HardrockHoliday\resources\Shaders\Source\shaders.hlsl"
+#line 274 "\\?\D:\Daten\Repos\resources\Shaders\Source\shaders.hlsl"
 ilt r0.x, l(1), cb1[26].x
 ilt r0.y, l(1), cb1[27].x
 or r0.x, r0.y, r0.x
