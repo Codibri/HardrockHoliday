@@ -96,10 +96,16 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 //Alexander Weiß
 	// set important references to globally accessed things
+	Engine::getInstance();
 	Engine::globalResources.hWnd = hWnd;
 	Engine::globalResources.splash = &splash;
 
-	ENGINE->engineModules = new HardrockHolidayModules();
+	Engine::globalResources.vektoriaCoreElements.initialize(hWnd, &splash);
+
+	HardrockHolidayModules* modules = new HardrockHolidayModules();
+	ENGINE->engineModules = modules;
+
+	modules->run();
 
 	// allocate a standard windows console for debug purposes
 	#ifdef _DEBUG

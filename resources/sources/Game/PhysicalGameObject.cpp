@@ -10,18 +10,21 @@
 #include "Game\PhysicalGameObject.h"
 
 
-PhysicalGameObject::PhysicalGameObject(Vektoria::CPlacement position ) : GameObject(position)
-{}
+PhysicalGameObject::PhysicalGameObject(Vektoria::CPlacement position, const std::string& name, PhysicalProperties physicalProperties) :
+	GameObject(position, name), phyX::RigidBodyOwner(&_position, physicalProperties._collider, physicalProperties._mass, physicalProperties._hasGravity)
+{
+	this->GetRigidBody()->GetCollider()->OnCollisionEnter += phyX_utilties::Member2FuncPtr(&PhysicalGameObject::onCollision, this);
+}
 
 
 PhysicalGameObject::~PhysicalGameObject()
 {}
 
 
-void PhysicalGameObject::onCollision(Collider* collidingObject)
+void PhysicalGameObject::onCollision(phyX::RigidBodyOwner* other, float timeDelta)
 {}
 
 
-void PhysicalGameObject::duringCollision(Collider* collidingObject)
+void PhysicalGameObject::duringCollision(phyX::RigidBodyOwner* other, float timeDelta)
 {}
 

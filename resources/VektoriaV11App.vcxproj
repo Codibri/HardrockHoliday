@@ -40,10 +40,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)\VektoriaV11;(ProjectDir)\headers;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\HDAL_SDK_2.1.3\include;$(ProjectDir)\VektoriaV11;(ProjectDir)\headers;$(DXSDK_DIR)\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(ProjectDir)\VektoriaV11;(ProjectDir)\sources;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)\HDAL_SDK_2.1.3\lib;$(ProjectDir)\VektoriaV11;(ProjectDir)\sources;$(DXSDK_DIR)\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(DXSDK_DIR)\Include;$(ProjectDir)\VektoriaV11;$(IncludePath);(ProjectDir)\headers\</IncludePath>
@@ -55,14 +55,15 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_MBCS;_DEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_MBCS;_DEBUG</PreprocessorDefinitions>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <AdditionalIncludeDirectories>$(ProjectDir)\VektoriaV11\;$(ProjectDir)\headers</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\VektoriaV11\;$(ProjectDir)\headers;$(NOVINT_DEVICE_SUPPORT)\include</AdditionalIncludeDirectories>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)\VektoriaV11;$(ProjectDir)\sources</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Vektoria_Debug.lib;Vektoria_Release.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)\VektoriaV11;$(ProjectDir)\sources;$(NOVINT_DEVICE_SUPPORT)\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Vektoria_Debug.lib;Vektoria_Release.lib;hdl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -88,6 +89,18 @@
     <ClInclude Include="headers\Engine\GameState.h" />
     <ClInclude Include="headers\Engine\GlobalResources.h" />
     <ClInclude Include="headers\Engine\HardrockHolidayModules.h" />
+    <ClInclude Include="headers\Engine\VektoriaCoreElements.h" />
+    <ClInclude Include="headers\Game\GameObjectPrototypes.h" />
+    <ClInclude Include="headers\Game\GameObjects\Ground.h" />
+    <ClInclude Include="headers\Input\BlockedArea.h" />
+    <ClInclude Include="headers\Input\BlockedCube.h" />
+    <ClInclude Include="headers\Input\BlockedSphericalSector.h" />
+    <ClInclude Include="headers\Input\Falcon.h" />
+    <ClInclude Include="headers\Input\FalconManager.h" />
+    <ClInclude Include="headers\Input\FalconTestUtil.h" />
+    <ClInclude Include="headers\Input\haptics.h" />
+    <ClInclude Include="headers\Input\InputDevice.h" />
+    <ClInclude Include="headers\Input\Keyboard.h" />
     <ClInclude Include="headers\Engine\State.h" />
     <ClInclude Include="headers\Engine\StateMachine.h" />
     <ClInclude Include="headers\Engine\States.h" />
@@ -106,22 +119,46 @@
     <ClInclude Include="headers\Game\MapPart.h" />
     <ClInclude Include="headers\Game\MapPartManager.h" />
     <ClInclude Include="headers\Game\PhysicalGameObject.h" />
-    <ClInclude Include="headers\Game\Player.h" />
     <ClInclude Include="headers\Game\Scene.h" />
     <ClInclude Include="headers\Graphics\LochFalleVisual.h" />
     <ClInclude Include="headers\Graphics\MapWallVisual.h" />
     <ClInclude Include="headers\Graphics\playervisual.h" />
     <ClInclude Include="headers\Graphics\Visual.h" />
+    <ClInclude Include="headers\Physics\BoxCollider.h" />
+    <ClInclude Include="headers\Physics\Callbacks.h" />
+    <ClInclude Include="headers\Physics\CLink.h" />
+    <ClInclude Include="headers\Physics\Collider.h" />
+    <ClInclude Include="headers\Physics\CPhysiX.h" />
+    <ClInclude Include="headers\Physics\OctreeX.h" />
+    <ClInclude Include="headers\Physics\PhysicsModule.h" />
+    <ClInclude Include="headers\Physics\RigidBodyOwner.h" />
+    <ClInclude Include="headers\Physics\RigidBodyX.h" />
+    <ClInclude Include="headers\Physics\SphereCollider.h" />
+    <ClInclude Include="headers\Physics\SpinLockX.h" />
+    <ClInclude Include="headers\Physics\ThreadPoolX.h" />
+    <ClInclude Include="headers\Physics\Utilities.h" />
     <ClInclude Include="headers\Resources\levelloader.h" />
     <ClInclude Include="headers\Utility\DebugLog.h" />
     <ClInclude Include="headers\Utility\TangentCalculator.h" />
     <ClInclude Include="headers\Utility\TangentSpaceHelper.h" />
+    <ClInclude Include="headers\Input\Input.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="headers\Audio\SoundManager.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp" />
+    <ClCompile Include="sources\Game\GameObjects\Ground.cpp" />
+    <ClCompile Include="sources\Input\BlockedArea.cpp" />
+    <ClCompile Include="sources\Input\BlockedCube.cpp" />
+    <ClCompile Include="sources\Input\BlockedSphericalSector.cpp" />
+    <ClCompile Include="sources\Input\Falcon.cpp" />
+    <ClCompile Include="sources\Input\FalconManager.cpp" />
+    <ClCompile Include="sources\Input\FalconTestUtil.cpp" />
+    <ClCompile Include="sources\Input\haptics.cpp" />
+    <ClCompile Include="sources\Input\Input.cpp" />
+    <ClCompile Include="sources\Input\Keyboard.cpp" />
     <ClCompile Include="sources\Audio\SoundManager.cpp" />
     <ClCompile Include="sources\Engine\Engine.cpp" />
     <ClCompile Include="sources\Engine\EngineModule.cpp" />
@@ -150,6 +187,19 @@
     <ClCompile Include="sources\Graphics\MapWallVisual.cpp" />
     <ClCompile Include="sources\Graphics\PlayerVisual.cpp" />
     <ClCompile Include="sources\Graphics\Visual.cpp" />
+    <ClCompile Include="sources\Input\InputDevice.cpp" />
+    <ClCompile Include="sources\Physics\BoxCollider.cpp" />
+    <ClCompile Include="sources\Physics\CLink.cpp" />
+    <ClCompile Include="sources\Physics\Collider.cpp" />
+    <ClCompile Include="sources\Physics\CPhysiX.cpp" />
+    <ClCompile Include="sources\Physics\OctreeX.cpp" />
+    <ClCompile Include="sources\Physics\PhysicsModule.cpp" />
+    <ClCompile Include="sources\Physics\RigidBodyOwner.cpp" />
+    <ClCompile Include="sources\Physics\RigidBodyX.cpp" />
+    <ClCompile Include="sources\Physics\SphereCollider.cpp" />
+    <ClCompile Include="sources\Physics\SpinLockX.cpp" />
+    <ClCompile Include="sources\Physics\ThreadPoolX.cpp" />
+    <ClCompile Include="sources\Physics\Utilities.cpp" />
     <ClCompile Include="sources\Resources\LevelLoader.cpp" />
     <ClCompile Include="sources\Utility\DebugLog.cpp" />
     <ClCompile Include="sources\Utility\TangentSpaceHelper.cpp" />
@@ -157,12 +207,24 @@
     <ClCompile Include="VektoriaApp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="dhdlc.dll" />
+    <None Include="dhdlcDriver.dll" />
+    <None Include="hdl.dll" />
+    <None Include="novint_T0.bin" />
+    <None Include="novint_T2.bin" />
+    <None Include="nullDriver.dll" />
     <None Include="res\VektoriaTest.ico" />
     <None Include="shaders.hlsl" />
     <None Include="shadowmap.hlsl" />
+    <None Include="VektoriaApp.aps" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VektoriaApp.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="dhdlcLog.log" />
+    <Text Include="dhd_messages.log" />
+    <Text Include="hdal_messages.log" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -17,11 +17,9 @@
 
 //#define MAKRO_NAME static_cast<ModuleClass*>(Engine::getInstance()->engineModules->accesPublicModule(typeid(ModuleClass)))
 
-
-#define ENGINE_STATE_MACHINE this->accessPrivateModule(typeid(StateMachine))
-
-//TODO finish these
-//#define AUDIO Engine::getInstance()->modules.
-//#define PHYSICS Engine::getInstance()->modules.
+#define ENGINE_PHYSICS static_cast<PhysicsModule*>(Engine::getInstance()->engineModules->accessPublicModule(typeid(PhysicsModule)))
+#define ENGINE_SOUND_MANAGER static_cast<SoundManager*>(Engine::getInstance()->engineModules->accessPublicModule(typeid(SoundManager)))
+#define ENGINE_INPUT_DEVICE static_cast<InputDevice*>(Engine::getInstance()->engineModules->accessPublicModule(typeid(InputDevice)))
+#define ENGINE_STATE_MACHINE static_cast<StateMachine*>(Engine::getInstance()->engineModules->accessPrivateModule(typeid(StateMachine)))
 
 #endif

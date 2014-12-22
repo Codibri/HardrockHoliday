@@ -1,30 +1,49 @@
 
-//by Alexander Weiﬂ, 2014
+/*by Alexander Weiﬂ, 2014
+ _____           _ _ _          _ 
+/  __ \         | (_) |        (_)
+| /  \/ ___   __| |_| |__  _ __ _ 
+| |    / _ \ / _` | | '_ \| '__| |
+| \__/\ (_) | (_| | | |_) | |  | |
+ \____/\___/ \__,_|_|_.__/|_|  |_|*/
 
 #ifndef PHYSICAL_GAME_OBJECT_H
 #define PHYSICAL_GAME_OBJECT_H
 
 #include "Game\GameObject.h"
+#include "Physics\RigidBodyOwner.h"
+#include "Physics\Utilities.h"
+#include "Physics\Collider.h"
 
-class Collider; //TODO: replace by actual physics implementation
+
+struct PhysicalProperties
+{
+	PhysicalProperties(phyX::Collider* collider, float mass, bool hasGravity) 
+	{
+		_collider = collider;
+		_mass = mass;
+		_hasGravity = hasGravity;
+	}
+
+	phyX::Collider* _collider;
+	float _mass;
+	bool _hasGravity;
+};
 
 
-// a PhysicalGameObject represents a base template for every object in a Scene that will use a physical collision service of some kind. Its designated to be inherited from
-class PhysicalGameObject : public GameObject
+// A PhysicalGameObject represents a base template for every object in a Scene that will use a physical collision service of some kind. Its designated to be inherited from.
+class PhysicalGameObject : public GameObject, public phyX::RigidBodyOwner
 {
 public:
-	PhysicalGameObject(Vektoria::CPlacement position = Vektoria::CPlacement());
+	PhysicalGameObject(Vektoria::CPlacement position, const std::string& name, PhysicalProperties physicalProperties);
 
 	~PhysicalGameObject();
 
-	// this will be called once after collision with another collider
-	virtual void onCollision(Collider* collidingObject);
+	// This will be called once after collision with another collider.
+	virtual void onCollision(phyX::RigidBodyOwner* other, float timeDelta);
 
-	// this will be called during collision with another collider
-	virtual void duringCollision(Collider* collidingObject);
-
-protected:
-	//Collider _collider;  //TODO: replace by actual physics imlementation
+	// This will be called during collision with another collider.
+	virtual void duringCollision(phyX::RigidBodyOwner* other, float timeDelta);
 };
 
 #endif

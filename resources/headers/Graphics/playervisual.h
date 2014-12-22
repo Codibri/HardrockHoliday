@@ -2,7 +2,8 @@
 
 #include "root.h"
 #include "Graphics\Visual.h"
-
+#include "Utility\TangentSpaceHelper.h"
+#include <memory>
 using namespace Vektoria;
 
 // TODO discuss how to integrate / rework this into the architecture
@@ -11,7 +12,7 @@ using namespace Vektoria;
 class PlayerVisual : public Visual
 {
 public:
-	PlayerVisual(Vektoria::CPlacement* p);
+	PlayerVisual(Vektoria::CPlacement* rotationPlacement, CPlacement* posPlacement);
 	~PlayerVisual();
 
 	void update(float deltaMillis, float time) override;
@@ -22,7 +23,15 @@ public:
 private:
 
 	CGeoSphere mPlayerMesh;
+	CGeo* mObjPlayerMesh;
 	CMaterial mPlayerMaterial;
+
+	CSpotLight mSpotLight;
+	CPlacement mSpotLightPlacment;
+	CHVector mOrigin;
+
+	CPlacement* mPosPlacement;
+	CPlacement mLastPositionPlacement;
 };
 
 

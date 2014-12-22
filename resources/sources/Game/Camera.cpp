@@ -1,13 +1,13 @@
 #include "Game\Camera.h"
-
+#include "Engine\Engine.h"
 
 Camera::Camera()
 {
 	mCamPlacement.AddCamera(&mVektoriaCamera);
 
-
-	mCamPlacement.TranslateY(0.75);
-	mCamPlacement.TranslateZDelta(2.0);
+	// Kameraabstand zur Spieler-Kugel
+	mCamPlacement.TranslateY(0.35);
+	mCamPlacement.TranslateZDelta(0.8);
 
 }
 
@@ -17,9 +17,12 @@ Camera::~Camera()
 }
 
 
-void Camera::initViewPort(float camAngle, Vektoria::CViewport* viewport){
+void Camera::initViewPort(float camAngle, Vektoria::CFrame* frame){
 	mVektoriaCamera.Init(camAngle);
-	viewport->InitFull(&mVektoriaCamera);
+	mViewPort.InitFull(&mVektoriaCamera);
+	frame->AddViewport(&mViewPort);
+
+	ENGINE->globalResources.vektoriaCoreElements.viewport = &mViewPort; //hack access to viewport  :D  don't kill me please
 }
 
 

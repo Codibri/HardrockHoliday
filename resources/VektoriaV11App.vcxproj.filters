@@ -82,6 +82,12 @@
     <Filter Include="Quelldateien\Game\Level\Level1">
       <UniqueIdentifier>{973b1244-fa20-42c8-92f7-3a8d9e63437e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\Physics\detail">
+      <UniqueIdentifier>{3aa3c003-4b67-40df-a8e1-f28392a66788}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Physics\detail">
+      <UniqueIdentifier>{b20d02d8-1b7f-487e-85c0-8087c96f5ae3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -128,9 +134,6 @@
     </ClInclude>
     <ClInclude Include="headers\Game\Scene.h">
       <Filter>Headerdateien\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Game\Player.h">
-      <Filter>Headerdateien\Game\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="headers\Game\MapPartManager.h">
       <Filter>Headerdateien\Game</Filter>
@@ -198,8 +201,92 @@
     <ClInclude Include="headers\Graphics\Visual.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Input\InputDevice.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Engine\VektoriaCoreElements.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Falcon.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Input.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Keyboard.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
     <ClInclude Include="headers\Audio\SoundManager.h">
       <Filter>Headerdateien\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Engine\VektoriaCoreElements.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Input.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\Callbacks.h">
+      <Filter>Headerdateien\Physics\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\CLink.h">
+      <Filter>Headerdateien\Physics\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\OctreeX.h">
+      <Filter>Headerdateien\Physics\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\SpinLockX.h">
+      <Filter>Headerdateien\Physics\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\ThreadPoolX.h">
+      <Filter>Headerdateien\Physics\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\Utilities.h">
+      <Filter>Headerdateien\Physics\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\Collider.h">
+      <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\CPhysiX.h">
+      <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\RigidBodyOwner.h">
+      <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\RigidBodyX.h">
+      <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\SphereCollider.h">
+      <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\BoxCollider.h">
+      <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Physics\PhysicsModule.h">
+      <Filter>Headerdateien\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\GameObjects\Ground.h">
+      <Filter>Headerdateien\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Game\GameObjectPrototypes.h">
+      <Filter>Headerdateien\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\FalconManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\FalconTestUtil.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\haptics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\BlockedSphericalSector.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\BlockedCube.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\BlockedArea.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -299,8 +386,83 @@
     <ClCompile Include="sources\Graphics\Visual.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="sources\Input\Keyboard.cpp">
+      <Filter>Quelldateien\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\Falcon.cpp">
+      <Filter>Quelldateien\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\InputDevice.cpp">
+      <Filter>Quelldateien\Input</Filter>
+    </ClCompile>
     <ClCompile Include="sources\Audio\SoundManager.cpp">
       <Filter>Quelldateien\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\Input.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\CLink.cpp">
+      <Filter>Quelldateien\Physics\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\OctreeX.cpp">
+      <Filter>Quelldateien\Physics\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\SpinLockX.cpp">
+      <Filter>Quelldateien\Physics\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\ThreadPoolX.cpp">
+      <Filter>Quelldateien\Physics\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\Utilities.cpp">
+      <Filter>Quelldateien\Physics\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\BoxCollider.cpp">
+      <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\Collider.cpp">
+      <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\CPhysiX.cpp">
+      <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\RigidBodyOwner.cpp">
+      <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\RigidBodyX.cpp">
+      <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\SphereCollider.cpp">
+      <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Physics\PhysicsModule.cpp">
+      <Filter>Quelldateien\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\GameObjects\Ground.cpp">
+      <Filter>Quelldateien\Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\BlockedArea.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\BlockedCube.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\BlockedSphericalSector.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\FalconManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\FalconTestUtil.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Input\haptics.cpp">
+      <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -313,10 +475,26 @@
     <None Include="res\VektoriaTest.ico">
       <Filter>Ressourcendateien</Filter>
     </None>
+    <None Include="VektoriaApp.aps" />
+    <None Include="dhdlc.dll" />
+    <None Include="dhdlcDriver.dll" />
+    <None Include="hdl.dll" />
+    <None Include="novint_T0.bin">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="novint_T2.bin">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="nullDriver.dll" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VektoriaApp.rc">
       <Filter>Ressourcendateien</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="dhd_messages.log" />
+    <Text Include="dhdlcLog.log" />
+    <Text Include="hdal_messages.log" />
   </ItemGroup>
 </Project>

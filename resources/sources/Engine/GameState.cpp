@@ -8,24 +8,20 @@
  \____/\___/ \__,_|_|_.__/|_|  |_|*/
 
 #include "Engine\GameState.h"
+#include "Engine\Engine.h"
+#include "Audio\SoundManager.h"
 
 
-GameState::GameState() : State("GameState"), _hwnd(Engine::getInstance()->globalResources.hWnd)
+GameState::GameState() : State("GameState")
 {
-	_rootVektoria.Init(Engine::getInstance()->globalResources.splash);
-	_frameVektoria.Init(Engine::getInstance()->globalResources.hWnd);
+	_scene.init(&Engine::getInstance()->globalResources.vektoriaCoreElements.scene,
+				&Engine::getInstance()->globalResources.vektoriaCoreElements.root);
 
-
-	_rootVektoria.AddScene(&_sceneVektoria);
-
-	_scene.init(&_sceneVektoria, &_rootVektoria);
-	_scene.initViewport(&_viewportVektoria);
-
-	_rootVektoria.AddFrameHere(&_frameVektoria);
-
-	_frameVektoria.AddViewport(&_viewportVektoria);
+	_scene.initViewport(&Engine::getInstance()->globalResources.vektoriaCoreElements.frame);
 
 	_scene.loadLevel(1);
+
+	//SoundManager* soundManager = ENGINE_SOUND_MANAGER; // play background music
 }
 
 
@@ -35,11 +31,14 @@ GameState::~GameState()
 
 NextState GameState::update(float deltaTime, float time)
 {
+	NextState nextState = _stateName;
+
 	_scene.tick(deltaTime, time);
 
-	std::string debugMSG = "Updated " + _stateName;
-	DEBUG_OUT(debugMSG)
 
-	return _stateName;
+	return nextState;
 }
+
+
+
 

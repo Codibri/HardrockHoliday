@@ -2,6 +2,8 @@
 #include "Game\MapPart.h"
 #include "Game\GameObjects\LochFalle.h"
 #include "Game\GameObjects\MapWall.h"
+#include "Game\GameObjects\Ground.h"
+#include "Physics\PhysicsModule.h"
 #include "root.h"
 
 class Level1Part1 : public MapPart

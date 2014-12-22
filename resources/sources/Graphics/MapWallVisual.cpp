@@ -8,8 +8,11 @@ MapWallVisual::MapWallVisual(Vektoria::CHVector boxColliderSize, Vektoria::CPlac
 	mCubeMaterial.SetTransparencyOn();
 	mCubeMaterial.MakeTextureImage("GameResources\\Levels\\level1\\collidervisualwall_COLOR.png");
 	//mCubeMaterial.SetShadingOff();
-	boxColliderSize *= 0.5;
-	mCubeGeo.Init(boxColliderSize, &mCubeMaterial);
+	//boxColliderSize *= 0.5;
+	
+	Vektoria::CHVector visualBoxSize = boxColliderSize * 0.5; // In Vektoria werden Cubes doppelt so groß dargestellt
+
+	mCubeGeo.Init(visualBoxSize, &mCubeMaterial);
 	_placement->AddGeo(&mCubeGeo);
 }
 

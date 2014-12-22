@@ -21,17 +21,20 @@ public:
 
 	void tick(float deltaMillis, float ftime);
 
-	void initViewport(Vektoria::CViewport* viewport);
+	void initViewport(Vektoria::CFrame* frame);
 
 private:
 
 	Vektoria::CScene* mVectoriaScene;
 	Vektoria::CRoot* mRoot;
+
 	
 	Camera mCamera;
 
 	std::unique_ptr<Level>	 mActiveLevel;
 	MapPartManager mMapPartManager;
 	LevelLoader mLevelLoader;
+
+
 };
 
