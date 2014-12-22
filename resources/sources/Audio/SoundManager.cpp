@@ -5,10 +5,10 @@
 SoundManager::SoundManager()
 {
 	HWND hwnd = Engine::getInstance()->globalResources.hWnd;
-	mBackgroundMusic.Init("GameResources\\Levels\\test.wav", hwnd);
-	mStoneRolling.Init("GameResources\\Levels\\test.wav", hwnd);
-	mStoneFalling.Init("GameResources\\Levels\\test.wav", hwnd);
-	mStoneBreaking.Init("GameResources\\Levels\\test.wav", hwnd);
+	mBackgroundMusic.Init("GameResources\\Sounds\\test.wav", hwnd);
+	mStoneRolling.Init("GameResources\\Sounds\\test.wav", hwnd);
+	mStoneFalling.Init("GameResources\\Sounds\\test.wav", hwnd);
+	mStoneBreaking.Init("GameResources\\Sounds\\test.wav", hwnd);
 }
 
 SoundManager::~SoundManager()
@@ -18,6 +18,15 @@ SoundManager::~SoundManager()
 	mStoneFalling.Fini();
 	mStoneBreaking.Fini();
 }
+
+//lokaler Soundtest
+/*void SoundManager::update(float deltaTime, float time) {
+	count++;
+	if (count % 500 == 0) {
+		std::cout << "Hallo Sound!" << std::endl;
+		play(BackgroundMusic, false);
+	}	
+}*/
 
 void SoundManager::play(Sound SoundName, bool looped)
 {
