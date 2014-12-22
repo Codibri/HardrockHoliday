@@ -16,7 +16,7 @@ enum Sound
 
 //Singleton funktioniert noch nicht, wird von Engine gemacht
 
-class SoundManager : EngineModule 
+class SoundManager : public EngineModule 
 {
 public:
 	SoundManager();
