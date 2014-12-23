@@ -21,7 +21,8 @@ Level1Part1::~Level1Part1()
 
 void Level1Part1::loadMaterial(){
 	mGroundMaterial.MakeTextureImage("GameResources\\Levels\\level1\\part1\\part_COLOR.png");
-	mGroundMaterial.MakeTextureSpecular("GameResources\\Textures\\black_image.jpg");
+	mGroundMaterial.MakeTextureSpecular("GameResources\\Levels\\level1\\part1\\part_SPEC.png");
+	mGroundMaterial.MakeTextureBump("GameResources\\Levels\\level1\\part1\\part_NRM.png");
 	mGroundMesh->SetMaterial(&mGroundMaterial);
 }
 

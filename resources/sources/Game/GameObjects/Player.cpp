@@ -78,7 +78,7 @@ void Player::reactToInput(float deltaTime)
 				z = 0;
 			}
 			z = abs(z);
-			//z = 0.2; // <- this is for debug purposes only. TODO: delete when inputDevice is capable of returning real z values
+			z = 0.05; // <- this is for debug purposes only. TODO: delete when inputDevice is capable of returning real z values
 			//PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), 5*z, false);
 			PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(0, 0, -1), 200 * z * deltaTime, false);
 		}
@@ -125,7 +125,7 @@ void Player::updateRotation()
 void Player::reset()
 {
 	_position.m_mLocal = _startingPosition.m_mLocal;
-	_position.TranslateY(10.0f); //set a little bit higher to give the physics the chance to detect a collision with the ground
+	_position.TranslateY(1.0f); //set a little bit higher to give the physics the chance to detect a collision with the ground
 
 	_gameOverOverlay.SwitchOff();
 }
