@@ -6,7 +6,7 @@
 #include "Camera.h"
 #include "root.h"
 #include "Util.h"
-
+#include "Graphics\Timer.h"
 #include <memory>
 
 class Scene
@@ -35,6 +35,6 @@ private:
 	MapPartManager mMapPartManager;
 	LevelLoader mLevelLoader;
 
-
+	Timer mTimer;
 };
 

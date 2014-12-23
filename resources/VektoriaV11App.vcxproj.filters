@@ -288,6 +288,9 @@
     <ClInclude Include="headers\Input\BlockedArea.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Graphics\Timer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -462,6 +465,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="sources\Input\haptics.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Graphics\Timer.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

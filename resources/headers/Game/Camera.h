@@ -12,6 +12,8 @@ public:
 
 	void setPlayerPlacement(Vektoria::CPlacement* p);
 
+	Vektoria::CViewport* getViewPort();
+
 private:
 
 	Vektoria::CViewport mViewPort;
