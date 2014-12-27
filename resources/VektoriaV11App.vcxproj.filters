@@ -492,6 +492,9 @@
       <Filter>Ressourcendateien</Filter>
     </None>
     <None Include="nullDriver.dll" />
+    <None Include="res\mp31.bin">
+      <Filter>Ressourcendateien</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VektoriaApp.rc">

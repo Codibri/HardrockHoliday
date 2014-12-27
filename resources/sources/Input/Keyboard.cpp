@@ -19,13 +19,13 @@ float Keyboard::getNewXPosition(float oldPosition) {
 
 float Keyboard::getNewZPosition(float oldPosition) {
 	if (deviceKeyboard.KeyPressed(DIK_UP) && (oldPosition > -1.0))			// Oben/Vorne gedrückt
-		return oldPosition - 0.002;
+		return oldPosition - 0.001;
 	else if (deviceKeyboard.KeyPressed(DIK_DOWN) && (oldPosition < 1.0))	// Zurück/Bremsen gedrückt
-		return oldPosition + 0.002;
+		return oldPosition + 0.001;
 	else
 		return oldPosition;
 }
 
-CDeviceKeyboard* Keyboard::getDeviceKeyboard() {	//<- kann nicht funktionieren so ;)		(Da CDeviceKeybord in diesem Falle kopiert wird. Sollte wohl ein Pointer sein)
+CDeviceKeyboard* Keyboard::getDeviceKeyboard() {
 	return &deviceKeyboard;
 }

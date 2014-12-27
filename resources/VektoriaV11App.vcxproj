@@ -215,6 +215,7 @@
     <None Include="novint_T0.bin" />
     <None Include="novint_T2.bin" />
     <None Include="nullDriver.dll" />
+    <None Include="res\mp31.bin" />
     <None Include="res\VektoriaTest.ico" />
     <None Include="shaders.hlsl" />
     <None Include="shadowmap.hlsl" />
