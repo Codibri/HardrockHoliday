@@ -72,13 +72,12 @@ void Player::reactToInput(float deltaTime)
 			PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(direction, 0, 0), 200 * x * deltaTime, false);
 
 			float z = inputDevice->getZPosition();
-
 			if (z > 0)
 			{
 				z = 0;
 			}
 			z = abs(z);
-			z = 0.03; // <- this is for debug purposes only. TODO: delete when inputDevice is capable of returning real z values
+			//z = 0.03; // <- this is for debug purposes only. TODO: delete when inputDevice is capable of returning real z values
 			//PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), 5*z, false);
 			PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(0, 0, -1), 200 * z * deltaTime, false);
 		}

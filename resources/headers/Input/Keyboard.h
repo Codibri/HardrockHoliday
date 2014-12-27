@@ -15,7 +15,7 @@ public:
 	virtual ~Keyboard();
 
 	float getNewXPosition(float oldPosition);
-	float getNewYPosition(float oldPosition);
+	float getNewZPosition(float oldPosition);
 
 	CDeviceKeyboard* getDeviceKeyboard();
 

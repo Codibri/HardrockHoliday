@@ -30,7 +30,7 @@ void InputDevice::update(float deltaTime, float time) {
 	}
 	else if (!useFalcon){
 		xPosition = keyboard.getNewXPosition(xPosition);
-		//zPosition = keyboard.getNewZPosition(zPosition);
+		zPosition = keyboard.getNewZPosition(zPosition);
 	}
 }
 
