@@ -5,7 +5,7 @@
 SoundManager::SoundManager()
 {
 	HWND hwnd = Engine::getInstance()->globalResources.hWnd;
-	mBackgroundMusic.Init("GameResources\\Sounds\\background.wav", hwnd);
+	mBackgroundMusic.Init("GameResources\\Sounds\\background.wav", hwnd);		// Ice Age: Send me on my way, acoustic version (https://www.youtube.com/watch?v=y6jM2y9rHRQ)
 	mStoneRolling.Init("GameResources\\Sounds\\test.wav", hwnd);
 	mStoneFalling.Init("GameResources\\Sounds\\test.wav", hwnd);
 	mStoneBreaking.Init("GameResources\\Sounds\\test.wav", hwnd);

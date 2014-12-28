@@ -26,6 +26,16 @@ float Keyboard::getNewZPosition(float oldPosition) {
 		return oldPosition;
 }
 
+bool Keyboard::isKeyPressed(Game_Inputs key) {
+	switch (key) {
+	case Game_Inputs::Reset_Key:
+		return deviceKeyboard.KeyPressed(DIK_ESCAPE);
+	case Game_Inputs::End_Key:
+		return deviceKeyboard.KeyPressed(DIK_SPACE);
+	}
+	return false;
+}
+
 CDeviceKeyboard* Keyboard::getDeviceKeyboard() {
 	return &deviceKeyboard;
 }

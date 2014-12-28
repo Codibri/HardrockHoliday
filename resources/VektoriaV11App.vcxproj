@@ -96,6 +96,7 @@
     <ClInclude Include="headers\Input\BlockedArea.h" />
     <ClInclude Include="headers\Input\BlockedCube.h" />
     <ClInclude Include="headers\Input\BlockedSphericalSector.h" />
+    <ClInclude Include="headers\Input\Constants.h" />
     <ClInclude Include="headers\Input\Falcon.h" />
     <ClInclude Include="headers\Input\FalconManager.h" />
     <ClInclude Include="headers\Input\FalconTestUtil.h" />

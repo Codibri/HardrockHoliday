@@ -226,7 +226,7 @@ float FalconManager::getNewPosition(int direction) {
 	hdlToolPosition(m_positionServo);
 	// TODO direction checken ob 0 1 2 
 	// TODO 3 inch in z richtung
-	printPosition();
+	//printPosition();
 	return m_positionServo[direction]*100/(2*inch);
 }
 
