@@ -3,14 +3,12 @@
 #include "Input\InputDevice.h"
 
 InputDevice::InputDevice(CFrame* frame) : EngineModule() {
-	std::cout << "InputDevice" << std::endl;
 	// TODO: Testen, ob Falcon angeschlossen (siehe anderes Projekt)
 	// TODO: Wenn keine Falcon, dann Keyboard verwenden (immer nur 1)
 	// TODO: (optional) Falls Probleme mit Falcon, dann auch  im laufenden Spiel wechseln ermöglichen
-	useFalcon = true;
+	useFalcon = false;
 
 	if (useFalcon){
-		std::cout << "Falcon" << std::endl;
 		falcon = new Falcon();
 		falcon->move_To_Origin();
 	}
@@ -26,7 +24,7 @@ InputDevice::~InputDevice() {
 }
 
 void InputDevice::update(float deltaTime, float time) {
-	count++;
+	/*count++;
 	if (count < 100) {
 		std::cout << "Rumble an" << std::endl;
 		falcon->rumble(true, 10.0);
@@ -34,7 +32,7 @@ void InputDevice::update(float deltaTime, float time) {
 	if (count > 200) {
 		std::cout << "Rumble aus" << std::endl;
 		falcon->rumble(false, 10.0);
-	}
+	}*/
 
 	if (useFalcon){
 		xPosition = falcon->getNewPosition(0);
