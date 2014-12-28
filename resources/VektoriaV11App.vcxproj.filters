@@ -201,9 +201,6 @@
     <ClInclude Include="headers\Graphics\Visual.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Input\InputDevice.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="headers\Engine\VektoriaCoreElements.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -270,29 +267,32 @@
     <ClInclude Include="headers\Game\GameObjectPrototypes.h">
       <Filter>Headerdateien\Game</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Input\FalconManager.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Input\FalconTestUtil.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Input\haptics.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Input\BlockedSphericalSector.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Input\BlockedCube.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Input\BlockedArea.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="headers\Graphics\Timer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="headers\Input\Constants.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\BlockedSphericalSector.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\BlockedArea.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\BlockedCube.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\FalconManager.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\FalconTestUtil.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\haptics.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\InputDevice.h">
+      <Filter>Headerdateien\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
