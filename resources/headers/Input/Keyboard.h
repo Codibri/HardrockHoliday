@@ -17,6 +17,7 @@ public:
 	float getNewXPosition(float oldPosition);
 	float getNewZPosition(float oldPosition);
 
+	// Game Steuerung (Neu, Beenden)
 	bool isKeyPressed(Game_Inputs key);
 
 	CDeviceKeyboard* getDeviceKeyboard();

@@ -21,17 +21,54 @@ Have Fun!
 // Mareike 
 
 #include "Input/Falcon.h"
+#include "Input/Constants.h"
 
 
 Falcon::Falcon() {
 	falconManager.init();
-	double pos[3] = { 0.0, 0.04, 0.0 };
-	falconManager.moveToPosition(pos, 0.2);
 }
 
 Falcon::~Falcon() {
 }
 
+void Falcon::makeReady() {
+	move_To_Origin();
+}
+
 float Falcon::getNewPosition(int direction) {
 	return falconManager.getNewPosition(direction);
+}
+
+bool Falcon::isKeyPressed(Game_Inputs key) {
+	return falconManager.isKeyPressed(key);
+}
+
+void Falcon::rumble(bool on, float strength) {
+	rumbleOn = on;
+	rumbleStrength = strength;
+}
+
+void Falcon::block(bool on, Direction direction) {
+
+}
+
+void Falcon::move_To_Origin() {
+	std::cout << "Moved to Origin" << std::endl;
+	double pos[3] = { 0.0, 0.04, 0.0 };
+	falconManager.moveToPosition(pos, 0.2);
+}
+
+void Falcon::fallDown() {
+
+}
+
+void Falcon::updateBlockAndRumble() {
+	falconManager.updateBlocking();
+	if (rumbleOn) {
+		std::cout << "Rumble" << std::endl;
+		//falconManager.rumbleSwitch(rumbleStrength);
+	}
+	else {
+		std::cout << "Rumble nicht" << std::endl;
+	}
 }

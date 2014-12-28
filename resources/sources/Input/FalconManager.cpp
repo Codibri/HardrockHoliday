@@ -18,8 +18,8 @@
 
 
 FalconManager::FalconManager() {
-	blockedSectors[DIRECTION_RIGHT] = new BlockedSphericalSector(0, 0.8f, -10.0f, -0.0f, false);
-	blockedSectors[DIRECTION_LEFT] = new BlockedSphericalSector(0, -0.8f, 10.0f, 0.0f, false);
+	blockedSectors[DIRECTION_RIGHT] = new BlockedSphericalSector(0, 1.2f, -10.0f, -0.0f, false);
+	blockedSectors[DIRECTION_LEFT] = new BlockedSphericalSector(0, -1.2f, 10.0f, 0.0f, false);
 
 	blockedSectors[DIRECTION_TOP] = new BlockedSphericalSector(1, 1.5f, -0.0f, -0.0f, false);
 	blockedSectors[DIRECTION_BOTTOM] = new BlockedSphericalSector(1, -0.05f, 10.0f, 0.0f, false);
@@ -163,23 +163,35 @@ void FalconManager::moveToPosition(double position[3], double precision) {
 	ContactCB(this);
 }
 
+bool FalconManager::isKeyPressed(Game_Inputs key) {
+	ContactCB(this);
+	if (m_buttonServo) {
+		double pos[3] = { 0.0, 0.04, 0.0 };
+		moveToPosition(pos, 0.2);
+		return true;
+	}
+	return false;
+}
+
 void FalconManager::rumbleSwitch(float strength) {
 	// Push Force Werte
 	double forcePush[3];
 	memcpy(forcePush, m_forceServo, sizeof(m_forceServo));
 
-	if (rumbleDirection) {
-		m_forceServo[0] = strength;
-		m_forceServo[1] = strength;
-		m_forceServo[2] = strength;
+	for (int i = 0; i < 4; i++) {
+		if (rumbleDirection) {
+			m_forceServo[0] = strength;
+			m_forceServo[1] = strength;
+			m_forceServo[2] = strength;
+		}
+		else {
+			m_forceServo[0] = -strength;
+			m_forceServo[1] = -strength;
+			m_forceServo[2] = -strength;
+		}
+		rumbleDirection = !rumbleDirection;
+		ContactCB(this);
 	}
-	else {
-		m_forceServo[0] = -strength;
-		m_forceServo[1] = -strength;
-		m_forceServo[2] = -strength;
-	}
-	rumbleDirection = !rumbleDirection;
-	ContactCB(this);
 
 	// Pop Force Werte
 	m_forceServo[0] = forcePush[0];		

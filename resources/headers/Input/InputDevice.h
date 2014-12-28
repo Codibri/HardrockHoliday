@@ -28,7 +28,7 @@ public:
 	void rumble(bool on, float strength);
 	void block(bool on, Direction direction);
 
-	// Tastatur
+	// Game Steuerung (Neu, Beenden)
 	bool isKeyPressed(Game_Inputs key);
 
 	// TODO: Falcon
@@ -43,6 +43,8 @@ private:
 	Keyboard keyboard;		// SemikolonFehler kommt wenn sich Dateien gegenseitig includen
 	Falcon* falcon;
 	bool useFalcon;
+
+	int count;
 };
 
 #endif

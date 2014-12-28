@@ -3,17 +3,19 @@
 #include "Input\InputDevice.h"
 
 InputDevice::InputDevice(CFrame* frame) : EngineModule() {
+	std::cout << "InputDevice" << std::endl;
 	// TODO: Testen, ob Falcon angeschlossen (siehe anderes Projekt)
 	// TODO: Wenn keine Falcon, dann Keyboard verwenden (immer nur 1)
 	// TODO: (optional) Falls Probleme mit Falcon, dann auch  im laufenden Spiel wechseln ermöglichen
 	useFalcon = true;
 
-	frame->AddDeviceKeyboard(keyboard.getDeviceKeyboard());
-
 	if (useFalcon){
+		std::cout << "Falcon" << std::endl;
 		falcon = new Falcon();
+		falcon->move_To_Origin();
 	}
 	else if (!useFalcon) {
+		frame->AddDeviceKeyboard(keyboard.getDeviceKeyboard());
 		xPosition = 0.0;
 		yPosition = 0.0;
 		zPosition = 0.0;
@@ -24,10 +26,21 @@ InputDevice::~InputDevice() {
 }
 
 void InputDevice::update(float deltaTime, float time) {
+	count++;
+	if (count < 100) {
+		std::cout << "Rumble an" << std::endl;
+		falcon->rumble(true, 10.0);
+	}
+	if (count > 200) {
+		std::cout << "Rumble aus" << std::endl;
+		falcon->rumble(false, 10.0);
+	}
+
 	if (useFalcon){
 		xPosition = falcon->getNewPosition(0);
 		yPosition = falcon->getNewPosition(1);
 		zPosition = falcon->getNewPosition(2);
+		falcon->updateBlockAndRumble();
 	}
 	else if (!useFalcon){
 		xPosition = keyboard.getNewXPosition(xPosition);
@@ -58,7 +71,7 @@ float InputDevice::getZPosition() {
 // Forcefeedback
 void InputDevice::rumble(bool on, float strength) {
 	if (useFalcon){
-		// TODO: Falcon
+		falcon->rumble(on, strength);
 	}
 };
 
@@ -69,15 +82,23 @@ void InputDevice::block(bool on, Direction direction) {
 };
 
 
-// Tastatur
+// Game Steuerung (Neu, Beenden)
 bool InputDevice::isKeyPressed(Game_Inputs key) {
-	return keyboard.isKeyPressed(key);
+	if (useFalcon){
+		return falcon->isKeyPressed(key);
+	}
+	else {
+		return keyboard.isKeyPressed(key);
+	}
+	return false;
 }
 
 
 // Falcon
 void InputDevice::move_To_Origin() {
-	// TODO
+	if (useFalcon){
+		falcon->move_To_Origin();
+	}
 }
 
 void InputDevice::fallDown() {

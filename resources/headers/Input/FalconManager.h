@@ -6,6 +6,7 @@
 #include <hdlu/hdlu.h>
 #include <iostream>
 #include "BlockedSphericalSector.h"
+#include "Input\Constants.h"
 
 
 class FalconManager {
@@ -35,13 +36,15 @@ public:
 	// Überprüfe, ob Motoren aufgrund der neuen Position gesperrt werden müssen
 	void updateBlocking();
 
+	// Game Steuerung (Neu, Beenden)
+	bool isKeyPressed(Game_Inputs key);
+
 	// Rumble
 	void rumbleSwitch(float strength);
 
 	// TEST-Methoden:
 	void printPosition();
 	void printDouble(double d);
-
 
 
 	// Falcon erfolgreich initialisiert
