@@ -270,9 +270,6 @@
     <ClInclude Include="headers\Graphics\Timer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Input\Constants.h">
-      <Filter>Headerdateien\Input</Filter>
-    </ClInclude>
     <ClInclude Include="headers\Input\BlockedSphericalSector.h">
       <Filter>Headerdateien\Input</Filter>
     </ClInclude>
@@ -293,6 +290,9 @@
     </ClInclude>
     <ClInclude Include="headers\Input\InputDevice.h">
       <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Constants.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
