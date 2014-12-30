@@ -66,7 +66,8 @@ void Timer::InitWriting(){
 }
 
 void Timer::UpdateDuration(float fTime){
-	mSeconds = (int)fTime;
-	mMinutes = mSeconds / 60;
-	mMilliSeconds = (int)((fTime - (float)mSeconds) * 1000.0);
+	int mTotalSeconds = (int)fTime;
+	mSeconds = mTotalSeconds % 60;
+	mMinutes = mTotalSeconds / 60;
+	mMilliSeconds = (int)((fTime - (float)mTotalSeconds) * 1000.0);
 }

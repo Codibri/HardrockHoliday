@@ -33,7 +33,7 @@ void Level1Part1::initGameObjects(){
 	auto normalGround = new Ground(Vektoria::CHVector(2, 2.0, 42));
 	normalGround->setName("NormalGround");
 	normalGround->GetRigidBody()->GetCollider()->SetLayer(normalGround->getName());
-	normalGround->getPlacement()->Translate(0, -1.0, 0);
+	normalGround->getPlacement()->Translate(0, -1.0, -20);
 	addGameObject(normalGround);
 
 	auto pitGround = new Ground(Vektoria::CHVector(2, 2.0, 25));
