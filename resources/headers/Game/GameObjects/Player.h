@@ -13,6 +13,7 @@
 #include "Game\PhysicalGameObject.h"
 #include "Physics\SphereCollider.h"
 #include "Input\InputDevice.h"
+#include "Audio\SoundManager.h"
 #include "Game\GameObjectPrototypes.h"
 #include "Graphics\Timer.h"
 
@@ -44,12 +45,18 @@ protected:
 
 	//TODO: move this out of player to a kind of game flow class
 	Vektoria::CImage _gameOverImage;
+	Vektoria::CImage _gameWinImage;
 	Vektoria::COverlay _gameOverOverlay;
+	Vektoria::COverlay _gameWinOverlay;
 
 	Timer _rumbleTimeout;
 	Timer _courseTime;
 
 	bool _alive;
+	bool _crashing;
+	bool _won;
+	bool _rolling;
+	bool _falling;
 };
 
 #endif
