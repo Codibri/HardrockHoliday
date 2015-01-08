@@ -54,6 +54,7 @@ namespace phyX
 	private:
 
 		float m_mass;
+		float m_velocity;
 		const bool m_isStatic;
 		Vektoria::CHMat m_mat;
 		Vektoria::CHMat m_local;
