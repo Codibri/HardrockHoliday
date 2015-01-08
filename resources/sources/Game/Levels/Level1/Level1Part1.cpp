@@ -47,7 +47,11 @@ void Level1Part1::initGameObjects(){
 	physicsModule->SetLayerProperty("Player", "NormaleGround", true);
 	physicsModule->SetLayerProperty("Player", "PitGround", false);
 
-	
+	std::cout << "Lade Gameobjects part1" << std::endl;
+
+	addGameObjectsFromFile("GameResources\\Levels\\level1\\part1\\gameobjects_part1.txt");
+
+	/*
 	// Löcher
 	auto falle1 = new LochFalle(scaleFromBlender(0.201, 0.408, 0.378));
 	falle1->getPlacement()->Translate(locationFromBlender(-0.3211, 1.75064, -0.17448));
@@ -61,19 +65,14 @@ void Level1Part1::initGameObjects(){
 	falle3->getPlacement()->Translate(locationFromBlender(0.29663, 6.96836, -0.17448));
 	addGameObject(falle3);
 	
-	// Wände
-	auto wallLeft = new MapWall(Vektoria::CHVector(1.0, 0.5, 8.0));
-	wallLeft->getPlacement()->Translate(-1.1, 0.25, -4.0);
-	addGameObject(wallLeft);
-
-	auto wallRight = new MapWall(Vektoria::CHVector(1.0, 0.5, 8.0));
-	wallRight->getPlacement()->Translate(1.1, 0.25, -4.0);
-	addGameObject(wallRight);
+	
 
 	auto wall1 = new MapWall(scaleFromBlender(0.287, 0.584, 0.541));
 	wall1->getPlacement()->RotateY(DEGREES_TO_RADIANS(-44.6));
 	wall1->getPlacement()->TranslateDelta(locationFromBlender(-0.52594, 5.10817, 0.04398));
 	addGameObject(wall1);
+
+	*/
 
 }
 

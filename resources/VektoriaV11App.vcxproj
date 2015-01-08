@@ -141,6 +141,7 @@
     <ClInclude Include="headers\Physics\Utilities.h" />
     <ClInclude Include="headers\Resources\levelloader.h" />
     <ClInclude Include="headers\Utility\DebugLog.h" />
+    <ClInclude Include="headers\Utility\GameObjectLoader.h" />
     <ClInclude Include="headers\Utility\TangentCalculator.h" />
     <ClInclude Include="headers\Utility\TangentSpaceHelper.h" />
     <ClInclude Include="headers\Input\Input.h" />
@@ -205,6 +206,7 @@
     <ClCompile Include="sources\Physics\Utilities.cpp" />
     <ClCompile Include="sources\Resources\LevelLoader.cpp" />
     <ClCompile Include="sources\Utility\DebugLog.cpp" />
+    <ClCompile Include="sources\Utility\GameObjectLoader.cpp" />
     <ClCompile Include="sources\Utility\TangentSpaceHelper.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="VektoriaApp.cpp" />

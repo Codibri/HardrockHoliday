@@ -89,9 +89,17 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 		return 1;
 	}
 
+	// allocate a standard windows console for debug purposes
+	//#ifdef _DEBUG
+	AllocConsole();
+	freopen("CONOUT$", "w", stdout);
+	
+	//#endif
+
 	Vektoria::CSplash splash;
 	splash.Init(hWnd, hInstance);
 	splash.Show();
+
 
 
 //Alexander Weiß
@@ -107,11 +115,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 	modules->run();
 
-	// allocate a standard windows console for debug purposes
-	#ifdef _DEBUG
-	AllocConsole();
-	freopen("CONOUT$", "w", stdout);
-	#endif
+	
 //#-#-#-#-#-A.W.
 
 

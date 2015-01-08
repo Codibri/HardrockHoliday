@@ -2,6 +2,7 @@
 
 #include "root.h"
 #include "Utility\TangentSpaceHelper.h"
+#include "Utility\GameObjectLoader.h"
 #include "GameObject.h"
 #include <memory>
 
@@ -34,6 +35,8 @@ protected:
 
 	void loadMesh(std::string objFilePath);
 	void addGameObject(GameObject* obj);
+
+	void addGameObjectsFromFile(std::string fileName);
 
 	static Vektoria::CHVector scaleFromBlender(float x, float y, float z){
 		Vektoria::CHVector result(x * 2.0, z * 2.0, y * 2.0);

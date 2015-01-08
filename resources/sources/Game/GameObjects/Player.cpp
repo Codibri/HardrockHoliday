@@ -59,6 +59,11 @@ void Player::reactToInput(float deltaTime)
 
 	if (inputDevice)
 	{
+		if (inputDevice->isKeyPressed(Game_Inputs::End_Key))
+		{
+
+		}
+
 		if (this->isAlive())
 		{
 			float x = inputDevice->getXPosition();
@@ -84,7 +89,7 @@ void Player::reactToInput(float deltaTime)
 		else
 		{
 			bool reset = false;
-			//reset = inputDevice->isResetButtonPressed();
+			reset = inputDevice->isKeyPressed(Game_Inputs::Reset_Key);
 			if (reset)
 			{
 				this->reset();
