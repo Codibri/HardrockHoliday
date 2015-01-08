@@ -29,7 +29,7 @@ float Keyboard::getNewZPosition(float oldPosition) {
 bool Keyboard::isKeyPressed(Game_Inputs key) {
 	switch (key) {
 	case Game_Inputs::Reset_Key:
-		return deviceKeyboard.KeyPressed(DIK_ESCAPE);
+		return deviceKeyboard.KeyPressed(DIK_TAB);
 	case Game_Inputs::End_Key:
 		return deviceKeyboard.KeyPressed(DIK_SPACE);
 	}

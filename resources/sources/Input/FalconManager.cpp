@@ -21,10 +21,10 @@ FalconManager::FalconManager() {
 	blockedSectors[DIRECTION_RIGHT] = new BlockedSphericalSector(0, 1.2f, -10.0f, -0.0f, false);
 	blockedSectors[DIRECTION_LEFT] = new BlockedSphericalSector(0, -1.2f, 10.0f, 0.0f, false);
 
-	blockedSectors[DIRECTION_TOP] = new BlockedSphericalSector(1, 1.5f, -0.0f, -0.0f, false);
-	blockedSectors[DIRECTION_BOTTOM] = new BlockedSphericalSector(1, -0.05f, 10.0f, 0.0f, false);
+	blockedSectors[DIRECTION_TOP] = new BlockedSphericalSector(1, 0.2f, -1.0f, -1.0f, false);
+	blockedSectors[DIRECTION_BOTTOM] = new BlockedSphericalSector(1, -0.2f, 1.0f, 1.0f, false);
 
-	blockedSectors[DIRECTION_BACK] = new BlockedSphericalSector(2, 0.2f, -5.0f, -5.0f, false);
+	blockedSectors[DIRECTION_BACK] = new BlockedSphericalSector(2, 0.2f, -5.0f, -1.0f, false);
 	blockedSectors[DIRECTION_FRONT] = new BlockedSphericalSector(2, -0.2f, 5.0f, 1.0f, false);
 
 	//falconTestUtil.blockDirection(0, -10);		// Block RECHTS

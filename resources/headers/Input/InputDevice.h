@@ -44,7 +44,7 @@ private:
 	Falcon* falcon;
 	bool useFalcon;
 
-	int count;
+	int count = 0;
 };
 
 #endif
