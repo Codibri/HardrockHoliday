@@ -14,6 +14,7 @@
 #include "Physics\SphereCollider.h"
 #include "Input\InputDevice.h"
 #include "Game\GameObjectPrototypes.h"
+#include "Graphics\Timer.h"
 
 const float BOULDER_RADIUS = 0.1f;
 
@@ -44,6 +45,9 @@ protected:
 	//TODO: move this out of player to a kind of game flow class
 	Vektoria::CImage _gameOverImage;
 	Vektoria::COverlay _gameOverOverlay;
+
+	Timer _rumbleTimeout;
+	Timer _courseTime;
 
 	bool _alive;
 };

@@ -27,7 +27,7 @@ void Scene::initViewport(Vektoria::CFrame *frame){
 	
 	mCamera.initViewPort(1.7, frame);
 
-	mTimer.AddToViewPort(mCamera.getViewPort());
+	//mTimer.AddToViewPort(mCamera.getViewPort());
 }
 
 
@@ -44,9 +44,9 @@ void Scene::loadLevel(int lvlNr){
 
 	// Könnte dann von der Statemachine über Scene->getTimer() 
 	// aufgerufen werden
-	mTimer.Reset();
-	mTimer.Show();
-	mTimer.Start();
+	//mTimer.Reset();
+	//mTimer.Show();
+	//mTimer.Start();
 }
 
 

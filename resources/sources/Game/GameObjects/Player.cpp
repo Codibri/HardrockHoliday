@@ -7,6 +7,9 @@
 Player::Player() : PhysicalGameObject(Vektoria::CPlacement(), "Player", PhysicalProperties(new phyX::SphereCollider(this, BOULDER_RADIUS, 1, false), 0.3, true)), _alive(true)
 {
 	this->initialize();
+
+	_courseTime.AddToViewPort(Engine::globalResources.vektoriaCoreElements.viewport);
+	_courseTime.Show();
 }
 
 
@@ -50,6 +53,9 @@ void Player::update(float deltaTime, float time)
 	PhysicalGameObject::update(deltaTime, time);
 
 	_oldPosition = _position.GetTranslation();
+
+	_courseTime.Update(deltaTime, time);
+	_rumbleTimeout.Update(deltaTime, time);
 }
 
 
@@ -59,9 +65,16 @@ void Player::reactToInput(float deltaTime)
 
 	if (inputDevice)
 	{
+		if (_rumbleTimeout.GetMilliSeconds() > 1000)
+		{
+			_rumbleTimeout.Stop();
+			_rumbleTimeout.Reset();
+			inputDevice->rumble(false, 10);
+		}
+
 		if (inputDevice->isKeyPressed(Game_Inputs::End_Key))
 		{
-
+			Engine::globalResources.endThisMess = true;
 		}
 
 		if (this->isAlive())
@@ -108,6 +121,17 @@ void Player::onCollision(phyX::RigidBodyOwner* other, float timeDelta)
 		this->GetRigidBody()->GetCollider()->SetLayer("PitGround");
 		_alive = false;
 		_gameOverOverlay.SwitchOn();
+		_courseTime.Stop();
+	}
+	if (std::type_index(typeid(MapWall)).name() == name)
+	{
+		InputDevice* inputDevice = ENGINE_INPUT_DEVICE;
+
+		if (inputDevice)
+		{
+			_rumbleTimeout.Start();
+			inputDevice->rumble(true, 10);
+		}
 	}
 }
 
@@ -132,4 +156,7 @@ void Player::reset()
 	_position.TranslateY(1.0f); //set a little bit higher to give the physics the chance to detect a collision with the ground
 
 	_gameOverOverlay.SwitchOff();
+
+	_courseTime.Reset();
+	_courseTime.Start();
 }

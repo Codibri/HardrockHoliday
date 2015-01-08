@@ -107,6 +107,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	Engine::getInstance();
 	Engine::globalResources.hWnd = hWnd;
 	Engine::globalResources.splash = &splash;
+	Engine::globalResources.endThisMess = false;
 
 	Engine::globalResources.vektoriaCoreElements.initialize(hWnd, &splash);
 
@@ -137,6 +138,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 	while (!bQuit)
 	{
+		bQuit = Engine::globalResources.endThisMess;
+
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
 			if (msg.message == WM_QUIT)
