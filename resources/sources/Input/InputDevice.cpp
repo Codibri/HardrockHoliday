@@ -39,7 +39,6 @@ float InputDevice::getXPosition() {
 	return xPosition;
 }
 
-
 float InputDevice::getYPosition(){
 	return yPosition;
 }
