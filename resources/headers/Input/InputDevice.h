@@ -34,6 +34,8 @@ public:
 	// TODO: Falcon
 	void move_To_Origin();
 	void fallDown();
+	void onPlayerDead();
+	void onPlayerReset();
 
 private:
 	float xPosition;

@@ -101,3 +101,11 @@ void InputDevice::move_To_Origin() {
 void InputDevice::fallDown() {
 	// TODO
 }
+
+void InputDevice::onPlayerDead() {
+
+}
+
+void InputDevice::onPlayerReset() {
+
+}
