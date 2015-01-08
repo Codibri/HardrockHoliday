@@ -34,6 +34,8 @@ public:
 	// TODO: Falcon
 	void move_To_Origin();
 	void fallDown();
+	void onPlayerDead();
+	void onPlayerReset();
 
 private:
 	float xPosition;
@@ -44,7 +46,7 @@ private:
 	Falcon* falcon;
 	bool useFalcon;
 
-	int count;
+	int count = 0;
 };
 
 #endif

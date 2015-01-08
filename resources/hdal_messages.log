@@ -1,2 +1,2 @@
-[ConfigManager::loadIni():02.30.14.2791] - Found hdal.ini at C:\Program Files (x86)\Novint\HDAL_SDK_2.1.3\config\hdal.ini
-[Module::Module():02.30.14.2794] - Found dhdlcDriver.dll at C:\Program Files (x86)\Novint\HDAL_SDK_2.1.3\bin\dhdlcDriver.dll
+[ConfigManager::loadIni():13.28.07.2292] - Found hdal.ini at C:\Program Files (x86)\Novint\HDAL_SDK_2.1.3\config\hdal.ini
+[Module::Module():13.28.07.2296] - Found dhdlcDriver.dll at C:\Program Files (x86)\Novint\HDAL_SDK_2.1.3\bin\dhdlcDriver.dll

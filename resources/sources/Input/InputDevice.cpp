@@ -10,7 +10,7 @@ InputDevice::InputDevice(CFrame* frame) : EngineModule() {
 
 	if (useFalcon){
 		falcon = new Falcon();
-		falcon->move_To_Origin();
+		//falcon->move_To_Origin();
 	}
 	else if (!useFalcon) {
 		frame->AddDeviceKeyboard(keyboard.getDeviceKeyboard());
@@ -24,17 +24,16 @@ InputDevice::~InputDevice() {
 }
 
 void InputDevice::update(float deltaTime, float time) {
-	/*count++;
-	if (count < 100) {
-		std::cout << "Rumble an" << std::endl;
-		falcon->rumble(true, 10.0);
-	}
-	if (count > 200) {
-		std::cout << "Rumble aus" << std::endl;
-		falcon->rumble(false, 10.0);
-	}*/
-
 	if (useFalcon){
+		/*count++;
+		if (count == 100) {
+			std::cout << "Rumble an" << std::endl;
+			falcon->rumble(true, 8.0);
+		}
+		if (count == 300) {
+			std::cout << "Rumble aus" << std::endl;
+			falcon->rumble(false, 8.0);
+		}*/
 		xPosition = falcon->getNewPosition(0);
 		yPosition = falcon->getNewPosition(1);
 		zPosition = falcon->getNewPosition(2);
@@ -45,10 +44,10 @@ void InputDevice::update(float deltaTime, float time) {
 		zPosition = keyboard.getNewZPosition(zPosition);
 	}
 	// Nur zum Testen
-	/*if (isKeyPressed(Game_Inputs::Reset_Key))
-		std::cout << "Reset -> Escape Key!" << std::endl;
+	if (isKeyPressed(Game_Inputs::Reset_Key))
+		std::cout << "Reset -> Tab Key!" << std::endl;
 	if (isKeyPressed(Game_Inputs::End_Key))
-		std::cout << "End -> Space Key!" << std::endl;*/
+		std::cout << "End -> Space Key!" << std::endl;
 }
 
 
@@ -101,4 +100,12 @@ void InputDevice::move_To_Origin() {
 
 void InputDevice::fallDown() {
 	// TODO
+}
+
+void InputDevice::onPlayerDead() {
+
+}
+
+void InputDevice::onPlayerReset() {
+
 }

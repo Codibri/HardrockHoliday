@@ -53,7 +53,7 @@ void Falcon::block(bool on, Direction direction) {
 }
 
 void Falcon::move_To_Origin() {
-	std::cout << "Moved to Origin" << std::endl;
+	printf("Moved to Origin\n");
 	double pos[3] = { 0.0, 0.04, 0.0 };
 	falconManager.moveToPosition(pos, 0.2);
 }
@@ -66,7 +66,7 @@ void Falcon::updateBlockAndRumble() {
 	falconManager.updateBlocking();
 	if (rumbleOn) {
 		std::cout << "Rumble" << std::endl;
-		//falconManager.rumbleSwitch(rumbleStrength);
+		falconManager.rumbleSwitch(rumbleStrength);
 	}
 	else {
 		std::cout << "Rumble nicht" << std::endl;
