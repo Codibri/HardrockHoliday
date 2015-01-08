@@ -18,6 +18,7 @@ struct GlobalResources
 	HWND hWnd;
 	Vektoria::CSplash* splash;
 	VektoriaCoreElements vektoriaCoreElements;
+	bool endThisMess;
 };
 
 #endif

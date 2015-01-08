@@ -89,9 +89,17 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 		return 1;
 	}
 
+	// allocate a standard windows console for debug purposes
+	//#ifdef _DEBUG
+	AllocConsole();
+	freopen("CONOUT$", "w", stdout);
+	
+	//#endif
+
 	Vektoria::CSplash splash;
 	splash.Init(hWnd, hInstance);
 	splash.Show();
+
 
 
 //Alexander Weiß
@@ -99,6 +107,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	Engine::getInstance();
 	Engine::globalResources.hWnd = hWnd;
 	Engine::globalResources.splash = &splash;
+	Engine::globalResources.endThisMess = false;
 
 	Engine::globalResources.vektoriaCoreElements.initialize(hWnd, &splash);
 
@@ -107,11 +116,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 	modules->run();
 
-	// allocate a standard windows console for debug purposes
-	#ifdef _DEBUG
-	AllocConsole();
-	freopen("CONOUT$", "w", stdout);
-	#endif
+	
 //#-#-#-#-#-A.W.
 
 
@@ -133,6 +138,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 	while (!bQuit)
 	{
+		bQuit = Engine::globalResources.endThisMess;
+
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
 			if (msg.message == WM_QUIT)

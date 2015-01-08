@@ -45,11 +45,11 @@ void Level1Part3::initGameObjects(){
 	addGameObject(wall2);
 	
 	auto wall3 = new MapWall(scaleFromBlender(0.219, 0.418, 0.172));
-	wall3->getPlacement()->TranslateDelta(locationFromBlender(-0.29336, 5.33336, 0.10314));
+	wall3->getPlacement()->TranslateDelta(locationFromBlender(-0.33976, 5.33336, 0.10314));
 	addGameObject(wall3);
 
 	auto wall4 = new MapWall(scaleFromBlender(0.239, 0.418, 0.172));
-	wall4->getPlacement()->TranslateDelta(locationFromBlender(0.36007, 5.33336, 0.10314));
+	wall4->getPlacement()->TranslateDelta(locationFromBlender(0.39903, 5.33336, 0.10314));
 	addGameObject(wall4);
 
 	// Löcher

@@ -5,10 +5,11 @@
 SoundManager::SoundManager()
 {
 	HWND hwnd = Engine::getInstance()->globalResources.hWnd;
-	mBackgroundMusic.Init("GameResources\\Sounds\\test.wav", hwnd);
+	mBackgroundMusic.Init("GameResources\\Sounds\\background.wav", hwnd);		// Ice Age: Send me on my way, acoustic version (https://www.youtube.com/watch?v=y6jM2y9rHRQ)
 	mStoneRolling.Init("GameResources\\Sounds\\test.wav", hwnd);
 	mStoneFalling.Init("GameResources\\Sounds\\test.wav", hwnd);
 	mStoneBreaking.Init("GameResources\\Sounds\\test.wav", hwnd);
+	play(BackgroundMusic, false);
 }
 
 SoundManager::~SoundManager()
@@ -22,7 +23,7 @@ SoundManager::~SoundManager()
 //lokaler Soundtest
 /*void SoundManager::update(float deltaTime, float time) {
 	count++;
-	if (count % 500 == 0) {
+	if (count % 5000 == 0) {
 		std::cout << "Hallo Sound!" << std::endl;
 		play(BackgroundMusic, false);
 	}	

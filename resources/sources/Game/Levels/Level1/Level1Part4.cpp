@@ -55,23 +55,23 @@ void Level1Part4::initGameObjects(){
 	addGameObject(wall4);
 
 	//Löcher
-	auto trap1 = new LochFalle(scaleFromBlender(0.079, 0.459, 0.311));
+	auto trap1 = new LochFalle(scaleFromBlender(0.069, 0.459, 0.311));
 	trap1->getPlacement()->TranslateDelta(locationFromBlender(-0.21016, 0.85125, -0.16438));
 	addGameObject(trap1);
 
-	auto trap2 = new LochFalle(scaleFromBlender(0.079, 0.459, 0.311));
+	auto trap2 = new LochFalle(scaleFromBlender(0.069, 0.459, 0.311));
 	trap2->getPlacement()->TranslateDelta(locationFromBlender(0.22509, 0.85125, -0.16438));
 	addGameObject(trap2);
 
-	auto trap3 = new LochFalle(scaleFromBlender(0.071, 0.352, 0.277));
+	auto trap3 = new LochFalle(scaleFromBlender(0.069, 0.352, 0.277));
 	trap3->getPlacement()->TranslateDelta(locationFromBlender(-0.43887, 2.26921, -0.16438));
 	addGameObject(trap3);
 
-	auto trap4 = new LochFalle(scaleFromBlender(0.071, 0.352, 0.277));
+	auto trap4 = new LochFalle(scaleFromBlender(0.069, 0.352, 0.277));
 	trap4->getPlacement()->TranslateDelta(locationFromBlender(0.00089, 2.26921, -0.16438));
 	addGameObject(trap4);
 
-	auto trap5 = new LochFalle(scaleFromBlender(0.071, 0.352, 0.277));
+	auto trap5 = new LochFalle(scaleFromBlender(0.069, 0.352, 0.277));
 	trap5->getPlacement()->TranslateDelta(locationFromBlender(0.43437, 2.26921, -0.16438));
 	addGameObject(trap5);
 

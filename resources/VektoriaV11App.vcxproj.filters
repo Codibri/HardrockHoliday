@@ -201,9 +201,6 @@
     <ClInclude Include="headers\Graphics\Visual.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Input\InputDevice.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="headers\Engine\VektoriaCoreElements.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -270,22 +267,34 @@
     <ClInclude Include="headers\Game\GameObjectPrototypes.h">
       <Filter>Headerdateien\Game</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Input\FalconManager.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Input\FalconTestUtil.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Input\haptics.h">
+    <ClInclude Include="headers\Graphics\Timer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="headers\Input\BlockedSphericalSector.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Input\BlockedCube.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\Input</Filter>
     </ClInclude>
     <ClInclude Include="headers\Input\BlockedArea.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\BlockedCube.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\FalconManager.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\FalconTestUtil.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\haptics.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\InputDevice.h">
+      <Filter>Headerdateien\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input\Constants.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Utility\GameObjectLoader.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -464,6 +473,12 @@
     <ClCompile Include="sources\Input\haptics.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="sources\Graphics\Timer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Utility\GameObjectLoader.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders.hlsl">
@@ -486,6 +501,9 @@
       <Filter>Ressourcendateien</Filter>
     </None>
     <None Include="nullDriver.dll" />
+    <None Include="res\mp31.bin">
+      <Filter>Ressourcendateien</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VektoriaApp.rc">

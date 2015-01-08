@@ -27,8 +27,7 @@ void Scene::initViewport(Vektoria::CFrame *frame){
 	
 	mCamera.initViewPort(1.7, frame);
 
-	//Debug
-	//viewport->SetWireframeOn();
+	//mTimer.AddToViewPort(mCamera.getViewPort());
 }
 
 
@@ -43,11 +42,17 @@ void Scene::loadLevel(int lvlNr){
 	
 	mMapPartManager.initWithActiveLevel(mActiveLevel.get(), mRoot);
 
-	
+	// Könnte dann von der Statemachine über Scene->getTimer() 
+	// aufgerufen werden
+	//mTimer.Reset();
+	//mTimer.Show();
+	//mTimer.Start();
 }
 
 
 void Scene::tick(float deltaMillis, float ftime){
+	// Timer anzeige updaten
+	mTimer.Update(deltaMillis, ftime);
 
 	// aktive map parts updaten
 	mMapPartManager.update(deltaMillis, ftime);

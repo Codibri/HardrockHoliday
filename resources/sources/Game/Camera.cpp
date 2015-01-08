@@ -33,3 +33,7 @@ void Camera::setPlayerPlacement(Vektoria::CPlacement* p){
 	// des Player placements anhängen
 	p->AddPlacement(&mCamPlacement);
 }
+
+Vektoria::CViewport* Camera::getViewPort(){
+	return &mViewPort;
+}

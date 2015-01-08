@@ -10,6 +10,7 @@ InputDevice::InputDevice(CFrame* frame) : EngineModule() {
 
 	if (useFalcon){
 		falcon = new Falcon();
+		//falcon->move_To_Origin();
 	}
 	else if (!useFalcon) {
 		frame->AddDeviceKeyboard(keyboard.getDeviceKeyboard());
@@ -24,38 +25,87 @@ InputDevice::~InputDevice() {
 
 void InputDevice::update(float deltaTime, float time) {
 	if (useFalcon){
+		/*count++;
+		if (count == 100) {
+			std::cout << "Rumble an" << std::endl;
+			falcon->rumble(true, 8.0);
+		}
+		if (count == 300) {
+			std::cout << "Rumble aus" << std::endl;
+			falcon->rumble(false, 8.0);
+		}*/
 		xPosition = falcon->getNewPosition(0);
 		yPosition = falcon->getNewPosition(1);
 		zPosition = falcon->getNewPosition(2);
+		falcon->updateBlockAndRumble();
 	}
 	else if (!useFalcon){
 		xPosition = keyboard.getNewXPosition(xPosition);
-		//zPosition = keyboard.getNewZPosition(zPosition);
+		zPosition = keyboard.getNewZPosition(zPosition);
 	}
+	// Nur zum Testen
+	if (isKeyPressed(Game_Inputs::Reset_Key))
+		std::cout << "Reset -> Tab Key!" << std::endl;
+	if (isKeyPressed(Game_Inputs::End_Key))
+		std::cout << "End -> Space Key!" << std::endl;
 }
+
 
 // Position und Bewegung
 float InputDevice::getXPosition() {
 	return xPosition;
 }
 
-float InputDevice::getYPosition(){
+float InputDevice::getYPosition() {
 	return yPosition;
 }
 
-float InputDevice::getZPosition(){
+float InputDevice::getZPosition() {
 	return zPosition;
 }
 
+
 // Forcefeedback
-void InputDevice::rumble(bool on, float strength){
+void InputDevice::rumble(bool on, float strength) {
+	if (useFalcon){
+		falcon->rumble(on, strength);
+	}
+};
+
+void InputDevice::block(bool on, Direction direction) {
 	if (useFalcon){
 		// TODO: Falcon
 	}
 };
 
-void InputDevice::block(bool on, Direction direction){
+
+// Game Steuerung (Neu, Beenden)
+bool InputDevice::isKeyPressed(Game_Inputs key) {
 	if (useFalcon){
-		// TODO: Falcon
+		return falcon->isKeyPressed(key);
 	}
-};
+	else {
+		return keyboard.isKeyPressed(key);
+	}
+	return false;
+}
+
+
+// Falcon
+void InputDevice::move_To_Origin() {
+	if (useFalcon){
+		falcon->move_To_Origin();
+	}
+}
+
+void InputDevice::fallDown() {
+	// TODO
+}
+
+void InputDevice::onPlayerDead() {
+
+}
+
+void InputDevice::onPlayerReset() {
+
+}

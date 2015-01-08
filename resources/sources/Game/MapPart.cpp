@@ -45,6 +45,15 @@ void MapPart::addGameObject(GameObject* obj){
 	mRootPlacement.AddPlacement(obj->getPlacement());
 }
 
+void MapPart::addGameObjectsFromFile(std::string fileName){
+
+	GameObjectLoader loader;
+	for each(auto gameObject in loader.LoadGameObjects(fileName)){
+		addGameObject(gameObject);
+	}
+
+}
+
 
 void MapPart::loadMesh(std::string objFilePath){
 	Vektoria::CFileWavefront loader = Vektoria::CFileWavefront();

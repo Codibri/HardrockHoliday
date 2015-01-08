@@ -4,18 +4,21 @@
 #define KEYBOARD_H
 
 #include "root.h"
-#include "Input/Input.h"
+#include "Input\Constants.h"
 
 using namespace Vektoria;
 
-class Keyboard{
+class Keyboard {
 public:
 	Keyboard();
 
 	virtual ~Keyboard();
 
 	float getNewXPosition(float oldPosition);
-	float getNewYPosition(float oldPosition);
+	float getNewZPosition(float oldPosition);
+
+	// Game Steuerung (Neu, Beenden)
+	bool isKeyPressed(Game_Inputs key);
 
 	CDeviceKeyboard* getDeviceKeyboard();
 

@@ -64,8 +64,7 @@ void HardrockHolidayModules::initialize()
 
 
 	SoundManager* soundManager = new SoundManager();
-	//TODO: Request to have SoundManager inherit publicly
-	//this->addPublicModule(soundManager, typeid(SoundManager)); 
+	this->addPublicModule(soundManager, typeid(SoundManager)); 
 
 
 	InputDevice* inputDevice = new InputDevice(&Engine::globalResources.vektoriaCoreElements.frame);

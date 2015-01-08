@@ -18,18 +18,24 @@ public:
 
 	void update(float deltaTime, float time) override;
 
+	// Schnittstellen
 							// -1				1
 	float getXPosition();	// Links			Rechts
 	float getYPosition();	// Unten			Oben
 	float getZPosition();	// Vorne (am Gerät)	Hinten (weg vom Gerät)
 
-	// TODO: Alex Schnittstelle
-	// In Loch gefallen
-	void fallDown();
-
-	// Forcefeedback - noch nicht aktiv
+	// TODO: Forcefeedback
 	void rumble(bool on, float strength);
 	void block(bool on, Direction direction);
+
+	// Game Steuerung (Neu, Beenden)
+	bool isKeyPressed(Game_Inputs key);
+
+	// TODO: Falcon
+	void move_To_Origin();
+	void fallDown();
+	void onPlayerDead();
+	void onPlayerReset();
 
 private:
 	float xPosition;
@@ -39,6 +45,8 @@ private:
 	Keyboard keyboard;		// SemikolonFehler kommt wenn sich Dateien gegenseitig includen
 	Falcon* falcon;
 	bool useFalcon;
+
+	int count = 0;
 };
 
 #endif

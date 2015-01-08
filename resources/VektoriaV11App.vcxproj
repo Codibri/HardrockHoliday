@@ -92,9 +92,11 @@
     <ClInclude Include="headers\Engine\VektoriaCoreElements.h" />
     <ClInclude Include="headers\Game\GameObjectPrototypes.h" />
     <ClInclude Include="headers\Game\GameObjects\Ground.h" />
+    <ClInclude Include="headers\Graphics\Timer.h" />
     <ClInclude Include="headers\Input\BlockedArea.h" />
     <ClInclude Include="headers\Input\BlockedCube.h" />
     <ClInclude Include="headers\Input\BlockedSphericalSector.h" />
+    <ClInclude Include="headers\Input\Constants.h" />
     <ClInclude Include="headers\Input\Falcon.h" />
     <ClInclude Include="headers\Input\FalconManager.h" />
     <ClInclude Include="headers\Input\FalconTestUtil.h" />
@@ -139,6 +141,7 @@
     <ClInclude Include="headers\Physics\Utilities.h" />
     <ClInclude Include="headers\Resources\levelloader.h" />
     <ClInclude Include="headers\Utility\DebugLog.h" />
+    <ClInclude Include="headers\Utility\GameObjectLoader.h" />
     <ClInclude Include="headers\Utility\TangentCalculator.h" />
     <ClInclude Include="headers\Utility\TangentSpaceHelper.h" />
     <ClInclude Include="headers\Input\Input.h" />
@@ -150,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp" />
     <ClCompile Include="sources\Game\GameObjects\Ground.cpp" />
+    <ClCompile Include="sources\Graphics\Timer.cpp" />
     <ClCompile Include="sources\Input\BlockedArea.cpp" />
     <ClCompile Include="sources\Input\BlockedCube.cpp" />
     <ClCompile Include="sources\Input\BlockedSphericalSector.cpp" />
@@ -202,6 +206,7 @@
     <ClCompile Include="sources\Physics\Utilities.cpp" />
     <ClCompile Include="sources\Resources\LevelLoader.cpp" />
     <ClCompile Include="sources\Utility\DebugLog.cpp" />
+    <ClCompile Include="sources\Utility\GameObjectLoader.cpp" />
     <ClCompile Include="sources\Utility\TangentSpaceHelper.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="VektoriaApp.cpp" />
@@ -213,6 +218,7 @@
     <None Include="novint_T0.bin" />
     <None Include="novint_T2.bin" />
     <None Include="nullDriver.dll" />
+    <None Include="res\mp31.bin" />
     <None Include="res\VektoriaTest.ico" />
     <None Include="shaders.hlsl" />
     <None Include="shadowmap.hlsl" />

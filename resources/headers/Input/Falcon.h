@@ -21,19 +21,32 @@ class Falcon {
 public:
 	Falcon();
 
-	
 	virtual ~Falcon();
+
+	// Falcon Init, auf Nullposition fahren, Seitenforces aktivieren
+	void makeReady();
 
 	float getNewPosition(int direction);
 
 	void update();
 
-	//Schnittstellen fuer Forcefeedback
+	// Game Steuerung (Neu, Beenden)
+	bool isKeyPressed(Game_Inputs key);
+
+	// Schnittstellen für Forcefeedback
 	void rumble(bool on, float strength);
-	//void block(bool on, Direction direction);
+	void block(bool on, Direction direction);
+	void move_To_Origin();
+	void fallDown();
+
+	// Positionsüberprüfung: Überprüfe, ob Motoren aufgrund der neuen Position gesperrt werden müssen
+	// Rumble, falls an
+	void updateBlockAndRumble();
 
 private:
 	FalconManager falconManager;
+	bool rumbleOn = false;
+	float rumbleStrength = 0.0;
 };
 
 #endif

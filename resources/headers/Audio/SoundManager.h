@@ -25,6 +25,7 @@ public:
 	void stop(Sound SoundName);
 	void setVolume(Sound SoundName, float volume);
 
+
 private:
 	CAudio* getSound(Sound SoundName);
 	//Je Sound (Enum) ein CAudio Object
