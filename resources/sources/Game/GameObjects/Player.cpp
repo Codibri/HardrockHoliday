@@ -4,6 +4,8 @@
 #include "Engine\Engine.h"
 
 
+class Goal;
+
 Player::Player() : PhysicalGameObject(Vektoria::CPlacement(), "Player", PhysicalProperties(new phyX::SphereCollider(this, BOULDER_RADIUS, 1, false), 0.3, true)),
 	_alive(true), _crashing(false), _won(false), _rolling(false), _falling(false)
 {
@@ -29,10 +31,10 @@ void Player::initialize()
 	this->GetRigidBody()->GetCollider()->SetLayer(_name);
 
 	_gameOverImage.Init("GameResources\\Textures\\GameOverScreen.png");
-	_gameOverOverlay.Init(&_gameOverImage, Vektoria::CFloatRect( 0.1, 0.1, 0.4, 0.3 ), false);
+	_gameOverOverlay.Init(&_gameOverImage, Vektoria::CFloatRect(0.2, 0.2, 0.6, 0.6), false);
 
 	_gameOverImage.Init("GameResources\\Textures\\GameWinScreen.png");
-	_gameWinOverlay.Init(&_gameWinImage, Vektoria::CFloatRect(0.1, 0.1, 0.4, 0.3), false);
+	_gameWinOverlay.Init(&_gameWinImage, Vektoria::CFloatRect(0.2, 0.2, 0.6, 0.6), false);
 
 	if (ENGINE->globalResources.vektoriaCoreElements.viewport != nullptr)
 	{
@@ -184,7 +186,7 @@ void Player::onCollision(phyX::RigidBodyOwner* other, float timeDelta)
 		}
 	}
 
-	//if (std::type_index(typeid(Goal)).name() == name)
+	if (std::type_index(typeid(Goal)).name() == name)
 	{
 		//win
 		if (!_won)
