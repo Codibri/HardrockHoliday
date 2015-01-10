@@ -16,7 +16,7 @@ Level1::~Level1()
 void Level1::initialize(Vektoria::CScene* scene){
 
 	// Licht
-	mLight1.Init(CHVector(0, 2, -2), CColor(0.8, 0.8, 0.8));
+	mLight1.Init(CHVector(0, 2, -2), CColor(0.7, 0.7, 0.7));
 	
 	scene->AddParallelLight(&mLight1);
 
@@ -37,10 +37,9 @@ void Level1::addMapParts(){
 void Level1::loadSkyBox(Vektoria::CScene* scene){
 	CFileWavefront loader;
 	mSkyDome = std::unique_ptr<CGeo>(loader.LoadGeo("GameResources\\Levels\\level1\\sky.obj"));
-	mSkyMaterial.MakeTextureSky("GameResources\\Levels\\level1\\skybox.jpg");
+	mSkyMaterial.MakeTextureSky("GameResources\\Levels\\level1\\sky.png");
 	mSkyDome->SetMaterial(&mSkyMaterial);
 	mSkyPlacement.AddGeo(mSkyDome.get());
-	mSkyPlacement.TranslateY(-1.0);
 	mSkyPlacement.SetSky();
 	scene->AddPlacement(&mSkyPlacement);
 }

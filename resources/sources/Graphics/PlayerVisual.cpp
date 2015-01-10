@@ -16,13 +16,13 @@ PlayerVisual::PlayerVisual(Vektoria::CPlacement* rotationPlacement, CPlacement* 
 	// Spotlight
 	mSpotLightPlacment.AddSpotLight(&mSpotLight);
 	mSpotLightPlacment.Translate(-0.2, 15.7, 7);
-	mSpotLight.Init(CColor(1.0, 1.0, 1.0), 0.105F, 0.227F);
+	mSpotLight.Init(CColor(1.0, 0.5, 0.5), 0.105F, 0.227F);
 	mSpotLight.SetMaxDistance(120.0F);
 	mSpotLight.SetMinDistance(0.0F);
 	mSpotLight.SetSoftShadowOn();
 	mSpotLight.SetShadowMapResolution(8096, 8096);
 	mPosPlacement->AddPlacement(&mSpotLightPlacment);
-
+	
 }
 
 

@@ -18,16 +18,13 @@ void Scene::init(CScene* scene, CRoot* root){
 	mRoot = root;
 	mMapPartManager.setScene(mVectoriaScene);
 
-
-	
 }
 
 
 void Scene::initViewport(Vektoria::CFrame *frame){
 	
 	mCamera.initViewPort(1.7, frame);
-
-	//mTimer.AddToViewPort(mCamera.getViewPort());
+	
 }
 
 
