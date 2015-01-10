@@ -29,13 +29,13 @@ namespace phyX
 {
 
 	RigidBodyX::RigidBodyX(Vektoria::CPlacement* ownerPlacement, Collider* collider, float mass, bool hasGravity)
-		: m_ownerPlacement(ownerPlacement),m_collider(collider), m_mass(mass), 
+		: m_ownerPlacement(ownerPlacement), m_collider(collider), m_mass(mass), m_velocity(0.f),
 		  m_isStatic(collider->IsStatic()), m_staticDirs({ { m_isStatic, m_isStatic, m_isStatic, m_isStatic, m_isStatic, m_isStatic } })
 	{
 		CPhysiX::GetInstance()->AddRigidBody(this);
 
 		if (hasGravity && !m_collider->IsStatic())
-			AddForce(Vektoria::CHVector(0.f, -1.f, 0.f), GRAVITY);
+			AddForce(Vektoria::CHVector(0.f, -1.f, 0.f), GRAVITY * mass);
 
 	}
 
@@ -155,12 +155,14 @@ namespace phyX
 					m_impulse.erase(m_impulse.begin() + i);
 			}
 
-			deflection *= fTimeDelta;
-
+			
 			//add random magic vector
-			deflection.x = (((deflection.x < 0.f) && m_staticDirs[1]) || ((deflection.x > 0.f) && m_staticDirs[0])) ? 0.f : deflection.x + (rand() % 21 - 10) * 1.0e-008f;
-			deflection.y = (((deflection.y < 0.f) && m_staticDirs[3]) || ((deflection.y > 0.f) && m_staticDirs[2])) ? 0.f : deflection.y + (rand() % 21 - 10) * 1.0e-008f;
-			deflection.z = (((deflection.z < 0.f) && m_staticDirs[5]) || ((deflection.z > 0.f) && m_staticDirs[4])) ? 0.f : deflection.z + (rand() % 21 - 10) * 1.0e-008f;
+			deflection.x = (((deflection.x < 0.f) && m_staticDirs[1]) || ((deflection.x > 0.f) && m_staticDirs[0])) ? 0.f : deflection.x + (rand() % 21 - 10) * 1.0e-004f;
+			deflection.y = (((deflection.y < 0.f) && m_staticDirs[3]) || ((deflection.y > 0.f) && m_staticDirs[2])) ? 0.f : deflection.y + (rand() % 21 - 10) * 1.0e-004f;
+			deflection.z = (((deflection.z < 0.f) && m_staticDirs[5]) || ((deflection.z > 0.f) && m_staticDirs[4])) ? 0.f : deflection.z + (rand() % 21 - 10) * 1.0e-004f;
+
+			m_velocity = deflection.Length();
+			deflection *= fTimeDelta;
 
 			deflection.MakeDirection();
 			m_mat.TranslateDelta(deflection);

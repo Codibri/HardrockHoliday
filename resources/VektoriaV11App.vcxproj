@@ -232,6 +232,11 @@
     <Text Include="dhd_messages.log" />
     <Text Include="hdal_messages.log" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="GameResources\Sounds\background.wav" />
+    <Media Include="GameResources\Sounds\fail.wav" />
+    <Media Include="GameResources\Sounds\rolling.wav" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

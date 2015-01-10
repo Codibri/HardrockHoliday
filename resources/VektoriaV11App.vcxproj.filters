@@ -515,4 +515,15 @@
     <Text Include="dhdlcLog.log" />
     <Text Include="hdal_messages.log" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="GameResources\Sounds\fail.wav">
+      <Filter>Ressourcendateien</Filter>
+    </Media>
+    <Media Include="GameResources\Sounds\rolling.wav">
+      <Filter>Ressourcendateien</Filter>
+    </Media>
+    <Media Include="GameResources\Sounds\background.wav">
+      <Filter>Ressourcendateien</Filter>
+    </Media>
+  </ItemGroup>
 </Project>
