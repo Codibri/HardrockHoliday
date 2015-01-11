@@ -92,6 +92,8 @@
     <ClInclude Include="headers\Engine\VektoriaCoreElements.h" />
     <ClInclude Include="headers\Game\GameObjectPrototypes.h" />
     <ClInclude Include="headers\Game\GameObjects\Ground.h" />
+    <ClInclude Include="headers\Game\GameObjects\LevelEnd.h" />
+    <ClInclude Include="headers\Graphics\LevelEndVisual.h" />
     <ClInclude Include="headers\Graphics\Timer.h" />
     <ClInclude Include="headers\Input\BlockedArea.h" />
     <ClInclude Include="headers\Input\BlockedCube.h" />
@@ -153,6 +155,8 @@
   <ItemGroup>
     <ClCompile Include="sources\Engine\VektoriaCoreElements.cpp" />
     <ClCompile Include="sources\Game\GameObjects\Ground.cpp" />
+    <ClCompile Include="sources\Game\GameObjects\LevelEnd.cpp" />
+    <ClCompile Include="sources\Graphics\LevelEndVisual.cpp" />
     <ClCompile Include="sources\Graphics\Timer.cpp" />
     <ClCompile Include="sources\Input\BlockedArea.cpp" />
     <ClCompile Include="sources\Input\BlockedCube.cpp" />

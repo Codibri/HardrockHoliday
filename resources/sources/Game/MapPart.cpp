@@ -48,7 +48,8 @@ void MapPart::addGameObject(GameObject* obj){
 void MapPart::addGameObjectsFromFile(std::string fileName){
 
 	GameObjectLoader loader;
-	for each(auto gameObject in loader.LoadGameObjects(fileName)){
+	auto gos = loader.LoadGameObjects(fileName);
+	for each(auto gameObject in gos){
 		addGameObject(gameObject);
 	}
 

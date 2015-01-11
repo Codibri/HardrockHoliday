@@ -36,6 +36,11 @@ void Level1Part5::initGameObjects(){
 	wallRight->getPlacement()->Translate(1.1, 0.25, -4.0);
 	addGameObject(wallRight);
 
+	// Level Ende
+	auto levelEnd = new LevelEnd(scaleFromBlender(0.341, 0.086, 0.341));
+	levelEnd->getPlacement()->Translate(locationFromBlender(0.00143, 8.34882, 0.09395));
+	addGameObject(levelEnd);
+
 	// Fallen und Wände
 	addGameObjectsFromFile("GameResources\\Levels\\level1\\part5\\gameobjects_part5.txt");
 

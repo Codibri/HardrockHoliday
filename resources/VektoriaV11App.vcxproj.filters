@@ -297,6 +297,12 @@
     <ClInclude Include="headers\Utility\GameObjectLoader.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Game\GameObjects\LevelEnd.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Graphics\LevelEndVisual.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -477,6 +483,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="sources\Utility\GameObjectLoader.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Game\GameObjects\LevelEnd.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Graphics\LevelEndVisual.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
