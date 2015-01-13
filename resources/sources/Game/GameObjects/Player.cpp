@@ -139,7 +139,8 @@ void Player::reactToInput(float deltaTime)
 			}
 			x = abs(x);
 			//PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(1, 0, 0), x, false);
-			PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(direction, 0, 0), 200 * x * deltaTime, false);
+			//PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(direction, 0, 0), 200 * x * deltaTime, false);
+			PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(direction, 0, 0), 40 * x * deltaTime, false);
 
 			float z = inputDevice->getZPosition();
 			if (z > 0)
@@ -149,7 +150,8 @@ void Player::reactToInput(float deltaTime)
 			z = abs(z);
 			//z = 0.03; // <- this is for debug purposes only. TODO: delete when inputDevice is capable of returning real z values
 			//PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), 5*z, false);
-			PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(0, 0, -1), 200 * z * deltaTime, false);
+			//PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(0, 0, -1), 200 * z * deltaTime, false);
+			PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, -1), 10 * z * deltaTime, false);
 		}
 	}
 }
@@ -216,6 +218,8 @@ void Player::reset()
 {
 	_position.m_mLocal = _startingPosition.m_mLocal;
 	_position.TranslateY(1.0f); //set a little bit higher to give the physics the chance to detect a collision with the ground
+	_position.TranslateZDelta(-8.f);
+
 
 	_gameOverOverlay.SwitchOff();
 	_gameWinOverlay.SwitchOff();

@@ -14,7 +14,7 @@ float Keyboard::getNewXPosition(float oldPosition) {
 	else if (deviceKeyboard.KeyPressed(DIK_RIGHT) && (oldPosition < 1.0))	// Rechts gedrückt
 		return oldPosition + 0.002;
 	else 
-		return oldPosition;
+		return (oldPosition = 0.f);
 }
 
 float Keyboard::getNewZPosition(float oldPosition) {
@@ -23,7 +23,7 @@ float Keyboard::getNewZPosition(float oldPosition) {
 	else if (deviceKeyboard.KeyPressed(DIK_DOWN) && (oldPosition < 1.0))	// Zurück/Bremsen gedrückt
 		return oldPosition + 0.001;
 	else
-		return oldPosition;
+		return (oldPosition = 0.f);
 }
 
 bool Keyboard::isKeyPressed(Game_Inputs key) {

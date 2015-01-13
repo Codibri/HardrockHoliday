@@ -20,8 +20,6 @@
 #include <HMat.h>
 #include <functional>
 
-#include "CPhysiX.h"
-
 namespace phyX_utilties
 {
 	//creates console with std::out and std::in
@@ -61,7 +59,7 @@ namespace phyX_utilties
 	//returns a vektor that has a value of one for every value of the origin vector that is not zero
 	Vektoria::CHVector inline AbsOne(Vektoria::CHVector const& vec)
 	{
-		return Vektoria::CHVector(static_cast<float>(abs(vec.x) > phyX::detail::FLOATCOMPENSATION), static_cast<float>(abs(vec.y) > phyX::detail::FLOATCOMPENSATION), static_cast<float>(abs(vec.z) > phyX::detail::FLOATCOMPENSATION), 0.f);
+		return Vektoria::CHVector(static_cast<float>(abs(vec.x) > 0.1f), static_cast<float>(abs(vec.y) > 0.1f), static_cast<float>(abs(vec.z)) > 0.1f, 0.f);
 	}
 }
 

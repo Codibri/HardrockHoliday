@@ -29,8 +29,8 @@ namespace phyX
 {
 
 	RigidBodyX::RigidBodyX(Vektoria::CPlacement* ownerPlacement, Collider* collider, float mass, bool hasGravity)
-		: m_ownerPlacement(ownerPlacement), m_collider(collider), m_mass(mass), m_currImpulse(Vektoria::CHVector(0, 0, 0, 0)),
-		m_velocityVec(Vektoria::CHVector(0, 0, 0, 0)), m_currForce(Vektoria::CHVector(0, 0, 0, 0)),
+		: m_ownerPlacement(ownerPlacement), m_collider(collider), m_mass(mass), m_currImpulse(0.f, 0.f, 0.f, 0.f),
+		m_velocityVec(Vektoria::CHVector(0, 0, 0, 0)), m_currForce(0.f, 0.f, 0.f, 0.f), m_freezeDir(1.f, 1.f, 1.f, 0.f),
 		  m_isStatic(collider->IsStatic()), m_staticDirs({ { m_isStatic, m_isStatic, m_isStatic, m_isStatic, m_isStatic, m_isStatic } })
 	{
 		CPhysiX::GetInstance()->AddRigidBody(this);
@@ -64,6 +64,13 @@ namespace phyX
 		Vektoria::CHMat mat(*m_collider->m_mat);
 		mat.Inverse();
 		return mat * m_velocityVec;
+	}
+
+	void RigidBodyX::Freeze(bool x, bool y, bool z)
+	{
+		m_freezeDir.x = static_cast<float>(!x);
+		m_freezeDir.y = static_cast<float>(!y);
+		m_freezeDir.z = static_cast<float>(!z);
 	}
 
 	void RigidBodyX::Reset()
@@ -140,6 +147,7 @@ namespace phyX
 			if (rigid->m_staticDirs[4])
 				m_staticDirs[4] = true;
 		}
+
 	}
 
 	void RigidBodyX::Init()
@@ -179,6 +187,7 @@ namespace phyX
 			float impulseVelocity = ((impulseVelocity = m_currImpulse.Length()) - fTimeDelta * FRICTION > 0.f) ? impulseVelocity - fTimeDelta * FRICTION : 0.f;
 			m_currImpulse = m_currImpulse.Normal() * impulseVelocity;
 
+			m_velocityVec = phyX_utilties::MultipleScalar(m_velocityVec, m_freezeDir);
 
 			m_mat.TranslateDelta(m_velocityVec * fTimeDelta);
 			m_local.TranslateDelta(m_velocityVec * fTimeDelta);

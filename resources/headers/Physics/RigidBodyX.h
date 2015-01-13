@@ -54,8 +54,8 @@ namespace phyX
 		Vektoria::CHVector GetVelocity_Global();
 		//returns the current velocity vector in the object's local coordsystem
 		Vektoria::CHVector GetVelocity_Local();
-
-		//void Freeze(bool x, bool y, bool z);
+		//freezes or unfreezes the rigidbody's movementdirection set by bool value
+		void Freeze(bool x, bool y, bool z);
 
 	private:
 
@@ -68,6 +68,7 @@ namespace phyX
 		Vektoria::CHMat m_local;
 		Collider* m_collider;
 		Vektoria::CPlacement* m_ownerPlacement;
+		Vektoria::CHVector m_freezeDir;
 
 		std::vector<Vektoria::CHVector> m_force;
 		std::vector<Vektoria::CHVector> m_impulses;
