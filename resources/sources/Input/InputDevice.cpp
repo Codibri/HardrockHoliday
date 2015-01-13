@@ -44,10 +44,10 @@ void InputDevice::update(float deltaTime, float time) {
 		zPosition = keyboard.getNewZPosition(zPosition);
 	}
 	// Nur zum Testen
-	if (isKeyPressed(Game_Inputs::Reset_Key))
+	/*if (isKeyPressed(Game_Inputs::Reset_Key))
 		std::cout << "Reset -> Tab Key!" << std::endl;
 	if (isKeyPressed(Game_Inputs::End_Key))
-		std::cout << "End -> Space Key!" << std::endl;
+		std::cout << "End -> Space Key!" << std::endl;*/
 }
 
 

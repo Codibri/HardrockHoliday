@@ -65,10 +65,10 @@ void Falcon::fallDown() {
 void Falcon::updateBlockAndRumble() {
 	falconManager.updateBlocking();
 	if (rumbleOn) {
-		std::cout << "Rumble" << std::endl;
+		//std::cout << "Rumble" << std::endl;
 		falconManager.rumbleSwitch(rumbleStrength);
 	}
 	else {
-		std::cout << "Rumble nicht" << std::endl;
+		//std::cout << "Rumble nicht" << std::endl;
 	}
 }

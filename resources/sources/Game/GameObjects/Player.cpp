@@ -71,15 +71,16 @@ void Player::update(float deltaTime, float time)
 	{
 		if (!_rolling)
 		{
-			if (_deltaDistanceMoved.z > 0.1 || _deltaDistanceMoved.x > 0.1)
+			if (_deltaDistanceMoved.z > 0.0005 || _deltaDistanceMoved.x > 0.0005)
 			{
 				_rolling = true;
 				soundManager->play(Sound::StoneRolling, true);
+				printf("Play Rolling");
 			}
 		}
 		else
 		{
-			if (_deltaDistanceMoved.z < 0.1 && _deltaDistanceMoved.x < 0.1)
+			if (_deltaDistanceMoved.z < 0.0005 && _deltaDistanceMoved.x < 0.0005)
 			{
 				_rolling = false;
 				soundManager->stop(Sound::StoneRolling);
