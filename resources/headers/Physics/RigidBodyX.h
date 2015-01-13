@@ -55,6 +55,8 @@ namespace phyX
 		//returns the current velocity vector in the object's local coordsystem
 		Vektoria::CHVector GetVelocity_Local();
 
+		//void Freeze(bool x, bool y, bool z);
+
 	private:
 
 		float m_mass;

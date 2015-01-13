@@ -104,7 +104,9 @@ namespace phyX
 					else
 					{
 						m_origin->m_mat.TranslateDelta(offset);
+						std::cout << m_origin << std::endl;
 						m_origin->m_local.TranslateDelta(offset);
+						std::cout << m_origin << std::endl;
 						return BR_SUCCESS_REVERT;
 					}
 

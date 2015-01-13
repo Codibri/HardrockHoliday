@@ -43,6 +43,7 @@ namespace phyX
 	RigidBodyX::~RigidBodyX()
 	{
 		CPhysiX::GetInstance()->RemoveRigidBody(this);
+		Reset();
 		delete m_collider;
 		m_force.clear();
 		m_impulses.clear();
@@ -68,7 +69,7 @@ namespace phyX
 	void RigidBodyX::Reset()
 	{
 		m_staticDirs.assign(m_isStatic);
-		std::for_each(m_links.begin(), m_links.end(), [](std::vector<detail::CLink>& links){ links.clear(); });
+		std::for_each(m_links.begin(), m_links.end(), [](std::vector<detail::CLink>& links){ links.clear();});
 	}
 
 	void RigidBodyX::AddForce(Vektoria::CHVector force, float strength, bool constant)
@@ -183,7 +184,7 @@ namespace phyX
 			m_local.TranslateDelta(m_velocityVec * fTimeDelta);
 		}
 
-		Reset();
+		//Reset();
 		m_collider->PostRenderUpdate_first(m_mat);
 	}
 
@@ -222,6 +223,9 @@ namespace phyX
 				CorrectPosition((direction % 2 == 1) ? direction - 1 : direction + 1);
 			case detail::BALANCERESULT::BR_NONE_REVERT:
 				SetStatic((direction % 2 == 1) ? direction - 1 : direction + 1, direction);
+				break;
+			case detail::BALANCERESULT::BR_FAIL:
+				break;
 			}
 		}
 	}
@@ -238,5 +242,6 @@ namespace phyX
 	{
 		m_collider->PostRenderUpdate_second(fTimeDelta);
 		m_ownerPlacement->m_mLocal = m_local;
+		Reset();
 	}
 }
