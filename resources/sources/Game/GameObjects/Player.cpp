@@ -165,6 +165,8 @@ void Player::onCollision(phyX::RigidBodyOwner* other, float timeDelta)
 	if (other->GetRigidBody()->GetCollider()->GetCollisionLayerName() == "PitGround")
 	{
 		PhysicalGameObject::GetRigidBody()->Freeze(true, false, true);
+		_gameOverOverlay.SwitchOn();
+		_courseTime.Stop();
 	}
 
 	if (std::type_index(typeid(LochFalle)).name() == name) 
@@ -172,10 +174,8 @@ void Player::onCollision(phyX::RigidBodyOwner* other, float timeDelta)
 		//die
 		if (_alive)
 		{
-			this->GetRigidBody()->GetCollider()->SetLayer("PitGround");
 			_alive = false;
-			_gameOverOverlay.SwitchOn();
-			_courseTime.Stop();
+			this->GetRigidBody()->GetCollider()->SetLayer("PitGround");
 		}
 	}
 
@@ -222,6 +222,8 @@ void Player::updateRotation()
 
 void Player::reset()
 {
+	this->GetRigidBody()->GetCollider()->SetLayer("NormalGround");
+
 	_position.m_mLocal = _startingPosition.m_mLocal;
 	_position.TranslateY(1.0f); //set a little bit higher to give the physics the chance to detect a collision with the ground
 	//_position.TranslateZDelta(-8.f); //debug position

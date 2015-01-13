@@ -19,9 +19,9 @@ void Level::initialize(Vektoria::CScene* scene){
 
 void  Level::attachAllMapPartsToScene(Vektoria::CScene* scene){
 
-	for (unsigned int i = 0; i < mMapParts.size(); i++){
+	for (int i = 0; i < mMapParts.size(); i++){
 		MapPart* p = mMapParts[i];
-		p->getPlacement()->TranslateZ(float(-MapPart::MAP_PART_SIZE * i));
+		p->getPlacement()->TranslateZ(-MapPart::MAP_PART_SIZE * i);
 		scene->AddPlacement(p->getPlacement());
 	}
 

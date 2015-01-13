@@ -103,7 +103,7 @@ void MapPartManager::switchMapsParts(){
 	// Placement aus sczene entfernen
 	//mScenePtr->m_placements.Sub(mFirstActiveMapPart->getPlacement());
 	//Placement ausschalten
-	mFirstActiveMapPart->getPlacement()->SwitchOff();
+	//mFirstActiveMapPart->getPlacement()->SwitchOff();
 
 
 	// Hinterer Mappart nun erster
