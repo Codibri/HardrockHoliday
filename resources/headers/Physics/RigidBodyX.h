@@ -56,6 +56,9 @@ namespace phyX
 		Vektoria::CHVector GetVelocity_Local();
 		//freezes or unfreezes the rigidbody's movementdirection set by bool value
 		void Freeze(bool x, bool y, bool z);
+		//Reset the rigidbody and kills all impulses
+		void Reset();
+
 
 	private:
 
@@ -79,7 +82,7 @@ namespace phyX
 		void Init();
 
 		//the static directions get reseted and the chained rigibodies get disconnected
-		void Reset();
+		void Reset_statics();
 
 		//creates a link between this an rigid with a vector that shows the perfect distance between this and rigid so that both colliders aren't intersectiong no longer
 		void AddLink(Vektoria::CHVector& perfectDistance, Vektoria::CHVector& dir, RigidBodyX* rigid);

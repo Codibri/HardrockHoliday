@@ -30,8 +30,8 @@ namespace phyX
 
 	RigidBodyX::RigidBodyX(Vektoria::CPlacement* ownerPlacement, Collider* collider, float mass, bool hasGravity)
 		: m_ownerPlacement(ownerPlacement), m_collider(collider), m_mass(mass), m_currImpulse(0.f, 0.f, 0.f, 0.f),
-		m_velocityVec(Vektoria::CHVector(0, 0, 0, 0)), m_currForce(0.f, 0.f, 0.f, 0.f), m_freezeDir(1.f, 1.f, 1.f, 0.f),
-		  m_isStatic(collider->IsStatic()), m_staticDirs({ { m_isStatic, m_isStatic, m_isStatic, m_isStatic, m_isStatic, m_isStatic } })
+		m_velocityVec(0, 0, 0, 0), m_currForce(0.f, 0.f, 0.f, 0.f), m_freezeDir(1.f, 1.f, 1.f, 0.f),
+		m_isStatic(collider->IsStatic()), m_staticDirs({ { m_isStatic, m_isStatic, m_isStatic, m_isStatic, m_isStatic, m_isStatic } })
 	{
 		CPhysiX::GetInstance()->AddRigidBody(this);
 
@@ -43,7 +43,6 @@ namespace phyX
 	RigidBodyX::~RigidBodyX()
 	{
 		CPhysiX::GetInstance()->RemoveRigidBody(this);
-		Reset();
 		delete m_collider;
 		m_force.clear();
 		m_impulses.clear();
@@ -75,8 +74,17 @@ namespace phyX
 
 	void RigidBodyX::Reset()
 	{
+		Reset_statics();
+		m_impulses.clear();
+		m_currImpulse = Vektoria::CHVector(0.f, 0.f, 0.f, 0.f);
+		m_velocityVec = Vektoria::CHVector(0, 0, 0, 0);
+		m_freezeDir = Vektoria::CHVector(1.f, 1.f, 1.f, 0.f);
+	}
+
+	void RigidBodyX::Reset_statics()
+	{
 		m_staticDirs.assign(m_isStatic);
-		std::for_each(m_links.begin(), m_links.end(), [](std::vector<detail::CLink>& links){ links.clear();});
+		std::for_each(m_links.begin(), m_links.end(), [](std::vector<detail::CLink>& links){ links.clear(); });
 	}
 
 	void RigidBodyX::AddForce(Vektoria::CHVector force, float strength, bool constant)
@@ -147,7 +155,6 @@ namespace phyX
 			if (rigid->m_staticDirs[4])
 				m_staticDirs[4] = true;
 		}
-
 	}
 
 	void RigidBodyX::Init()
@@ -183,7 +190,7 @@ namespace phyX
 			m_currImpulse.x = (((m_currImpulse.x < 0.f) && m_staticDirs[1]) || ((m_currImpulse.x > 0.f) && m_staticDirs[0])) ? 0.f : m_currImpulse.x;
 			m_currImpulse.y = (((m_currImpulse.y < 0.f) && m_staticDirs[3]) || ((m_currImpulse.y > 0.f) && m_staticDirs[2])) ? 0.f : m_currImpulse.y;
 			m_currImpulse.z = (((m_currImpulse.z < 0.f) && m_staticDirs[5]) || ((m_currImpulse.z > 0.f) && m_staticDirs[4])) ? 0.f : m_currImpulse.z;
-			
+
 			float impulseVelocity = ((impulseVelocity = m_currImpulse.Length()) - fTimeDelta * FRICTION > 0.f) ? impulseVelocity - fTimeDelta * FRICTION : 0.f;
 			m_currImpulse = m_currImpulse.Normal() * impulseVelocity;
 
@@ -193,7 +200,6 @@ namespace phyX
 			m_local.TranslateDelta(m_velocityVec * fTimeDelta);
 		}
 
-		//Reset();
 		m_collider->PostRenderUpdate_first(m_mat);
 	}
 
@@ -220,7 +226,7 @@ namespace phyX
 	void RigidBodyX::CorrectPosition(unsigned short direction)
 	{
 		ConvertResponses();
-	
+
 		for (auto& link : m_links[direction])
 		{
 			switch (link.Balance())
@@ -231,7 +237,6 @@ namespace phyX
 			case detail::BALANCERESULT::BR_SUCCESS_REVERT:
 				SetStatic((direction % 2 == 1) ? direction - 1 : direction + 1, direction);
 				CorrectPosition((direction % 2 == 1) ? direction - 1 : direction + 1);
-				break;
 			case detail::BALANCERESULT::BR_NONE_REVERT:
 				SetStatic((direction % 2 == 1) ? direction - 1 : direction + 1, direction);
 				break;
@@ -253,6 +258,6 @@ namespace phyX
 	{
 		m_collider->PostRenderUpdate_second(fTimeDelta);
 		m_ownerPlacement->m_mLocal = m_local;
-		Reset();
+		Reset_statics();
 	}
 }
