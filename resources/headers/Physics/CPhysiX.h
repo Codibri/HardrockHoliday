@@ -46,7 +46,7 @@ namespace phyX
 	static float const WORLDSIZE = 6144.f;						//size of the gameplayworld
 	static float const OCTREECHILD_MIN = 32.f;					//the minimum size of a leaf of the physics octree
 	static float const GRAVITY = 5.f;							//strength of the gravity
-	static float const FRICTION = 1.f;							//until there is no specific object friction its global
+	static float const FRICTION = 0.5f;							//until there is no specific object friction its global
 
 	static std::string const DEFAULT_PHYSICLAYER = "__DEFAULT";	//default physic layer all colliders get pushed on by default
 	static std::string const RAY_PHYSICLAYER = "RAYLAYER";		//layer for raycast

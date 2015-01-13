@@ -30,10 +30,10 @@ void Player::initialize()
 
 	this->GetRigidBody()->GetCollider()->SetLayer(_name);
 
-	_gameOverImage.Init("GameResources\\Textures\\GameOverScreen.png");
+	_gameOverImage.Init("GameResources\\Textures\\game_over_overlay.png");
 	_gameOverOverlay.Init(&_gameOverImage, Vektoria::CFloatRect(0.2f, 0.2f, 0.6f, 0.6f), false);
 
-	_gameOverImage.Init("GameResources\\Textures\\GameWinScreen.png");
+	_gameWinImage.Init("GameResources\\Textures\\GameWinScreen.png");
 	_gameWinOverlay.Init(&_gameWinImage, Vektoria::CFloatRect(0.2f, 0.2f, 0.6f, 0.6f), false);
 
 	if (ENGINE->globalResources.vektoriaCoreElements.viewport != nullptr)
@@ -228,6 +228,8 @@ void Player::reset()
 	//_position.TranslateZDelta(-8.f); //debug position
 
 	PhysicalGameObject::GetRigidBody()->Freeze(false, false, false);
+
+	PhysicalGameObject::GetRigidBody()->Reset();
 
 	_gameOverOverlay.SwitchOff();
 	_gameWinOverlay.SwitchOff();
