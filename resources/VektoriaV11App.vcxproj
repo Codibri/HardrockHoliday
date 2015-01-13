@@ -240,6 +240,7 @@
     <Media Include="GameResources\Sounds\background.wav" />
     <Media Include="GameResources\Sounds\fail.wav" />
     <Media Include="GameResources\Sounds\rolling.wav" />
+    <Media Include="GameResources\Sounds\test.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

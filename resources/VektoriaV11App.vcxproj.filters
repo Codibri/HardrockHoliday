@@ -537,5 +537,8 @@
     <Media Include="GameResources\Sounds\background.wav">
       <Filter>Ressourcendateien</Filter>
     </Media>
+    <Media Include="GameResources\Sounds\test.wav">
+      <Filter>Ressourcendateien</Filter>
+    </Media>
   </ItemGroup>
 </Project>
