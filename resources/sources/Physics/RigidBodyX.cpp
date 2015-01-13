@@ -229,7 +229,9 @@ namespace phyX
 				link.GetTarget()->CorrectPosition(direction);
 				break;
 			case detail::BALANCERESULT::BR_SUCCESS_REVERT:
+				SetStatic((direction % 2 == 1) ? direction - 1 : direction + 1, direction);
 				CorrectPosition((direction % 2 == 1) ? direction - 1 : direction + 1);
+				break;
 			case detail::BALANCERESULT::BR_NONE_REVERT:
 				SetStatic((direction % 2 == 1) ? direction - 1 : direction + 1, direction);
 				break;
