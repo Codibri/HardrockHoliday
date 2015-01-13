@@ -35,6 +35,6 @@ private:
 	MapPartManager mMapPartManager;
 	LevelLoader mLevelLoader;
 
-	Timer mTimer;
+	//Timer mTimer;
 };
 
