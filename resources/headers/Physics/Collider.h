@@ -67,13 +67,13 @@ namespace phyX
 		~Collider();
 
 		//returs true for the static setting
-		bool IsStatic();
+		bool const IsStatic();
 
 		//returs true for the bouncy setting and if there is a bouncing effect
-		float Bounciness();
+		float const Bounciness();
 
 		//returns true if collider is trigger and no collision response gets calculated
-		bool isTrigger();
+		bool const isTrigger();
 		
 		//returns the center of the collider in global coords
 		Vektoria::CHVector GetGlobalCenter();
@@ -124,9 +124,9 @@ namespace phyX
 			Vektoria::CHMat m_position_Last;
 		};
 
-		const bool m_isStatic;
-		bool m_isTrigger;
-		float m_bounciness;
+		bool const m_isStatic;
+		bool const m_isTrigger;
+		float const m_bounciness;
 		Vektoria::CHVector m_localCenter;
 		float m_collisionRadius;
 		bool m_isColliding;

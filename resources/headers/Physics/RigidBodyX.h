@@ -50,19 +50,25 @@ namespace phyX
 		void AddForce(Vektoria::CHVector force, float strength, bool constant = true);
 		//get the collider of the ridigbody
 		Collider* GetCollider();
+		//returns the current velocity vector in global coordsystem
+		Vektoria::CHVector GetVelocity_Global();
+		//returns the current velocity vector in the object's local coordsystem
+		Vektoria::CHVector GetVelocity_Local();
 
 	private:
 
 		float m_mass;
-		float m_velocity;
+		Vektoria::CHVector m_velocityVec;
+		Vektoria::CHVector m_currImpulse;
+		Vektoria::CHVector m_currForce;
 		const bool m_isStatic;
 		Vektoria::CHMat m_mat;
 		Vektoria::CHMat m_local;
 		Collider* m_collider;
 		Vektoria::CPlacement* m_ownerPlacement;
 
-		std::vector<std::pair<Vektoria::CHVector, bool>> m_force;
-		std::vector<std::pair<Vektoria::CHVector, float>> m_impulse;
+		std::vector<Vektoria::CHVector> m_force;
+		std::vector<Vektoria::CHVector> m_impulses;
 
 		std::array<bool, 6> m_staticDirs; //0 : x, 1 : -x, 2 : y, 3 : -y, 4 : z, 5: -z
 		std::array<std::vector<detail::CLink>, 6> m_links;

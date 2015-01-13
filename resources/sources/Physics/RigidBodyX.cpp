@@ -29,7 +29,8 @@ namespace phyX
 {
 
 	RigidBodyX::RigidBodyX(Vektoria::CPlacement* ownerPlacement, Collider* collider, float mass, bool hasGravity)
-		: m_ownerPlacement(ownerPlacement), m_collider(collider), m_mass(mass), m_velocity(0.f),
+		: m_ownerPlacement(ownerPlacement), m_collider(collider), m_mass(mass), m_currImpulse(Vektoria::CHVector(0, 0, 0, 0)),
+		m_velocityVec(Vektoria::CHVector(0, 0, 0, 0)), m_currForce(Vektoria::CHVector(0, 0, 0, 0)),
 		  m_isStatic(collider->IsStatic()), m_staticDirs({ { m_isStatic, m_isStatic, m_isStatic, m_isStatic, m_isStatic, m_isStatic } })
 	{
 		CPhysiX::GetInstance()->AddRigidBody(this);
@@ -44,12 +45,24 @@ namespace phyX
 		CPhysiX::GetInstance()->RemoveRigidBody(this);
 		delete m_collider;
 		m_force.clear();
-		m_impulse.clear();
+		m_impulses.clear();
 	}
 
 	Collider* RigidBodyX::GetCollider()
 	{
 		return m_collider;
+	}
+
+	Vektoria::CHVector RigidBodyX::GetVelocity_Global()
+	{
+		return m_velocityVec;
+	}
+
+	Vektoria::CHVector RigidBodyX::GetVelocity_Local()
+	{
+		Vektoria::CHMat mat(*m_collider->m_mat);
+		mat.Inverse();
+		return mat * m_velocityVec;
 	}
 
 	void RigidBodyX::Reset()
@@ -60,7 +73,10 @@ namespace phyX
 
 	void RigidBodyX::AddForce(Vektoria::CHVector force, float strength, bool constant)
 	{
-		m_force.push_back(std::make_pair(force.Normal() * strength, constant));
+		if (constant)
+			m_force.push_back(force.Normal() * strength);
+		else
+			AddImpulse(force, strength, false);
 	}
 
 	void RigidBodyX::AddImpulse(Vektoria::CHVector impulse, float strength, bool fromStatic)
@@ -71,8 +87,10 @@ namespace phyX
 		m_staticDirs[2] = (impulse.y < -detail::FLOATCOMPENSATION) && fromStatic;
 		m_staticDirs[5] = (impulse.z > detail::FLOATCOMPENSATION) && fromStatic;
 		m_staticDirs[4] = (impulse.z < -detail::FLOATCOMPENSATION) && fromStatic;
-		
-		m_impulse.push_back(std::make_pair(impulse.Normal(), strength));
+
+		impulse.MakeDirection();
+
+		m_impulses.push_back(impulse.Normal() * strength);
 	}
 
 	void RigidBodyX::AddLink(Vektoria::CHVector& perfectDistance, Vektoria::CHVector& dir, RigidBodyX* rigid)
@@ -137,36 +155,32 @@ namespace phyX
 
 		if (!m_isStatic)
 		{
-			Vektoria::CHVector deflection;
-
 			for (int i = m_force.size() - 1; i >= 0; --i)
-			{
-				deflection += m_force.at(i).first;
+				m_currForce += m_force.at(i);
+			m_force.clear();
 
-				if (!m_force.at(i).second)
-					m_force.erase(m_force.begin() + i);
-			}
+			for (int i = m_impulses.size() - 1; i >= 0; --i)
+				m_currImpulse += m_impulses.at(i);
+			m_impulses.clear();
 
-			for (int i = m_impulse.size() - 1; i >= 0; --i)
-			{
-				deflection += m_impulse.at(i).first * m_impulse.at(i).second;
+			m_velocityVec = m_currImpulse + m_currForce;
+			m_velocityVec.MakeDirection();
 
-				if ((m_impulse.at(i).second -= fTimeDelta) <= 0.f)
-					m_impulse.erase(m_impulse.begin() + i);
-			}
-
-			
 			//add random magic vector
-			deflection.x = (((deflection.x < 0.f) && m_staticDirs[1]) || ((deflection.x > 0.f) && m_staticDirs[0])) ? 0.f : deflection.x + (rand() % 21 - 10) * 1.0e-004f;
-			deflection.y = (((deflection.y < 0.f) && m_staticDirs[3]) || ((deflection.y > 0.f) && m_staticDirs[2])) ? 0.f : deflection.y + (rand() % 21 - 10) * 1.0e-004f;
-			deflection.z = (((deflection.z < 0.f) && m_staticDirs[5]) || ((deflection.z > 0.f) && m_staticDirs[4])) ? 0.f : deflection.z + (rand() % 21 - 10) * 1.0e-004f;
+			m_velocityVec.x = (((m_velocityVec.x < 0.f) && m_staticDirs[1]) || ((m_velocityVec.x > 0.f) && m_staticDirs[0])) ? 0.f : m_velocityVec.x + (rand() % 21 - 10) * 1.0e-004f;
+			m_velocityVec.y = (((m_velocityVec.y < 0.f) && m_staticDirs[3]) || ((m_velocityVec.y > 0.f) && m_staticDirs[2])) ? 0.f : m_velocityVec.y + (rand() % 21 - 10) * 1.0e-004f;
+			m_velocityVec.z = (((m_velocityVec.z < 0.f) && m_staticDirs[5]) || ((m_velocityVec.z > 0.f) && m_staticDirs[4])) ? 0.f : m_velocityVec.z + (rand() % 21 - 10) * 1.0e-004f;
 
-			m_velocity = deflection.Length();
-			deflection *= fTimeDelta;
+			m_currImpulse.x = (((m_currImpulse.x < 0.f) && m_staticDirs[1]) || ((m_currImpulse.x > 0.f) && m_staticDirs[0])) ? 0.f : m_currImpulse.x;
+			m_currImpulse.y = (((m_currImpulse.y < 0.f) && m_staticDirs[3]) || ((m_currImpulse.y > 0.f) && m_staticDirs[2])) ? 0.f : m_currImpulse.y;
+			m_currImpulse.z = (((m_currImpulse.z < 0.f) && m_staticDirs[5]) || ((m_currImpulse.z > 0.f) && m_staticDirs[4])) ? 0.f : m_currImpulse.z;
+			
+			float impulseVelocity = ((impulseVelocity = m_currImpulse.Length()) - fTimeDelta * FRICTION > 0.f) ? impulseVelocity - fTimeDelta * FRICTION : 0.f;
+			m_currImpulse = m_currImpulse.Normal() * impulseVelocity;
 
-			deflection.MakeDirection();
-			m_mat.TranslateDelta(deflection);
-			m_local.TranslateDelta(deflection);
+
+			m_mat.TranslateDelta(m_velocityVec * fTimeDelta);
+			m_local.TranslateDelta(m_velocityVec * fTimeDelta);
 		}
 
 		Reset();

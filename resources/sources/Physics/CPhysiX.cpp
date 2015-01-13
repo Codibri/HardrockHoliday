@@ -252,25 +252,24 @@ namespace phyX
 			coll1->AddCollision(coll);
 			return;
 		}
-		
 		//first collider is always non static
 
-		Vektoria::CHVector perfectDistance = (coll->GetGlobalCenter() - coll1->GetGlobalCenter()) + intersection;
+		const float collVelo = phyX_utilties::MultipleScalar(phyX_utilties::AbsOne(collNormal), coll->GetParent()->GetRigidBody()->m_velocityVec).Length();
+		const Vektoria::CHVector perfectDistance = (coll->GetGlobalCenter() - coll1->GetGlobalCenter()) + intersection;
 
-		float forceStrength = (coll1->m_bounciness > 0.f) ? coll1->m_bounciness * coll1->GetParent()->GetRigidBody()->m_velocity * 0.1f : 0.f;
-
-		coll->AddCollision(coll1, detail::CollisionResponse(collNormal, forceStrength, perfectDistance, coll1->IsStatic(), coll1));
+		coll->AddCollision(coll1, detail::CollisionResponse(collNormal, coll1->IsStatic() ? 
+																		coll1->m_bounciness * collVelo * 2.0f :	
+																		coll1->m_bounciness * phyX_utilties::MultipleScalar(phyX_utilties::AbsOne(collNormal), coll1->GetParent()->GetRigidBody()->m_velocityVec).Length(),
+														   perfectDistance, coll1->IsStatic(), coll1));
 
 		//check if second collider is static
 		if (!coll1->IsStatic())
 		{
-			//add some fake velocity physic
-			forceStrength = (coll->m_bounciness > 0.f) ? coll->m_bounciness * coll->GetParent()->GetRigidBody()->m_velocity * 0.1f : 0.f;
-
-			coll1->AddCollision(coll, detail::CollisionResponse(-collNormal, forceStrength, perfectDistance, coll->IsStatic(), coll));
+			coll1->AddCollision(coll, detail::CollisionResponse(-collNormal, coll->m_bounciness * collVelo, perfectDistance, coll->IsStatic(), coll));
 		}
 		else
 			coll1->AddCollision(coll);
+
 	}
 
 	bool CPhysiX::PointInsideAABB(Vektoria::CHVector& boxCorner1, Vektoria::CHVector& boxCorner2, Vektoria::CHVector& point)

@@ -40,17 +40,17 @@ namespace phyX
 
 	}
 
-	bool Collider::IsStatic()
+	bool const Collider::IsStatic()
 	{
 		return m_isStatic;
 	}
 
-	float Collider::Bounciness()
+	float const Collider::Bounciness()
 	{
 		return m_bounciness;
 	}
 
-	bool Collider::isTrigger()
+	bool const Collider::isTrigger()
 	{
 		return m_isTrigger;
 	}

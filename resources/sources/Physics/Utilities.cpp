@@ -68,18 +68,7 @@ namespace phyX_utilties
 
 		return true;
 	}
-
-	Vektoria::CHVector ProjectVector(Vektoria::CHVector vec, Vektoria::CHVector target)
-	{
-		target.MakeDirection();
-		return CopyVectorInfos(target * ((target * vec) / target.LengthSquare()), 1.0f);
-	}
-
-	Vektoria::CHVector CopyVectorInfos(Vektoria::CHVector vec, float wValue)
-	{
-		return Vektoria::CHVector(vec.x, vec.y, vec.z, wValue);
-	}
-
+	
 }
 
 Vektoria::CHVector operator- (const Vektoria::CHVector& lhs, const Vektoria::CHVector& rhs)
