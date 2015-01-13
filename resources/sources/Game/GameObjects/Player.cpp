@@ -42,6 +42,12 @@ void Player::initialize()
 		ENGINE->globalResources.vektoriaCoreElements.viewport->AddOverlay(&_gameWinOverlay);
 	}
 
+	SoundManager* soundManager = ENGINE_SOUND_MANAGER;
+	if (soundManager)
+	{
+		soundManager->play(Sound::BackgroundMusic, true);
+	}
+
 	this->reset();
 }
 
@@ -75,7 +81,6 @@ void Player::update(float deltaTime, float time)
 			{
 				_rolling = true;
 				soundManager->play(Sound::StoneRolling, true);
-				printf("Play Rolling");
 			}
 		}
 		else
@@ -89,18 +94,18 @@ void Player::update(float deltaTime, float time)
 
 		if (!_falling)
 		{
-			if (_deltaDistanceMoved.y > 0.1)
+			if (_deltaDistanceMoved.y > 0.0005)
 			{
 				_falling = true;
-				soundManager->play(Sound::StoneFalling, true);
+				soundManager->play(Sound::StoneFalling);
 			}
 		}
 		else
 		{
-			if (_deltaDistanceMoved.y < 0.1)
+			if (_deltaDistanceMoved.y < 0.0005)
 			{
 				_falling = false;
-				soundManager->stop(Sound::StoneFalling);
+				//soundManager->stop(Sound::StoneFalling);
 			}
 		}
 	}

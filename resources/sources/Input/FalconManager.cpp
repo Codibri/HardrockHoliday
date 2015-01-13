@@ -166,9 +166,19 @@ void FalconManager::moveToPosition(double position[3], double precision) {
 bool FalconManager::isKeyPressed(Game_Inputs key) {
 	ContactCB(this);
 	if (m_buttonServo) {
-		double pos[3] = { 0.0, 0.04, 0.0 };
-		moveToPosition(pos, 0.2);
-		return true;
+		int keys;
+		hdlToolButtons(&keys);
+		printf("%i", keys);
+		switch (key) {
+		case Game_Inputs::Reset_Key:
+			if (keys == 1)
+				return true;
+			break;
+		case Game_Inputs::End_Key:
+			if (keys == 4)
+				return true;
+			break;
+		}
 	}
 	return false;
 }
