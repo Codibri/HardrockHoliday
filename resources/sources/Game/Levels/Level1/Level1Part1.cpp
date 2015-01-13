@@ -36,7 +36,7 @@ void Level1Part1::initGameObjects(){
 	normalGround->getPlacement()->Translate(0, -1.0, -20);
 	addGameObject(normalGround);
 	// Fallenboden Für Alle MapParts
-	auto pitGround = new Ground(Vektoria::CHVector(2, 2.0, 42));
+	auto pitGround = new Ground(Vektoria::CHVector(10, 2.0, 42));
 	pitGround->setName("PitGround");
 	pitGround->GetRigidBody()->GetCollider()->SetLayer(pitGround->getName());
 	pitGround->getPlacement()->Translate(0, -1.5, -20);

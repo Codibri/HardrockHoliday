@@ -63,8 +63,6 @@ GameObjectLoader::ObjectType GameObjectLoader::getGameObjectType(std::string& li
 			return TRAP;
 		}
 	}
-
-	return UNKNOWN;
 }
 
 GameObject* GameObjectLoader::createGameObject(Vektoria::CHVector translation,
