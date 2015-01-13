@@ -49,7 +49,7 @@ void Scene::loadLevel(int lvlNr){
 
 void Scene::tick(float deltaMillis, float ftime){
 	// Timer anzeige updaten
-	mTimer.Update(deltaMillis, ftime);
+	//mTimer.Update(deltaMillis, ftime);
 
 	// aktive map parts updaten
 	mMapPartManager.update(deltaMillis, ftime);

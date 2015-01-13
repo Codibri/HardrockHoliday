@@ -23,7 +23,7 @@ Player::Player(Vektoria::CPlacement position) : PhysicalGameObject(position, "Pl
 void Player::initialize()
 {
 	_courseTime.AddToViewPort(Engine::globalResources.vektoriaCoreElements.viewport);
-	_courseTime.Show();
+//	_courseTime.Show();
 
 	_position.AddPlacement(&_rotation);
 	_visual = new PlayerVisual(&_rotation, &_position);
