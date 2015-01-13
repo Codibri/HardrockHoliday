@@ -19,9 +19,9 @@ void Level::initialize(Vektoria::CScene* scene){
 
 void  Level::attachAllMapPartsToScene(Vektoria::CScene* scene){
 
-	for (int i = 0; i < mMapParts.size(); i++){
+	for (unsigned int i = 0; i < mMapParts.size(); i++){
 		MapPart* p = mMapParts[i];
-		p->getPlacement()->TranslateZ(-MapPart::MAP_PART_SIZE * i);
+		p->getPlacement()->TranslateZ(float(-MapPart::MAP_PART_SIZE * i));
 		scene->AddPlacement(p->getPlacement());
 	}
 
@@ -45,7 +45,7 @@ Player* Level::getPlayer(){
 
 MapPart* Level::getNextMapPart(){
 
-	if (mMapParts.size() - 1 > mMapPartLoadIndex){
+	if (mMapParts.size() - 1 > (unsigned int)mMapPartLoadIndex){
 		MapPart* part = mMapParts[mMapPartLoadIndex++];
 		return part;
 	}
@@ -56,6 +56,8 @@ MapPart* Level::getNextMapPart(){
 	}
 
 	std::cerr << "MapPart.getNextMapPart(): Error, no Mapparts initialized.";
+
+	return nullptr;
 }
 
 void Level::addMapPart(MapPart* p){

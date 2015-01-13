@@ -30,7 +30,7 @@ float BlockedSphericalSector::crossedBorder(double position) {
 		return 0.0;
 	}
 	if (abs(position*100) + CROSSING_PRECISION / 100 > abs(m_startPoint*5)) {
-		return abs(position * 100) - abs(m_startPoint * 5);
+		return float(abs(position * 100) - abs(m_startPoint * 5));
 	}
 	return 0.0;
 }

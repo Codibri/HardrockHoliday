@@ -6,13 +6,10 @@
 
 class Goal;
 
-Player::Player() : PhysicalGameObject(Vektoria::CPlacement(), "Player", PhysicalProperties(new phyX::SphereCollider(this, BOULDER_RADIUS, 1, false), 0.3, true)),
+Player::Player() : PhysicalGameObject(Vektoria::CPlacement(), "Player", PhysicalProperties(new phyX::SphereCollider(this, BOULDER_RADIUS, 1, false), 0.3f, true)),
 	_alive(true), _crashing(false), _won(false), _rolling(false), _falling(false)
 {
 	this->initialize();
-
-	_courseTime.AddToViewPort(Engine::globalResources.vektoriaCoreElements.viewport);
-	_courseTime.Show();
 }
 
 
@@ -25,16 +22,19 @@ Player::Player(Vektoria::CPlacement position) : PhysicalGameObject(position, "Pl
 
 void Player::initialize()
 {
+	_courseTime.AddToViewPort(Engine::globalResources.vektoriaCoreElements.viewport);
+	_courseTime.Show();
+
 	_position.AddPlacement(&_rotation);
 	_visual = new PlayerVisual(&_rotation, &_position);
 
 	this->GetRigidBody()->GetCollider()->SetLayer(_name);
 
 	_gameOverImage.Init("GameResources\\Textures\\GameOverScreen.png");
-	_gameOverOverlay.Init(&_gameOverImage, Vektoria::CFloatRect(0.2, 0.2, 0.6, 0.6), false);
+	_gameOverOverlay.Init(&_gameOverImage, Vektoria::CFloatRect(0.2f, 0.2f, 0.6f, 0.6f), false);
 
 	_gameOverImage.Init("GameResources\\Textures\\GameWinScreen.png");
-	_gameWinOverlay.Init(&_gameWinImage, Vektoria::CFloatRect(0.2, 0.2, 0.6, 0.6), false);
+	_gameWinOverlay.Init(&_gameWinImage, Vektoria::CFloatRect(0.2f, 0.2f, 0.6f, 0.6f), false);
 
 	if (ENGINE->globalResources.vektoriaCoreElements.viewport != nullptr)
 	{
@@ -140,7 +140,7 @@ void Player::reactToInput(float deltaTime)
 			x = abs(x);
 			//PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(1, 0, 0), x, false);
 			//PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(direction, 0, 0), 200 * x * deltaTime, false);
-			PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(direction, 0, 0), 40 * x * deltaTime, false);
+			PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector((float)direction, 0, 0), 40.f * x * deltaTime, false);
 
 			float z = inputDevice->getZPosition();
 			if (z > 0)
@@ -151,7 +151,7 @@ void Player::reactToInput(float deltaTime)
 			//z = 0.03; // <- this is for debug purposes only. TODO: delete when inputDevice is capable of returning real z values
 			//PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, 1), 5*z, false);
 			//PhysicalGameObject::GetRigidBody()->AddImpulse(Vektoria::CHVector(0, 0, -1), 200 * z * deltaTime, false);
-			PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, -1), 10 * z * deltaTime, false);
+			PhysicalGameObject::GetRigidBody()->AddForce(Vektoria::CHVector(0, 0, -1.0f), 10.f * z * deltaTime, false);
 		}
 	}
 }
@@ -160,6 +160,11 @@ void Player::reactToInput(float deltaTime)
 void Player::onCollision(phyX::RigidBodyOwner* other, float timeDelta)
 {
 	std::string name = std::type_index(typeid(*other)).name();
+
+	if (other->GetRigidBody()->GetCollider()->GetCollisionLayerName() == "PitGround")
+	{
+		PhysicalGameObject::GetRigidBody()->Freeze(true, false, true);
+	}
 
 	if (std::type_index(typeid(LochFalle)).name() == name) 
 	{
@@ -188,7 +193,7 @@ void Player::onCollision(phyX::RigidBodyOwner* other, float timeDelta)
 		}
 	}
 
-	if (std::type_index(typeid(Goal)).name() == name)
+	if (std::type_index(typeid(LevelEnd)).name() == name)
 	{
 		//win
 		if (!_won)
@@ -218,8 +223,9 @@ void Player::reset()
 {
 	_position.m_mLocal = _startingPosition.m_mLocal;
 	_position.TranslateY(1.0f); //set a little bit higher to give the physics the chance to detect a collision with the ground
-	_position.TranslateZDelta(-8.f);
+	//_position.TranslateZDelta(-8.f); //debug position
 
+	PhysicalGameObject::GetRigidBody()->Freeze(false, false, false);
 
 	_gameOverOverlay.SwitchOff();
 	_gameWinOverlay.SwitchOff();

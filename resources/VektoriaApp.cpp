@@ -91,9 +91,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 	// allocate a standard windows console for debug purposes
 	//#ifdef _DEBUG
+#pragma warning (disable : 4996)
 	AllocConsole();
 	freopen("CONOUT$", "w", stdout);
-	
+#pragma warning (default: 4996)
 	//#endif
 
 	Vektoria::CSplash splash;

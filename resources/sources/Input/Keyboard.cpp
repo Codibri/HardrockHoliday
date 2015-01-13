@@ -9,19 +9,19 @@ Keyboard::~Keyboard() {
 }
 
 float Keyboard::getNewXPosition(float oldPosition) {
-	if (deviceKeyboard.KeyPressed(DIK_LEFT) && (oldPosition > -1.0))		// Links gedrückt
-		return oldPosition - 0.002;
-	else if (deviceKeyboard.KeyPressed(DIK_RIGHT) && (oldPosition < 1.0))	// Rechts gedrückt
-		return oldPosition + 0.002;
+	if (deviceKeyboard.KeyPressed(DIK_LEFT) && (oldPosition > -1.0f))		// Links gedrückt
+		return oldPosition - 0.002f;
+	else if (deviceKeyboard.KeyPressed(DIK_RIGHT) && (oldPosition < 1.0f))	// Rechts gedrückt
+		return oldPosition + 0.002f;
 	else 
 		return (oldPosition = 0.f);
 }
 
 float Keyboard::getNewZPosition(float oldPosition) {
-	if (deviceKeyboard.KeyPressed(DIK_UP) && (oldPosition > -1.0))			// Oben/Vorne gedrückt
-		return oldPosition - 0.001;
-	else if (deviceKeyboard.KeyPressed(DIK_DOWN) && (oldPosition < 1.0))	// Zurück/Bremsen gedrückt
-		return oldPosition + 0.001;
+	if (deviceKeyboard.KeyPressed(DIK_UP) && (oldPosition > -1.0f))			// Oben/Vorne gedrückt
+		return oldPosition - 0.001f;
+	else if (deviceKeyboard.KeyPressed(DIK_DOWN) && (oldPosition < 1.0f))	// Zurück/Bremsen gedrückt
+		return oldPosition + 0.001f;
 	else
 		return (oldPosition = 0.f);
 }

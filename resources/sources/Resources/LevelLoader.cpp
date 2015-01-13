@@ -20,4 +20,6 @@ std::unique_ptr<Level> LevelLoader::loadLevel(int lvlNr){
 		std::cerr << "LevelLoader::loadLevel(): Invalid level nr.";
 		break;
 	}
+
+	return nullptr;
 }

@@ -60,7 +60,7 @@ void Timer::InitWriting(){
 	mWritingFont.Init("GameResources\\Textures\\font.png", true);
 	mWritingFont.SetTableSize(16, 16);
 	mWritingFont.SetTableStartASCII(0);
-	mWriting.Init(Vektoria::CFloatRect(0.425, 0.05, 0.15, 0.03), 20, &mWritingFont);
+	mWriting.Init(Vektoria::CFloatRect(0.425f, 0.05f, 0.15f, 0.03f), 20, &mWritingFont);
 	mWriting.PrintF("Time: %d:%d:%d", 0, 0, 0);
 
 }

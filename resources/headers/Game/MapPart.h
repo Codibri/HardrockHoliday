@@ -39,7 +39,7 @@ protected:
 	void addGameObjectsFromFile(std::string fileName);
 
 	static Vektoria::CHVector scaleFromBlender(float x, float y, float z){
-		Vektoria::CHVector result(x * 2.0, z * 2.0, y * 2.0);
+		Vektoria::CHVector result(x * 2.0f, z * 2.0f, y * 2.0f);
 		return result;
 	}
 

@@ -43,7 +43,7 @@ const void MapPartManager::preRenderMapParts(Vektoria::CRoot* r) const {
 	// Alle Parts an Szene anhängen und switchOff aufrufen
 	mActiveLevelPtr->attachAllMapPartsToScene(mScenePtr);
 	mActiveLevelPtr->switchOnAllMapParts();
-	float f = 0.001;
+	float f = 0.001f;
 	r->Tick(f);
 	mActiveLevelPtr->switchOffAllMapParts();
 }

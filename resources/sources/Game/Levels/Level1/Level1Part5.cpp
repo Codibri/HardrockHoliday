@@ -28,17 +28,17 @@ void Level1Part5::loadMaterial(){
 void Level1Part5::initGameObjects(){
 
 	// Map-Begrenzung
-	auto wallLeft = new MapWall(Vektoria::CHVector(1.0, 0.5, 8.0));
-	wallLeft->getPlacement()->Translate(-1.1, 0.25, -4.0);
+	auto wallLeft = new MapWall(Vektoria::CHVector(1.0f, 0.5f, 8.0f));
+	wallLeft->getPlacement()->Translate(-1.1f, 0.25f, -4.0f);
 	addGameObject(wallLeft);
 
-	auto wallRight = new MapWall(Vektoria::CHVector(1.0, 0.5, 8.0));
-	wallRight->getPlacement()->Translate(1.1, 0.25, -4.0);
+	auto wallRight = new MapWall(Vektoria::CHVector(1.0f, 0.5f, 8.0f));
+	wallRight->getPlacement()->Translate(1.1f, 0.25f, -4.0f);
 	addGameObject(wallRight);
 
 	// Level Ende
-	auto levelEnd = new LevelEnd(scaleFromBlender(0.341, 0.086, 0.341));
-	levelEnd->getPlacement()->Translate(locationFromBlender(0.00143, 8.34882, 0.09395));
+	auto levelEnd = new LevelEnd(scaleFromBlender(0.341f, 0.086f, 0.341f));
+	levelEnd->getPlacement()->Translate(locationFromBlender(0.00143f, 8.34882f, 0.09395f));
 	addGameObject(levelEnd);
 
 	// Fallen und Wände

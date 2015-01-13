@@ -1,6 +1,6 @@
 #include "Game\MapPart.h"
 
-const int MapPart::MAP_PART_SIZE = 8.0;
+const int MapPart::MAP_PART_SIZE = 8;
 
 
 

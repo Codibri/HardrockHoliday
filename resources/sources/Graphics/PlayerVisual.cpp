@@ -8,14 +8,14 @@ PlayerVisual::PlayerVisual(Vektoria::CPlacement* rotationPlacement, CPlacement* 
 	
 	mPosPlacement = posPlacement;
 	mLastPositionPlacement = CPlacement();
-	mLastPositionPlacement.TranslateZ(0.1);
+	mLastPositionPlacement.TranslateZ(0.1f);
 
 	// Kugel um halben durchmesser anheben
-	mPosPlacement->TranslateY(0.1);
+	mPosPlacement->TranslateY(0.1f);
 
 	// Spotlight
 	mSpotLightPlacment.AddSpotLight(&mSpotLight);
-	mSpotLightPlacment.Translate(-0.2, 15.7, 7);
+	mSpotLightPlacment.Translate(-0.2f, 15.7f, 7.0f);
 	mSpotLight.Init(CColor(1.0, 0.5, 0.5), 0.105F, 0.227F);
 	mSpotLight.SetMaxDistance(120.0F);
 	mSpotLight.SetMinDistance(0.0F);
@@ -59,7 +59,7 @@ void PlayerVisual::loadMesh(){
 	mObjPlayerMesh = objLoader.LoadGeo("GameResources\\Levels\\level1\\player\\level1_boulder.obj");
 	mObjPlayerMesh->SetMaterial(&mPlayerMaterial);
 	rs::TangentSpaceHelper::calculateTangentsAndBitangents(mObjPlayerMesh);
-	CHMat m; m.RotateX(-1.0); m.RotateY(1.7);
+	CHMat m; m.RotateX(-1.0f); m.RotateY(1.7f);
 	mObjPlayerMesh->Transform(m);
 	_placement->AddGeo(mObjPlayerMesh);
 }

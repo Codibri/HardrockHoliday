@@ -23,7 +23,7 @@ void Scene::init(CScene* scene, CRoot* root){
 
 void Scene::initViewport(Vektoria::CFrame *frame){
 	
-	mCamera.initViewPort(1.7, frame);
+	mCamera.initViewPort(1.7f, frame);
 	
 }
 

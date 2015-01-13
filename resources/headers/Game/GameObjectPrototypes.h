@@ -13,5 +13,6 @@
 class MapWall;
 class LochFalle;
 class Player;
+class LevelEnd;
 
 #endif

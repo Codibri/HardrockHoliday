@@ -24,6 +24,7 @@ std::vector<GameObject*> GameObjectLoader::LoadGameObjects(std::string  gameObje
 				}		
 				type = getGameObjectType(line);
 			}
+#pragma warning (disable : 4996) //scanf warning (unsafe)
 			else if (line[0] == 't'){
 				sscanf(line.c_str(), "t : %f; %f; %f", &translation.x, &translation.y, &translation.z);	
 			} 
@@ -33,6 +34,7 @@ std::vector<GameObject*> GameObjectLoader::LoadGameObjects(std::string  gameObje
 			else if (line[0] == 's'){
 				sscanf(line.c_str(), "s : %f; %f; %f", &scale.x, &scale.y, &scale.z);
 			}
+#pragma warning (default: 4996)
 
 		}
 		
@@ -61,6 +63,8 @@ GameObjectLoader::ObjectType GameObjectLoader::getGameObjectType(std::string& li
 			return TRAP;
 		}
 	}
+
+	return UNKNOWN;
 }
 
 GameObject* GameObjectLoader::createGameObject(Vektoria::CHVector translation,
@@ -87,7 +91,7 @@ GameObject* GameObjectLoader::createGameObject(Vektoria::CHVector translation,
 
 
 Vektoria::CHVector  GameObjectLoader::scaleFromBlender(Vektoria::CHVector scale){
-	Vektoria::CHVector result(scale.x * 2.0, scale.z * 2.0, scale.y * 2.0);
+	Vektoria::CHVector result(scale.x * 2.0f, scale.z * 2.0f, scale.y * 2.0f);
 	return result;
 }
 
