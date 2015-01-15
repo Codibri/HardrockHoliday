@@ -3,7 +3,7 @@
 #include "root.h"
 
 
-#define SHOW_GAME_OBJECT_COLLIDERS 1
+#define SHOW_GAME_OBJECT_COLLIDERS 0
 
 
 
