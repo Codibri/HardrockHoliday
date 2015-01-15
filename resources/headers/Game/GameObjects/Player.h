@@ -29,6 +29,7 @@ public:
 	virtual void update(float deltaMillis, float time) override;
 	void onCollision(phyX::RigidBodyOwner* otherCollider, float timeDelta) override;
 	bool isAlive() const;
+	void setCameraPlacement(Vektoria::CPlacement* p); // Zum Ab-/anhängen der Camera bei GameOver
 
 protected:
 	void initialize();
@@ -37,6 +38,7 @@ protected:
 	void reactToInput(float deltaTime);
 
 	Vektoria::CPlacement _startingPosition;
+	Vektoria::CPlacement* _cameraPlacement; 
 
 	//TODO: make Boulder inherit from player and seperate the specialized and general logic
 	Vektoria::CPlacement _rotation;

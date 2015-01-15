@@ -8,7 +8,6 @@ Camera::Camera()
 	// Kameraabstand zur Spieler-Kugel
 	mCamPlacement.TranslateY(0.35f);
 	mCamPlacement.TranslateZDelta(0.8f);
-
 }
 
 
@@ -27,13 +26,16 @@ void Camera::initViewPort(float camAngle, Vektoria::CFrame* frame){
 
 
 
-void Camera::setPlayerPlacement(Vektoria::CPlacement* p){
+void Camera::setPlayerPlacement(Player* p){
 	// Player placement wird in der Player klasse geändert um
 	// die Kugel und die Kamera zu bewegen. -> Kamera als child
 	// des Player placements anhängen
-	p->AddPlacement(&mCamPlacement);
+	p->getPlacement()->AddPlacement(&mCamPlacement);
+	p->setCameraPlacement(&mCamPlacement);
 }
 
 Vektoria::CViewport* Camera::getViewPort(){
 	return &mViewPort;
 }
+
+

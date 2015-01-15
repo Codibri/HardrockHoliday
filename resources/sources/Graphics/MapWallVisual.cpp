@@ -13,7 +13,8 @@ MapWallVisual::MapWallVisual(Vektoria::CHVector boxColliderSize, Vektoria::CPlac
 	Vektoria::CHVector visualBoxSize = boxColliderSize * 0.5; // In Vektoria werden Cubes doppelt so groß dargestellt
 
 	mCubeGeo.Init(visualBoxSize, &mCubeMaterial);
-	//_placement->AddGeo(&mCubeGeo);
+	if (SHOW_GAME_OBJECT_COLLIDERS)
+		_placement->AddGeo(&mCubeGeo);
 }
 
 

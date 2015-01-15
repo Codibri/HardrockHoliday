@@ -17,7 +17,7 @@ void Timer::AddToViewPort(Vektoria::CViewport* vp){
 void Timer::Update(float fTimeDelta, float fTime){
 	if (!mIsRunning)
 		return;
-	UpdateDuration(fTime);
+	UpdateDuration(fTimeDelta);
 	mWriting.PrintF("Time: %d : %d : %d", mMinutes, mSeconds, mMilliSeconds);
 }
 
@@ -33,6 +33,7 @@ void Timer::Reset(){
 	mMinutes = 0;
 	mSeconds = 0;
 	mMilliSeconds = 0;
+	mTotalTime = 0;
 }
 
 void Timer::Show(){
@@ -65,9 +66,10 @@ void Timer::InitWriting(){
 
 }
 
-void Timer::UpdateDuration(float fTime){
-	int mTotalSeconds = (int)fTime;
+void Timer::UpdateDuration(float fTimeDelta){
+	mTotalTime += fTimeDelta;
+	int mTotalSeconds = (int)mTotalTime;
 	mSeconds = mTotalSeconds % 60;
 	mMinutes = mTotalSeconds / 60;
-	mMilliSeconds = (int)((fTime - (float)mTotalSeconds) * 1000.0);
+	mMilliSeconds = (int)((mTotalTime - (float)mTotalSeconds) * 1000.0);
 }

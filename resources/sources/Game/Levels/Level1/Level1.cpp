@@ -20,6 +20,9 @@ void Level1::initialize(Vektoria::CScene* scene){
 	
 	scene->AddParallelLight(&mLight1);
 
+	// Schwarzer Hintergrund
+	loadBackground(scene);
+
 	// Himmel
 	loadSkyBox(scene);
 }
@@ -42,5 +45,15 @@ void Level1::loadSkyBox(Vektoria::CScene* scene){
 	mSkyPlacement.AddGeo(mSkyDome.get());
 	mSkyPlacement.SetSky();
 	scene->AddPlacement(&mSkyPlacement);
+}
+
+void Level1::loadBackground(Vektoria::CScene* scene)
+{
+	mBackGroundMaterial.MakeTextureImage("GameResources\\Textures\\black_image.jpg");
+	mBackGroundMaterial.SetShadingOff();
+	mBackGroundGeo.Init(1000.0f, 1000.0f, &mBackGroundMaterial);
+	mBackGroundPlacement.AddGeo(&mBackGroundGeo);
+	mBackGroundPlacement.Translate(CHVector(0, 0, -45));
+	scene->AddPlacement(&mBackGroundPlacement);
 }
 

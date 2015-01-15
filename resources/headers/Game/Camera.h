@@ -1,6 +1,7 @@
 #pragma once
 
 #include "root.h"
+#include "GameObjects\Player.h"
 
 class Camera
 {
@@ -10,7 +11,7 @@ public:
 
 	void initViewPort(float camAngle, Vektoria::CFrame* frame);
 
-	void setPlayerPlacement(Vektoria::CPlacement* p);
+	void setPlayerPlacement(Player* p);
 
 	Vektoria::CViewport* getViewPort();
 

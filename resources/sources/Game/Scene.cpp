@@ -33,7 +33,7 @@ void Scene::loadLevel(int lvlNr){
 	mActiveLevel = mLevelLoader.loadLevel(lvlNr);
 	mActiveLevel->initialize(mVectoriaScene);
 
-	mCamera.setPlayerPlacement(mActiveLevel->getPlayer()->getPlacement());
+	mCamera.setPlayerPlacement(mActiveLevel->getPlayer());
 
 	mVectoriaScene->AddPlacement(mActiveLevel->getPlayer()->getPlacement());
 	
@@ -48,9 +48,7 @@ void Scene::loadLevel(int lvlNr){
 
 
 void Scene::tick(float deltaMillis, float ftime){
-	// Timer anzeige updaten
-	//mTimer.Update(deltaMillis, ftime);
-
+	
 	// aktive map parts updaten
 	mMapPartManager.update(deltaMillis, ftime);
 	

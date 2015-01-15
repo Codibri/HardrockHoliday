@@ -36,5 +36,6 @@ private:
 	Vektoria::CWriting mWriting;
 	Vektoria::CWritingFont mWritingFont;
 	int mMinutes, mSeconds, mMilliSeconds;
+	float mTotalTime;
 	bool mIsRunning;
 };
