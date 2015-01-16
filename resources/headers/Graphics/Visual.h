@@ -2,6 +2,11 @@
 
 #include "root.h"
 
+
+#define SHOW_GAME_OBJECT_COLLIDERS 0
+
+
+
 class Visual {
 
 public:

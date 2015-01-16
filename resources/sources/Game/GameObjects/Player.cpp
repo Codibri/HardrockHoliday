@@ -7,14 +7,14 @@
 class Goal;
 
 Player::Player() : PhysicalGameObject(Vektoria::CPlacement(), "Player", PhysicalProperties(new phyX::SphereCollider(this, BOULDER_RADIUS, 1, false), 0.3f, true)),
-	_alive(true), _crashing(false), _won(false), _rolling(false), _falling(false)
+	_alive(true), _crashing(false), _won(false), _rolling(false), _falling(false), _cameraPlacement(NULL)
 {
 	this->initialize();
 }
 
 
 Player::Player(Vektoria::CPlacement position) : PhysicalGameObject(position, "Player", PhysicalProperties(new phyX::SphereCollider(this, BOULDER_RADIUS, 1, false), 1, true)), 
-	_alive(true), _crashing(false), _won(false), _rolling(false), _falling(false), _startingPosition(position)
+	_alive(true), _crashing(false), _won(false), _rolling(false), _falling(false), _startingPosition(position), _cameraPlacement(NULL)
 {
 	this->initialize();
 }
@@ -181,6 +181,7 @@ void Player::onCollision(phyX::RigidBodyOwner* other, float timeDelta)
 		{
 			_alive = false;
 			this->GetRigidBody()->GetCollider()->SetLayer("PitGround");
+			_cameraPlacement->SwitchOff(); // Kamera abhängen um nicht durch den Boden zu fahren
 		}
 	}
 
@@ -256,4 +257,14 @@ void Player::reset()
 		soundManager->stop(Sound::StoneFalling);
 		soundManager->stop(Sound::StoneBreaking);
 	}
+
+	// Kamera wieder anhängen
+	if (_cameraPlacement != NULL)
+		_cameraPlacement->SwitchOn();
+
+}
+
+void Player::setCameraPlacement(Vektoria::CPlacement* p)
+{
+	_cameraPlacement = p;
 }

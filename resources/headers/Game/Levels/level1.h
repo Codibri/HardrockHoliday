@@ -31,8 +31,12 @@ private:
 	CPlacement mSkyPlacement;
 	CMaterial mSkyMaterial;
 
+	CGeoQuad mBackGroundGeo;
+	CMaterial mBackGroundMaterial;
+	CPlacement mBackGroundPlacement;
 
 	void addMapParts();
 	void loadSkyBox(Vektoria::CScene* scene);
+	void loadBackground(Vektoria::CScene* scene);
 };
 
