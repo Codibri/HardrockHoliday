@@ -31,11 +31,12 @@ public:
 	// Game Steuerung (Neu, Beenden)
 	bool isKeyPressed(Game_Inputs key);
 
-	// TODO: Falcon
+	// Falcon
 	void move_To_Origin();
 	void fallDown();
 	void onPlayerDead();
 	void onPlayerReset();
+	void setSandSimulationActive(bool active);
 
 private:
 	float xPosition;

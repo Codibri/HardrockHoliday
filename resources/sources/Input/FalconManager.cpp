@@ -24,8 +24,13 @@ FalconManager::FalconManager() {
 	blockedSectors[DIRECTION_TOP] = new BlockedSphericalSector(1, 0.2f, -1.0f, -1.0f, false);
 	blockedSectors[DIRECTION_BOTTOM] = new BlockedSphericalSector(1, -0.2f, 1.0f, 1.0f, false);
 
-	blockedSectors[DIRECTION_BACK] = new BlockedSphericalSector(2, 0.2f, -5.0f, -1.0f, false);
-	blockedSectors[DIRECTION_FRONT] = new BlockedSphericalSector(2, -0.2f, 5.0f, 1.0f, false);
+	BSS_Front_Sand = new BlockedSphericalSector(2, 0.2f, -13.0f, -3.5f, false);
+	BSS_Front_Even = new BlockedSphericalSector(2, 0.2f, -4.0f, -1.0f, false);
+	BSS_Back_Sand = new BlockedSphericalSector(2, -0.2f, 13.0f, 3.5f, false);
+	BSS_Back_Even = new BlockedSphericalSector(2, -0.2f, 4.0f, 1.0f, false);
+
+	blockedSectors[DIRECTION_BACK] = BSS_Front_Even;
+	blockedSectors[DIRECTION_FRONT] = BSS_Back_Even;
 
 	//falconTestUtil.blockDirection(0, -10);		// Block RECHTS
 	//falconTestUtil.blockDirection(0, 10);			// Block LINKS
@@ -88,7 +93,6 @@ int FalconManager::init() {
 
 	return 1;
 }
-
 
 
 // Setup in umgekehrter Reihenfolge
@@ -172,7 +176,6 @@ bool FalconManager::isKeyPressed(Game_Inputs key) {
 	if (m_buttonServo) {
 		int keys;
 		hdlToolButtons(&keys);
-		printf("%i", keys);
 		switch (key) {
 		case Game_Inputs::Reset_Key:
 			if (keys == 1)
@@ -214,6 +217,18 @@ void FalconManager::rumbleSwitch(float strength) {
 	m_forceServo[0] = forcePush[0];		
 	m_forceServo[1] = forcePush[1];	
 	m_forceServo[2] = forcePush[2];
+}
+
+void FalconManager::setSandSimulationActive(bool active) {
+	sandActive = active;
+	if (active) {
+		blockedSectors[DIRECTION_BACK] = BSS_Front_Sand;
+		blockedSectors[DIRECTION_FRONT] = BSS_Back_Sand;
+	}
+	else {
+		blockedSectors[DIRECTION_BACK] = BSS_Front_Even;
+		blockedSectors[DIRECTION_FRONT] = BSS_Back_Even;
+	}
 }
 
 void FalconManager::updateBlocking() {

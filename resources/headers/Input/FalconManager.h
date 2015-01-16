@@ -42,6 +42,9 @@ public:
 	// Rumble
 	void rumbleSwitch(float strength);
 
+	// Sandsimulation (bei über Sand fahren geht Beschleunigung nur mit mehr Kraft)
+	void setSandSimulationActive(bool active);
+
 	// TEST-Methoden:
 	void printPosition();
 	void printDouble(double d);
@@ -65,17 +68,21 @@ public:
 	HDLDeviceHandle m_deviceHandle;
 	HDLServoOpExitCode m_servoOp;
 
-	BlockedSphericalSector* blockedSectors[6];
-
-	
 
 private: 
+	BlockedSphericalSector* blockedSectors[6];
+
+	BlockedSphericalSector* BSS_Front_Sand;
+	BlockedSphericalSector* BSS_Front_Even;
+	BlockedSphericalSector* BSS_Back_Sand;
+	BlockedSphericalSector* BSS_Back_Even;
+
 	// Force in Newton im angegebenen Bereich (jeweil positiv wie negativ min/max)
 	double getForceBetween(double force, double forceMax, double forceMin, int count);
 
 	double inch = 39.3700787;
 
-
-
 	bool rumbleDirection = false;
+
+	bool sandActive = false;
 };

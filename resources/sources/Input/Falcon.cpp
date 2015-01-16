@@ -72,6 +72,8 @@ void Falcon::updateBlockAndRumble() {
 		falconManager.rumbleSwitch(rumbleStrength);
 		//falconManager.rumbleSwitch(15.0);
 	}
-	else {
-	}
+}
+
+void Falcon::setSandSimulationActive(bool active) {
+	falconManager.setSandSimulationActive(active);
 }

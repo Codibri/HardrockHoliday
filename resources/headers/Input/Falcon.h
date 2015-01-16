@@ -39,6 +39,7 @@ public:
 	void block(bool on, Direction direction);
 	void move_To_Origin();
 	void fallDown();
+	void setSandSimulationActive(bool active);
 
 	// Positionsüberprüfung: Überprüfe, ob Motoren aufgrund der neuen Position gesperrt werden müssen
 	// Rumble, falls an

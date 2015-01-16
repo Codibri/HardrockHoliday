@@ -37,6 +37,17 @@ void InputDevice::update(float deltaTime, float time) {
 			std::cout << "Rumble aus" << std::endl;
 			falcon->rumble(false, 10.0);
 		}*/
+
+		count++;
+		if (count == 1200) {
+			std::cout << "1" << std::endl;
+			falcon->setSandSimulationActive(true);
+		}
+		if (count == 1800) {
+			std::cout << "0" << std::endl;
+			falcon->setSandSimulationActive(false);
+		}
+
 		xPosition = falcon->getNewPosition(0);
 		yPosition = falcon->getNewPosition(1);
 		zPosition = falcon->getNewPosition(2);
@@ -119,3 +130,7 @@ void InputDevice::fallDown() {}
 void InputDevice::onPlayerDead() {}
 
 void InputDevice::onPlayerReset() {}
+
+void InputDevice::setSandSimulationActive(bool active) {
+	falcon->setSandSimulationActive(active);
+}
