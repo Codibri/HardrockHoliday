@@ -29,13 +29,13 @@ InputDevice::~InputDevice() {
 void InputDevice::update(float deltaTime, float time) {
 	if (useFalcon){
 		/*count++;
-		if (count == 100) {
+		if (count == 1000) {
 			std::cout << "Rumble an" << std::endl;
-			falcon->rumble(true, 8.0);
+			falcon->rumble(true, 10.0);
 		}
-		if (count == 300) {
+		if (count == 1250) {
 			std::cout << "Rumble aus" << std::endl;
-			falcon->rumble(false, 8.0);
+			falcon->rumble(false, 10.0);
 		}*/
 		xPosition = falcon->getNewPosition(0);
 		yPosition = falcon->getNewPosition(1);

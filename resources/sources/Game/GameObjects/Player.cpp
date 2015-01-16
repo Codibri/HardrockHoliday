@@ -117,11 +117,11 @@ void Player::reactToInput(float deltaTime)
 	InputDevice* inputDevice = ENGINE_INPUT_DEVICE;
 	if (inputDevice)
 	{
-		if (_rumbleTimeout.GetMilliSeconds() > 1000)
+		if (_rumbleTimeout.GetMilliSeconds() > 240)
 		{
 			_rumbleTimeout.Stop();
 			_rumbleTimeout.Reset();
-			inputDevice->rumble(false, 10);
+			inputDevice->rumble(false, 10.0);
 			_crashing = false;
 		}
 
@@ -194,7 +194,7 @@ void Player::onCollision(phyX::RigidBodyOwner* other, float timeDelta)
 			if (inputDevice)
 			{
 				_rumbleTimeout.Start();
-				inputDevice->rumble(true, 10);
+				inputDevice->rumble(true, 10.0);
 				_crashing = true;
 			}
 		}

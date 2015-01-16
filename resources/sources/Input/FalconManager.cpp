@@ -192,19 +192,22 @@ void FalconManager::rumbleSwitch(float strength) {
 	double forcePush[3];
 	memcpy(forcePush, m_forceServo, sizeof(m_forceServo));
 
-	for (int i = 0; i < 4; i++) {
+	printf(".");
+
+	for (int i = 0; i < 50; i++) {
 		if (rumbleDirection) {
 			m_forceServo[0] = strength;
-			m_forceServo[1] = strength;
-			m_forceServo[2] = strength;
+			//m_forceServo[1] = strength;
+			//m_forceServo[2] = strength;
 		}
 		else {
 			m_forceServo[0] = -strength;
-			m_forceServo[1] = -strength;
-			m_forceServo[2] = -strength;
+			//m_forceServo[1] = -strength;
+			//m_forceServo[2] = -strength;
 		}
 		rumbleDirection = !rumbleDirection;
 		ContactCB(this);
+		for (int i = 0; i < 10000; i++);
 	}
 
 	// Pop Force Werte
