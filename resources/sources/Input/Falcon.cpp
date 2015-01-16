@@ -25,7 +25,7 @@ Have Fun!
 
 
 Falcon::Falcon() {
-	falconManager.init();
+	falconReadyState = falconManager.init();
 }
 
 Falcon::~Falcon() {
@@ -33,6 +33,10 @@ Falcon::~Falcon() {
 
 void Falcon::makeReady() {
 	move_To_Origin();
+}
+
+int Falcon::getFalconReadyState(){
+	return falconReadyState;
 }
 
 float Falcon::getNewPosition(int direction) {

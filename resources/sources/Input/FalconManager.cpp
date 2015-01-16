@@ -40,12 +40,13 @@ FalconManager::~FalconManager() {
 
 
 
-void FalconManager::init() {
+int FalconManager::init() {
 	// DEFAULT Device init
 	// siehe auch HDAL.INI
 	m_deviceHandle = hdlInitNamedDevice("DEFAULT");
 	if (m_deviceHandle == HDL_INVALID_HANDLE) {
 		std::cout << "Could not open device, Device Failure" << std::endl;
+		return 0;
 	}
 
 	// Servo thread starten
@@ -58,6 +59,7 @@ void FalconManager::init() {
 	m_servoOp = hdlCreateServoOp(ContactCB, this, false);
 	if (m_servoOp == HDL_INVALID_HANDLE) {
 		std::cout << "Invalid servo op handle Device Failure" << std::endl;
+		return 0;
 	}
 
 	// Falcon in Fokus setzen
@@ -83,6 +85,8 @@ void FalconManager::init() {
 	m_forceServo[2] = 0.0;		// 10 sperrt nach vorne hin, -10 nach hinten
 	m_inited = true;
 	ContactCB(this);
+
+	return 1;
 }
 
 

@@ -46,6 +46,8 @@ private:
 	Falcon* falcon;
 	bool useFalcon;
 
+	int waitTimeFalcon = 0;
+
 	int count = 0;
 };
 

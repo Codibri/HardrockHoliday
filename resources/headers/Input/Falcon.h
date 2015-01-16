@@ -25,6 +25,7 @@ public:
 
 	// Falcon Init, auf Nullposition fahren, Seitenforces aktivieren
 	void makeReady();
+	int getFalconReadyState();
 
 	float getNewPosition(int direction);
 
@@ -47,6 +48,7 @@ private:
 	FalconManager falconManager;
 	bool rumbleOn = false;
 	float rumbleStrength = 0.0;
+	int falconReadyState;
 };
 
 #endif

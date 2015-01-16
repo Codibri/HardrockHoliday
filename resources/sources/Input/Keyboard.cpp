@@ -32,6 +32,8 @@ bool Keyboard::isKeyPressed(Game_Inputs key) {
 		return deviceKeyboard.KeyPressed(DIK_TAB);
 	case Game_Inputs::End_Key:
 		return deviceKeyboard.KeyPressed(DIK_SPACE);
+	case Game_Inputs::Falcon_Active_Key:
+		return deviceKeyboard.KeyPressed(DIK_LCONTROL);
 	}
 	return false;
 }

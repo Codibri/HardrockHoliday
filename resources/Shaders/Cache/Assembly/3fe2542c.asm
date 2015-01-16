@@ -3,12 +3,12 @@
 //
 //
 //   fxc /T vs_5_0 /Zi /Od /Gfp /E VS /Fo
-//    \\?\E:\Coding\GitRepos\HardRockHollidayProjekt\resources\Shaders\Cache\Object\Debug\VS.obj
+//    \\?\C:\Users\INF\Source\Repos\HardrockHolidayU2\resources\Shaders\Cache\Object\Debug\VS.obj
 //    /Fe
-//    \\?\E:\Coding\GitRepos\HardRockHollidayProjekt\resources\Shaders\Cache\Error\VS.txt
+//    \\?\C:\Users\INF\Source\Repos\HardrockHolidayU2\resources\Shaders\Cache\Error\VS.txt
 //    /Fc
-//    \\?\E:\Coding\GitRepos\HardRockHollidayProjekt\resources\Shaders\Cache\Assembly\3fe2542c.asm
-//    \\?\E:\Coding\GitRepos\HardRockHollidayProjekt\resources\shaders\Source\shaders.hlsl
+//    \\?\C:\Users\INF\Source\Repos\HardrockHolidayU2\resources\Shaders\Cache\Assembly\3fe2542c.asm
+//    \\?\C:\Users\INF\Source\Repos\HardrockHolidayU2\resources\shaders\Source\shaders.hlsl
 //
 //
 // Buffer Definitions: 
@@ -154,7 +154,7 @@ dcl_output o27.xyzw
 dcl_output o28.x
 dcl_temps 34
 
-#line 156 "\\?\E:\Coding\GitRepos\HardRockHollidayProjekt\resources\shaders\Source\shaders.hlsl"
+#line 156 "\\?\C:\Users\INF\Source\Repos\HardrockHolidayU2\resources\shaders\Source\shaders.hlsl"
 dp4 r0.x, v0.xyzw, cb0[0].xyzw  // output<0:NaN:Inf>
 dp4 r0.y, v0.xyzw, cb0[1].xyzw  // output<1:NaN:Inf>
 dp4 r0.z, v0.xyzw, cb0[2].xyzw  // output<2:NaN:Inf>

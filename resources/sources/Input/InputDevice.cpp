@@ -10,14 +10,17 @@ InputDevice::InputDevice(CFrame* frame) : EngineModule() {
 
 	if (useFalcon){
 		falcon = new Falcon();
+		if (falcon->getFalconReadyState() == 0) {
+			useFalcon = false;
+		}
 		//falcon->move_To_Origin();
 	}
-	else if (!useFalcon) {
+	//else if (!useFalcon) {
 		frame->AddDeviceKeyboard(keyboard.getDeviceKeyboard());
 		xPosition = 0.0;
 		yPosition = 0.0;
 		zPosition = 0.0;
-	}
+	//}
 }
 
 InputDevice::~InputDevice() {
@@ -43,6 +46,17 @@ void InputDevice::update(float deltaTime, float time) {
 		xPosition = keyboard.getNewXPosition(xPosition);
 		zPosition = keyboard.getNewZPosition(zPosition);
 	}
+
+	waitTimeFalcon++;
+
+	if ((waitTimeFalcon > 80) && isKeyPressed(Game_Inputs::Falcon_Active_Key)) {
+		if (useFalcon || (!useFalcon && falcon->getFalconReadyState() == 1)) {
+			useFalcon = !useFalcon;
+			waitTimeFalcon = 0;
+		}
+	}
+
+
 	// Nur zum Testen
 	/*if (isKeyPressed(Game_Inputs::Reset_Key))
 		std::cout << "Reset -> Tab Key!" << std::endl;
@@ -82,10 +96,12 @@ void InputDevice::block(bool on, Direction direction) {
 // Game Steuerung (Neu, Beenden)
 bool InputDevice::isKeyPressed(Game_Inputs key) {
 	if (useFalcon){
-		return falcon->isKeyPressed(key);
+		if (falcon->isKeyPressed(key)) {
+			return true;
+		}
 	}
-	else {
-		return keyboard.isKeyPressed(key);
+	if (keyboard.isKeyPressed(key)) {
+		return true;
 	}
 	return false;
 }
@@ -98,14 +114,8 @@ void InputDevice::move_To_Origin() {
 	}
 }
 
-void InputDevice::fallDown() {
-	// TODO
-}
+void InputDevice::fallDown() {}
 
-void InputDevice::onPlayerDead() {
+void InputDevice::onPlayerDead() {}
 
-}
-
-void InputDevice::onPlayerReset() {
-
-}
+void InputDevice::onPlayerReset() {}

@@ -20,7 +20,7 @@ public:
 	~FalconManager();
 
 	// Initialisieren
-	void init();
+	int init();
 
 	// Clean up
 	void uninit();
